@@ -32,10 +32,6 @@
 		498C54B01753B56E00438969 /* UIViewController+ADTransitionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54A11753B56E00438969 /* UIViewController+ADTransitionController.m */; };
 		498C54B31753B59600438969 /* ALTransitionTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54B21753B59600438969 /* ALTransitionTestViewController.m */; };
 		498C54B51753B5B500438969 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 498C54B41753B5B500438969 /* QuartzCore.framework */; };
-		498C54BC1753BC9D00438969 /* ALTransitionTestImage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 498C54B71753BC9D00438969 /* ALTransitionTestImage.jpeg */; };
-		498C54BD1753BC9D00438969 /* ALTransitionTestImage2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 498C54B81753BC9D00438969 /* ALTransitionTestImage2.jpg */; };
-		498C54BE1753BC9D00438969 /* ALTransitionTestImage3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 498C54B91753BC9D00438969 /* ALTransitionTestImage3.jpeg */; };
-		498C54BF1753BC9D00438969 /* ALTransitionTestImage4.png in Resources */ = {isa = PBXBuildFile; fileRef = 498C54BA1753BC9D00438969 /* ALTransitionTestImage4.png */; };
 		498C54C01753BC9D00438969 /* ALTransitionTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 498C54BB1753BC9D00438969 /* ALTransitionTestViewController.xib */; };
 /* End PBXBuildFile section */
 
@@ -85,10 +81,6 @@
 		498C54B11753B59600438969 /* ALTransitionTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ALTransitionTestViewController.h; path = Classes/ALTransitionTestViewController.h; sourceTree = SOURCE_ROOT; };
 		498C54B21753B59600438969 /* ALTransitionTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ALTransitionTestViewController.m; path = Classes/ALTransitionTestViewController.m; sourceTree = SOURCE_ROOT; };
 		498C54B41753B5B500438969 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		498C54B71753BC9D00438969 /* ALTransitionTestImage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ALTransitionTestImage.jpeg; sourceTree = "<group>"; };
-		498C54B81753BC9D00438969 /* ALTransitionTestImage2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ALTransitionTestImage2.jpg; sourceTree = "<group>"; };
-		498C54B91753BC9D00438969 /* ALTransitionTestImage3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ALTransitionTestImage3.jpeg; sourceTree = "<group>"; };
-		498C54BA1753BC9D00438969 /* ALTransitionTestImage4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ALTransitionTestImage4.png; sourceTree = "<group>"; };
 		498C54BB1753BC9D00438969 /* ALTransitionTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALTransitionTestViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -182,10 +174,6 @@
 			isa = PBXGroup;
 			children = (
 				498C54BB1753BC9D00438969 /* ALTransitionTestViewController.xib */,
-				498C54B71753BC9D00438969 /* ALTransitionTestImage.jpeg */,
-				498C54B81753BC9D00438969 /* ALTransitionTestImage2.jpg */,
-				498C54B91753BC9D00438969 /* ALTransitionTestImage3.jpeg */,
-				498C54BA1753BC9D00438969 /* ALTransitionTestImage4.png */,
 				498C547E1753B4DE00438969 /* Default-568h@2x.png */,
 				498C547F1753B4DE00438969 /* Default.png */,
 				498C54801753B4DE00438969 /* Default@2x.png */,
@@ -275,10 +263,6 @@
 				498C54811753B4DE00438969 /* Default-568h@2x.png in Resources */,
 				498C54821753B4DE00438969 /* Default.png in Resources */,
 				498C54831753B4DE00438969 /* Default@2x.png in Resources */,
-				498C54BC1753BC9D00438969 /* ALTransitionTestImage.jpeg in Resources */,
-				498C54BD1753BC9D00438969 /* ALTransitionTestImage2.jpg in Resources */,
-				498C54BE1753BC9D00438969 /* ALTransitionTestImage3.jpeg in Resources */,
-				498C54BF1753BC9D00438969 /* ALTransitionTestImage4.png in Resources */,
 				498C54C01753BC9D00438969 /* ALTransitionTestViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

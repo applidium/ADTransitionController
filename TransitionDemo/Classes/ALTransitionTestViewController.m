@@ -25,7 +25,6 @@
 @synthesize indexLabel = _indexLabel;
 @synthesize durationLabel = _durationLabel;
 @synthesize index = _index;
-@synthesize backgroundView = _backgroundView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil index:(NSInteger)index {
     self = [self initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -41,34 +40,41 @@
     _duration = 0.5f;
     self.durationLabel.text = [NSString stringWithFormat:@"Duration: %.1fs", _duration];
     
-    NSString * imageName = nil;
-    int imageIndex = arc4random()%3;
+    UIColor * color = nil;
+    int imageIndex = arc4random()%6;
     switch (imageIndex) {
         case 0:
-            imageName = @"ALTransitionTestImage2.jpg";
+            color = [UIColor colorWithRed:138.0f / 255.0f green:214.0f / 255.0f blue:168.0f / 255.0f alpha:1.0f];
             break;
         case 1:
-            imageName = @"ALTransitionTestImage3.jpeg";
+            color = [UIColor colorWithRed:240.0f / 255.0f green:193.0f / 255.0f blue:93.0f / 255.0f alpha:1.0f];
             break;
         case 2:
-            imageName = @"ALTransitionTestImage4.png";
+            color = [UIColor colorWithRed:227.0f / 255.0f green:107.0f / 255.0f blue:95.0f / 255.0f alpha:1.0f];
+            break;
+        case 3:
+            color = [UIColor colorWithRed:102.0f / 255.0f green:192.0f / 255.0f blue:210.0f / 255.0f alpha:1.0f];
+            break;
+        case 4:
+            color = [UIColor colorWithRed:138.0f / 255.0f green:181.0f / 255.0f blue:251.0f / 255.0f alpha:1.0f];
+            break;
+        case 5:
+            color = [UIColor colorWithRed:255.0f / 255.0f green:140.0f / 255.0f blue:185.0f / 255.0f alpha:1.0f];
             break;
         default:
             break;
     }
-    [self.backgroundView setImage:[UIImage imageNamed:imageName]];
+    self.view.backgroundColor = color;
 }
 
 - (void)viewDidUnload {
     [super viewDidUnload];
     [_durationLabel release], _durationLabel = nil;
-    [_backgroundView release], _backgroundView = nil;
     [_indexLabel release], _indexLabel = nil;       
 }
 
 - (void)dealloc {
     [_durationLabel release], _durationLabel = nil;
-    [_backgroundView release], _backgroundView = nil;
     [_indexLabel release], _indexLabel = nil;
     [super dealloc];   
 }

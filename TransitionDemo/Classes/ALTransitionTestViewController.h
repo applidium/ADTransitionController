@@ -20,7 +20,6 @@
 }
 @property (nonatomic, retain) IBOutlet UILabel * indexLabel;
 @property (nonatomic, retain) IBOutlet UILabel * durationLabel;
-@property (nonatomic, retain) IBOutlet UIImageView * backgroundView;
 @property (nonatomic) NSInteger index;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil index:(NSInteger)index;
