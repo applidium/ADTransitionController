@@ -1,0 +1,397 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		498C544E1753B21900438969 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 498C544D1753B21900438969 /* UIKit.framework */; };
+		498C54501753B21900438969 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 498C544F1753B21900438969 /* Foundation.framework */; };
+		498C54521753B21900438969 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 498C54511753B21900438969 /* CoreGraphics.framework */; };
+		498C546C1753B2E200438969 /* ADAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C546B1753B2E200438969 /* ADAppDelegate.m */; };
+		498C54751753B46800438969 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54741753B46800438969 /* main.m */; };
+		498C54811753B4DE00438969 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 498C547E1753B4DE00438969 /* Default-568h@2x.png */; };
+		498C54821753B4DE00438969 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 498C547F1753B4DE00438969 /* Default.png */; };
+		498C54831753B4DE00438969 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 498C54801753B4DE00438969 /* Default@2x.png */; };
+		498C54A21753B56E00438969 /* ADBackFadeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54851753B56E00438969 /* ADBackFadeTransition.m */; };
+		498C54A31753B56E00438969 /* ADCarrouselTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54871753B56E00438969 /* ADCarrouselTransition.m */; };
+		498C54A41753B56E00438969 /* ADCrossTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54891753B56E00438969 /* ADCrossTransition.m */; };
+		498C54A51753B56E00438969 /* ADCubeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C548B1753B56E00438969 /* ADCubeTransition.m */; };
+		498C54A61753B56E00438969 /* ADDualTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C548D1753B56E00438969 /* ADDualTransition.m */; };
+		498C54A71753B56E00438969 /* ADFadeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C548F1753B56E00438969 /* ADFadeTransition.m */; };
+		498C54A81753B56E00438969 /* ADFlipTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54911753B56E00438969 /* ADFlipTransition.m */; };
+		498C54A91753B56E00438969 /* ADGhostTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54931753B56E00438969 /* ADGhostTransition.m */; };
+		498C54AA1753B56E00438969 /* ADSwapTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54951753B56E00438969 /* ADSwapTransition.m */; };
+		498C54AB1753B56E00438969 /* ADSwipeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54971753B56E00438969 /* ADSwipeTransition.m */; };
+		498C54AC1753B56E00438969 /* ADTransformTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54991753B56E00438969 /* ADTransformTransition.m */; };
+		498C54AD1753B56E00438969 /* ADTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C549B1753B56E00438969 /* ADTransition.m */; };
+		498C54AE1753B56E00438969 /* ADTransitionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C549D1753B56E00438969 /* ADTransitionController.m */; };
+		498C54AF1753B56E00438969 /* ADZoomTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C549F1753B56E00438969 /* ADZoomTransition.m */; };
+		498C54B01753B56E00438969 /* UIViewController+ADTransitionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54A11753B56E00438969 /* UIViewController+ADTransitionController.m */; };
+		498C54B31753B59600438969 /* ALTransitionTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54B21753B59600438969 /* ALTransitionTestViewController.m */; };
+		498C54B51753B5B500438969 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 498C54B41753B5B500438969 /* QuartzCore.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		498C544A1753B21900438969 /* ADTransitionController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADTransitionController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		498C544D1753B21900438969 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		498C544F1753B21900438969 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		498C54511753B21900438969 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		498C54551753B21900438969 /* ADTransitionController-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ADTransitionController-Info.plist"; sourceTree = "<group>"; };
+		498C545B1753B21900438969 /* ADTransitionController-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ADTransitionController-Prefix.pch"; sourceTree = "<group>"; };
+		498C546A1753B2E200438969 /* ADAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADAppDelegate.h; path = Classes/ADAppDelegate.h; sourceTree = SOURCE_ROOT; };
+		498C546B1753B2E200438969 /* ADAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADAppDelegate.m; path = Classes/ADAppDelegate.m; sourceTree = SOURCE_ROOT; };
+		498C54741753B46800438969 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = SOURCE_ROOT; };
+		498C547E1753B4DE00438969 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		498C547F1753B4DE00438969 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		498C54801753B4DE00438969 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		498C54841753B56E00438969 /* ADBackFadeTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADBackFadeTransition.h; path = Classes/ADBackFadeTransition.h; sourceTree = SOURCE_ROOT; };
+		498C54851753B56E00438969 /* ADBackFadeTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADBackFadeTransition.m; path = Classes/ADBackFadeTransition.m; sourceTree = SOURCE_ROOT; };
+		498C54861753B56E00438969 /* ADCarrouselTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADCarrouselTransition.h; path = Classes/ADCarrouselTransition.h; sourceTree = SOURCE_ROOT; };
+		498C54871753B56E00438969 /* ADCarrouselTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADCarrouselTransition.m; path = Classes/ADCarrouselTransition.m; sourceTree = SOURCE_ROOT; };
+		498C54881753B56E00438969 /* ADCrossTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADCrossTransition.h; path = Classes/ADCrossTransition.h; sourceTree = SOURCE_ROOT; };
+		498C54891753B56E00438969 /* ADCrossTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADCrossTransition.m; path = Classes/ADCrossTransition.m; sourceTree = SOURCE_ROOT; };
+		498C548A1753B56E00438969 /* ADCubeTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADCubeTransition.h; path = Classes/ADCubeTransition.h; sourceTree = SOURCE_ROOT; };
+		498C548B1753B56E00438969 /* ADCubeTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADCubeTransition.m; path = Classes/ADCubeTransition.m; sourceTree = SOURCE_ROOT; };
+		498C548C1753B56E00438969 /* ADDualTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADDualTransition.h; path = Classes/ADDualTransition.h; sourceTree = SOURCE_ROOT; };
+		498C548D1753B56E00438969 /* ADDualTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADDualTransition.m; path = Classes/ADDualTransition.m; sourceTree = SOURCE_ROOT; };
+		498C548E1753B56E00438969 /* ADFadeTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADFadeTransition.h; path = Classes/ADFadeTransition.h; sourceTree = SOURCE_ROOT; };
+		498C548F1753B56E00438969 /* ADFadeTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADFadeTransition.m; path = Classes/ADFadeTransition.m; sourceTree = SOURCE_ROOT; };
+		498C54901753B56E00438969 /* ADFlipTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADFlipTransition.h; path = Classes/ADFlipTransition.h; sourceTree = SOURCE_ROOT; };
+		498C54911753B56E00438969 /* ADFlipTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADFlipTransition.m; path = Classes/ADFlipTransition.m; sourceTree = SOURCE_ROOT; };
+		498C54921753B56E00438969 /* ADGhostTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADGhostTransition.h; path = Classes/ADGhostTransition.h; sourceTree = SOURCE_ROOT; };
+		498C54931753B56E00438969 /* ADGhostTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADGhostTransition.m; path = Classes/ADGhostTransition.m; sourceTree = SOURCE_ROOT; };
+		498C54941753B56E00438969 /* ADSwapTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADSwapTransition.h; path = Classes/ADSwapTransition.h; sourceTree = SOURCE_ROOT; };
+		498C54951753B56E00438969 /* ADSwapTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADSwapTransition.m; path = Classes/ADSwapTransition.m; sourceTree = SOURCE_ROOT; };
+		498C54961753B56E00438969 /* ADSwipeTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADSwipeTransition.h; path = Classes/ADSwipeTransition.h; sourceTree = SOURCE_ROOT; };
+		498C54971753B56E00438969 /* ADSwipeTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADSwipeTransition.m; path = Classes/ADSwipeTransition.m; sourceTree = SOURCE_ROOT; };
+		498C54981753B56E00438969 /* ADTransformTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADTransformTransition.h; path = Classes/ADTransformTransition.h; sourceTree = SOURCE_ROOT; };
+		498C54991753B56E00438969 /* ADTransformTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADTransformTransition.m; path = Classes/ADTransformTransition.m; sourceTree = SOURCE_ROOT; };
+		498C549A1753B56E00438969 /* ADTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADTransition.h; path = Classes/ADTransition.h; sourceTree = SOURCE_ROOT; };
+		498C549B1753B56E00438969 /* ADTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADTransition.m; path = Classes/ADTransition.m; sourceTree = SOURCE_ROOT; };
+		498C549C1753B56E00438969 /* ADTransitionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADTransitionController.h; path = Classes/ADTransitionController.h; sourceTree = SOURCE_ROOT; };
+		498C549D1753B56E00438969 /* ADTransitionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADTransitionController.m; path = Classes/ADTransitionController.m; sourceTree = SOURCE_ROOT; };
+		498C549E1753B56E00438969 /* ADZoomTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADZoomTransition.h; path = Classes/ADZoomTransition.h; sourceTree = SOURCE_ROOT; };
+		498C549F1753B56E00438969 /* ADZoomTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADZoomTransition.m; path = Classes/ADZoomTransition.m; sourceTree = SOURCE_ROOT; };
+		498C54A01753B56E00438969 /* UIViewController+ADTransitionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+ADTransitionController.h"; path = "Classes/UIViewController+ADTransitionController.h"; sourceTree = SOURCE_ROOT; };
+		498C54A11753B56E00438969 /* UIViewController+ADTransitionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+ADTransitionController.m"; path = "Classes/UIViewController+ADTransitionController.m"; sourceTree = SOURCE_ROOT; };
+		498C54B11753B59600438969 /* ALTransitionTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ALTransitionTestViewController.h; path = Classes/ALTransitionTestViewController.h; sourceTree = SOURCE_ROOT; };
+		498C54B21753B59600438969 /* ALTransitionTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ALTransitionTestViewController.m; path = Classes/ALTransitionTestViewController.m; sourceTree = SOURCE_ROOT; };
+		498C54B41753B5B500438969 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		498C54471753B21900438969 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				498C54B51753B5B500438969 /* QuartzCore.framework in Frameworks */,
+				498C544E1753B21900438969 /* UIKit.framework in Frameworks */,
+				498C54501753B21900438969 /* Foundation.framework in Frameworks */,
+				498C54521753B21900438969 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		498C54411753B21900438969 = {
+			isa = PBXGroup;
+			children = (
+				498C54531753B21900438969 /* TransitionDemo */,
+				498C544C1753B21900438969 /* Frameworks */,
+				498C544B1753B21900438969 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		498C544B1753B21900438969 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				498C544A1753B21900438969 /* ADTransitionController.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		498C544C1753B21900438969 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				498C54B41753B5B500438969 /* QuartzCore.framework */,
+				498C544D1753B21900438969 /* UIKit.framework */,
+				498C544F1753B21900438969 /* Foundation.framework */,
+				498C54511753B21900438969 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		498C54531753B21900438969 /* TransitionDemo */ = {
+			isa = PBXGroup;
+			children = (
+				498C54761753B48A00438969 /* Classes */,
+				498C547D1753B4DE00438969 /* Resources */,
+				498C54541753B21900438969 /* Supporting Files */,
+			);
+			name = TransitionDemo;
+			path = ADTransitionController;
+			sourceTree = "<group>";
+		};
+		498C54541753B21900438969 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				498C54551753B21900438969 /* ADTransitionController-Info.plist */,
+				498C545B1753B21900438969 /* ADTransitionController-Prefix.pch */,
+				498C54741753B46800438969 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		498C54761753B48A00438969 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				498C546A1753B2E200438969 /* ADAppDelegate.h */,
+				498C546B1753B2E200438969 /* ADAppDelegate.m */,
+				498C54B11753B59600438969 /* ALTransitionTestViewController.h */,
+				498C54B21753B59600438969 /* ALTransitionTestViewController.m */,
+				498C54A01753B56E00438969 /* UIViewController+ADTransitionController.h */,
+				498C54A11753B56E00438969 /* UIViewController+ADTransitionController.m */,
+				498C549C1753B56E00438969 /* ADTransitionController.h */,
+				498C549D1753B56E00438969 /* ADTransitionController.m */,
+				498C549A1753B56E00438969 /* ADTransition.h */,
+				498C549B1753B56E00438969 /* ADTransition.m */,
+				498C548C1753B56E00438969 /* ADDualTransition.h */,
+				498C548D1753B56E00438969 /* ADDualTransition.m */,
+				498C54981753B56E00438969 /* ADTransformTransition.h */,
+				498C54991753B56E00438969 /* ADTransformTransition.m */,
+				498C54B61753B80700438969 /* Templates */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		498C547D1753B4DE00438969 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				498C547E1753B4DE00438969 /* Default-568h@2x.png */,
+				498C547F1753B4DE00438969 /* Default.png */,
+				498C54801753B4DE00438969 /* Default@2x.png */,
+			);
+			path = Resources;
+			sourceTree = SOURCE_ROOT;
+		};
+		498C54B61753B80700438969 /* Templates */ = {
+			isa = PBXGroup;
+			children = (
+				498C54861753B56E00438969 /* ADCarrouselTransition.h */,
+				498C54871753B56E00438969 /* ADCarrouselTransition.m */,
+				498C548A1753B56E00438969 /* ADCubeTransition.h */,
+				498C548B1753B56E00438969 /* ADCubeTransition.m */,
+				498C54881753B56E00438969 /* ADCrossTransition.h */,
+				498C54891753B56E00438969 /* ADCrossTransition.m */,
+				498C54901753B56E00438969 /* ADFlipTransition.h */,
+				498C54911753B56E00438969 /* ADFlipTransition.m */,
+				498C54941753B56E00438969 /* ADSwapTransition.h */,
+				498C54951753B56E00438969 /* ADSwapTransition.m */,
+				498C548E1753B56E00438969 /* ADFadeTransition.h */,
+				498C548F1753B56E00438969 /* ADFadeTransition.m */,
+				498C54841753B56E00438969 /* ADBackFadeTransition.h */,
+				498C54851753B56E00438969 /* ADBackFadeTransition.m */,
+				498C54921753B56E00438969 /* ADGhostTransition.h */,
+				498C54931753B56E00438969 /* ADGhostTransition.m */,
+				498C549E1753B56E00438969 /* ADZoomTransition.h */,
+				498C549F1753B56E00438969 /* ADZoomTransition.m */,
+				498C54961753B56E00438969 /* ADSwipeTransition.h */,
+				498C54971753B56E00438969 /* ADSwipeTransition.m */,
+			);
+			name = Templates;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		498C54491753B21900438969 /* ADTransitionController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 498C54671753B21900438969 /* Build configuration list for PBXNativeTarget "ADTransitionController" */;
+			buildPhases = (
+				498C54461753B21900438969 /* Sources */,
+				498C54471753B21900438969 /* Frameworks */,
+				498C54481753B21900438969 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ADTransitionController;
+			productName = ADTransitionController;
+			productReference = 498C544A1753B21900438969 /* ADTransitionController.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		498C54421753B21900438969 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = AD;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = Applidium;
+			};
+			buildConfigurationList = 498C54451753B21900438969 /* Build configuration list for PBXProject "ADTransitionController" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 498C54411753B21900438969;
+			productRefGroup = 498C544B1753B21900438969 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				498C54491753B21900438969 /* ADTransitionController */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		498C54481753B21900438969 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				498C54811753B4DE00438969 /* Default-568h@2x.png in Resources */,
+				498C54821753B4DE00438969 /* Default.png in Resources */,
+				498C54831753B4DE00438969 /* Default@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		498C54461753B21900438969 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				498C546C1753B2E200438969 /* ADAppDelegate.m in Sources */,
+				498C54751753B46800438969 /* main.m in Sources */,
+				498C54A21753B56E00438969 /* ADBackFadeTransition.m in Sources */,
+				498C54A31753B56E00438969 /* ADCarrouselTransition.m in Sources */,
+				498C54A41753B56E00438969 /* ADCrossTransition.m in Sources */,
+				498C54A51753B56E00438969 /* ADCubeTransition.m in Sources */,
+				498C54A61753B56E00438969 /* ADDualTransition.m in Sources */,
+				498C54A71753B56E00438969 /* ADFadeTransition.m in Sources */,
+				498C54A81753B56E00438969 /* ADFlipTransition.m in Sources */,
+				498C54A91753B56E00438969 /* ADGhostTransition.m in Sources */,
+				498C54AA1753B56E00438969 /* ADSwapTransition.m in Sources */,
+				498C54AB1753B56E00438969 /* ADSwipeTransition.m in Sources */,
+				498C54AC1753B56E00438969 /* ADTransformTransition.m in Sources */,
+				498C54AD1753B56E00438969 /* ADTransition.m in Sources */,
+				498C54AE1753B56E00438969 /* ADTransitionController.m in Sources */,
+				498C54AF1753B56E00438969 /* ADZoomTransition.m in Sources */,
+				498C54B01753B56E00438969 /* UIViewController+ADTransitionController.m in Sources */,
+				498C54B31753B59600438969 /* ALTransitionTestViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		498C54651753B21900438969 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		498C54661753B21900438969 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		498C54681753B21900438969 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ADTransitionController-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/ADTransitionController-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		498C54691753B21900438969 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ADTransitionController-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/ADTransitionController-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		498C54451753B21900438969 /* Build configuration list for PBXProject "ADTransitionController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				498C54651753B21900438969 /* Debug */,
+				498C54661753B21900438969 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		498C54671753B21900438969 /* Build configuration list for PBXNativeTarget "ADTransitionController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				498C54681753B21900438969 /* Debug */,
+				498C54691753B21900438969 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 498C54421753B21900438969 /* Project object */;
+}
