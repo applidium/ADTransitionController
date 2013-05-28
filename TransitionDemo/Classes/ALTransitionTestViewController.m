@@ -20,6 +20,8 @@
 #import "ADTransformTransition.h"
 #import "ADZoomTransition.h"
 #import "ADSwipeTransition.h"
+#import "ADSwipeFadeTransition.h"
+#import "ADScaleTransition.h"
 
 @implementation ALTransitionTestViewController
 @synthesize indexLabel = _indexLabel;
@@ -64,7 +66,7 @@
         default:
             break;
     }
-    self.view.backgroundColor = color;
+    self.tableView.backgroundColor = color;
 }
 
 - (void)viewDidUnload {
@@ -76,15 +78,154 @@
 - (void)dealloc {
     [_durationLabel release], _durationLabel = nil;
     [_indexLabel release], _indexLabel = nil;
+    [_tableView release];
     [super dealloc];   
 }
 
+#pragma mark -
+#pragma mark UITableViewDataSource methods
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 2;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    switch (section) {
+        case 0: //ADDualTransition
+            return 9;
+        case 1: //ADTransformTransition
+            return 3;
+    }
+    return 0;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    switch (section) {
+        case 0:
+            return @"ADDualTransition";
+        case 1:
+            return @"ADTransformTransition";
+    }
+    return nil;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString * sCellIdentifier = @"CellIdentifier";
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:sCellIdentifier];
+    if (!cell) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:sCellIdentifier] autorelease];
+    }
+    
+    NSString * text = @"todo";
+    
+    switch (indexPath.section) {
+        case 0: //ADDualTransition
+            switch (indexPath.row) {
+                case 0:
+                    text = @"Swipe";
+                    break;
+                case 1:
+                    text = @"Zoom";
+                    break;
+                case 2:
+                    text = @"Ghost";
+                    break;
+                case 3:
+                    text = @"BackFade";
+                    break;
+                case 4:
+                    text = @"Fade";
+                    break;
+                case 5:
+                    text = @"Swap";
+                    break;
+                case 6:
+                    text = @"Flip";
+                    break;
+                case 7:
+                    text = @"SwipeFade";
+                    break;
+                case 8:
+                    text = @"Scale";
+                    break;
+            }
+            break;
+        case 1: //ADTransformTransition
+            switch (indexPath.row) {
+                case 0:
+                    text = @"Cross";
+                    break;
+                case 1:
+                    text = @"Cube";
+                    break;
+                case 2:
+                    text = @"Carrousel";
+                    break;
+            }
+            break;
+    }
+    
+    cell.textLabel.text = text;
+    return cell;
+}
+
+#pragma mark -
+#pragma mark UITableViewDelegate methods
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.section) {
+        case 0: //ADDualTransition
+            switch (indexPath.row) {
+                case 0: // Swipe
+                    [self swipe:nil];
+                    break;
+                case 1: // Zoom
+                    [self focus:nil];
+                    break;
+                case 2: // Ghost
+                    [self ghost:nil];
+                    break;
+                case 3: // BackFade
+                    [self backFade:nil];
+                    break;
+                case 4: // Fade
+                    [self fade:nil];
+                    break;
+                case 5: // Swap
+                    [self swap:nil];
+                    break;
+                case 6: // Flip
+                    [self flip:nil];
+                    break;
+                case 7: // SwapFade
+                    [self swipeFade:nil];
+                    break;
+                case 8: // Scale
+                    [self scale:nil];
+                    break;
+            }
+            break;
+        case 1: //ADTransformTransition
+            switch (indexPath.row) {
+                case 0: // Cross
+                    [self cross:nil];
+                    break;
+                case 1: // Cube
+                    [self cube:nil];
+                    break;
+                case 2: // Carrousel
+                    [self carrousel:nil];
+                    break;
+            }
+            break;
+    }
+}
+
+#pragma mark -
+#pragma mark Actions
+
 - (IBAction)pop:(id)sender {
-#if USE_NAVIGATIONCONTROLLER
-    [self.navigationController popViewControllerAnimated:YES];
-#else
     [self.transitionController popViewController];
-#endif
 }
 
 - (IBAction)fade:(id)sender {
@@ -137,6 +278,20 @@
     [animation release];
     [viewController release];
 }
+- (IBAction)swipeFade:(id)sender {
+    ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:@"ALTransitionTestViewController" bundle:nil index:self.index+1];
+    ADTransition * animation = [[ADSwipeFadeTransition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
+    [self.transitionController pushViewController:viewController withTransition:animation];
+    [animation release];
+    [viewController release];
+}
+- (IBAction)scale:(id)sender {
+    ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:@"ALTransitionTestViewController" bundle:nil index:self.index+1];
+    ADTransition * animation = [[ADScaleTransition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
+    [self.transitionController pushViewController:viewController withTransition:animation];
+    [animation release];
+    [viewController release];
+}
 - (IBAction)swap:(id)sender {
     ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:@"ALTransitionTestViewController" bundle:nil index:self.index+1];
     ADTransition * animation = [[ADSwapTransition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
@@ -146,16 +301,10 @@
 }
 - (IBAction)flip:(id)sender {
     ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:@"ALTransitionTestViewController" bundle:nil index:self.index+1];
-#if !USE_NAVIGATIONCONTROLLER
     ADDualTransition * animation = [[ADFlipTransition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
     
     [self.transitionController pushViewController:viewController withTransition:animation];
-#else
-    [self.navigationController pushViewController:viewController animated:YES];
-#endif
-#if !USE_NAVIGATIONCONTROLLER
     [animation release];
-#endif
     [viewController release];
 }
 
@@ -171,11 +320,15 @@
     [self.transitionController setNavigationBarHidden:![self.transitionController isNavigationBarHidden]];
 }
 
+
+#pragma mark -
+#pragma mark Appearance
 - (void)viewDidAppear:(BOOL)animated {
     NSLog(@"ALTransitionTestViewController %d viewDidAppear: %d", self.index, animated);
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
     NSLog(@"ALTransitionTestViewController %d viewWillAppear: %d", self.index, animated);
 }
 
@@ -187,6 +340,8 @@
     NSLog(@"ALTransitionTestViewController %d viewWillDisappear: %d", self.index, animated);
 }
 
+#pragma mark -
+#pragma mark Orientation
 - (IBAction)setTop:(id)sender {
     _orientation = ADTransitionBottomToTop;
 }
@@ -200,6 +355,8 @@
     _orientation = ADTransitionLeftToRight;
 }
 
+#pragma mark -
+#pragma mark Duration
 - (IBAction)durationChanged:(id)sender {
     _duration = ((UISlider *)sender).value;
     self.durationLabel.text = [NSString stringWithFormat:@"Duration: %.1fs", _duration];

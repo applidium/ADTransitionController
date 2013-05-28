@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ADTransition.h"
 
-@interface ALTransitionTestViewController : UIViewController {
+@interface ALTransitionTestViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
     NSInteger _index;
     UILabel * _indexLabel;
     UILabel * _durationLabel;
@@ -20,6 +20,7 @@
 }
 @property (nonatomic, retain) IBOutlet UILabel * indexLabel;
 @property (nonatomic, retain) IBOutlet UILabel * durationLabel;
+@property (retain, nonatomic) IBOutlet UITableView * tableView;
 @property (nonatomic) NSInteger index;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil index:(NSInteger)index;
@@ -30,6 +31,8 @@
 - (IBAction)carrousel:(id)sender;
 - (IBAction)cross:(id)sender;
 - (IBAction)swipe:(id)sender;
+- (IBAction)swipeFade:(id)sender;
+- (IBAction)scale:(id)sender;
 - (IBAction)swap:(id)sender;
 - (IBAction)flip:(id)sender;
 - (IBAction)pop:(id)sender;
