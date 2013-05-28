@@ -70,19 +70,4 @@
     return [reversedTransition autorelease];
 }
 
-#pragma mark -
-#pragma mark CAAnimationDelegate
-- (void)animationDidStop:(CAAnimation *)animation finished:(BOOL)flag {
-    switch (self.type) {
-        case ADTransitionTypePop:
-            [self.delegate popTransitionDidFinish:self];
-            break;
-        case ADTransitionTypePush:
-            [self.delegate pushTransitionDidFinish:self];
-            break;
-        default:
-            NSAssert(FALSE, @"Unexpected case in switch statement !");
-            break;
-    }
-}
 @end

@@ -84,12 +84,12 @@
 #pragma mark -
 #pragma mark CAAnimationDelegate
 - (void)animationDidStop:(CAAnimation *)animation finished:(BOOL)flag {
-    if ([[animation valueForKey:ADTransitionAnimationKey] isEqualToString:ADTransitionAnimationInValue]) {
-        _inAnimation.delegate = nil;
-    }
     if ([[animation valueForKey:ADTransitionAnimationKey] isEqualToString:ADTransitionAnimationOutValue]) {
         _outAnimation.delegate = nil;
     }
-    [super animationDidStop:animation finished:flag];
+    if ([[animation valueForKey:ADTransitionAnimationKey] isEqualToString:ADTransitionAnimationInValue]) {
+        _inAnimation.delegate = nil;
+        [super animationDidStop:animation finished:flag];
+    }
 }
 @end
