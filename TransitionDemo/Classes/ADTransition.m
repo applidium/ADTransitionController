@@ -12,7 +12,6 @@ NSString * ADTransitionAnimationKey = @"ADTransitionAnimationKey";
 NSString * ADTransitionAnimationInValue = @"ADTransitionAnimationInValue";
 NSString * ADTransitionAnimationOutValue = @"ADTransitionAnimationOutValue";
 
-
 @implementation ADTransition
 @synthesize delegate = _delegate;
 @synthesize type = _type;
@@ -21,14 +20,12 @@ NSString * ADTransitionAnimationOutValue = @"ADTransitionAnimationOutValue";
     return [[[ADTransition alloc] init] autorelease];
 }
 
-
-
-- (void)dealloc {
-[super dealloc];
-}
-
 - (ADTransition *)reverseTransition {
     return nil;
+}
+
+- (void)dealloc {
+    [super dealloc];
 }
 
 - (NSArray *)getCircleApproximationTimingFunctions {

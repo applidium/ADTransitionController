@@ -21,6 +21,7 @@
     [_animation release], _animation = nil;
     [super dealloc];
 }
+
 - (id)initWithAnimation:(CAAnimation *)animation inLayerTransform:(CATransform3D)inTransform outLayerTransform:(CATransform3D)outTransform forType:(ADTransitionType)type {
     self = [super init];
     if (self) {
@@ -46,6 +47,7 @@
 - (id)initWithDuration:(CFTimeInterval)duration forType:(ADTransitionType)type sourceRect:(CGRect)sourceRect {
     return  [self initWithDuration:duration forType:type];
 }
+
 - (ADTransition *)reverseTransition {
     if (self.type == ADTransitionTypeNull) {
         return self;

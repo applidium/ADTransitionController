@@ -15,21 +15,21 @@ typedef enum {
     ADDualTransitionTemplateFlip,
     ADDualTransitionTemplateBackFade,
     ADDualTransitionTemplateSwipe,
-    ADDualTransitionTemplateSwap, // not implemented
-    ADDualTransitionTemplateCarrouselRightToLeft // not implemented
+    ADDualTransitionTemplateSwap,
+    ADDualTransitionTemplateCarrouselRightToLeft
 } ADDualTransitionTemplate;
 
 @interface ADDualTransition : ADTransition {
     CAAnimation * _inAnimation;
     CAAnimation * _outAnimation;
-  //  CGRect *      _inFrame; // final position and size of the "in" layer
-  //  CGRect *      _outFrame; // initial position and size of the "out" layer
-
 }
+
+@property (nonatomic, readonly) CAAnimation * inAnimation;
+@property (nonatomic, readonly) CAAnimation * outAnimation;
+
 - (id)initWithDuration:(CFTimeInterval)duration; // ADTransitionTypePush is assumed
 - (id)initWithType:(ADTransitionType)type;
 - (id)initWithInAnimation:(CAAnimation *)inAnimation andOutAnimation:(CAAnimation *)outAnimation forType:(ADTransitionType)type;
 - (void)finishInit;
-@property (nonatomic, readonly) CAAnimation * inAnimation;
-@property (nonatomic, readonly) CAAnimation * outAnimation;
+
 @end
