@@ -33,6 +33,8 @@
 		498C54B31753B59600438969 /* ALTransitionTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54B21753B59600438969 /* ALTransitionTestViewController.m */; };
 		498C54B51753B5B500438969 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 498C54B41753B5B500438969 /* QuartzCore.framework */; };
 		498C54C01753BC9D00438969 /* ALTransitionTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 498C54BB1753BC9D00438969 /* ALTransitionTestViewController.xib */; };
+		498C54EF17550EFF00438969 /* ADSwipeFadeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54EE17550EFE00438969 /* ADSwipeFadeTransition.m */; };
+		498C54F21755119F00438969 /* ADScaleTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54F11755119E00438969 /* ADScaleTransition.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +84,10 @@
 		498C54B21753B59600438969 /* ALTransitionTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ALTransitionTestViewController.m; path = Classes/ALTransitionTestViewController.m; sourceTree = SOURCE_ROOT; };
 		498C54B41753B5B500438969 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		498C54BB1753BC9D00438969 /* ALTransitionTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALTransitionTestViewController.xib; sourceTree = "<group>"; };
+		498C54ED17550EFE00438969 /* ADSwipeFadeTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADSwipeFadeTransition.h; path = Classes/ADSwipeFadeTransition.h; sourceTree = SOURCE_ROOT; };
+		498C54EE17550EFE00438969 /* ADSwipeFadeTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADSwipeFadeTransition.m; path = Classes/ADSwipeFadeTransition.m; sourceTree = SOURCE_ROOT; };
+		498C54F01755119D00438969 /* ADScaleTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADScaleTransition.h; path = Classes/ADScaleTransition.h; sourceTree = SOURCE_ROOT; };
+		498C54F11755119E00438969 /* ADScaleTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADScaleTransition.m; path = Classes/ADScaleTransition.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +210,10 @@
 				498C549F1753B56E00438969 /* ADZoomTransition.m */,
 				498C54961753B56E00438969 /* ADSwipeTransition.h */,
 				498C54971753B56E00438969 /* ADSwipeTransition.m */,
+				498C54ED17550EFE00438969 /* ADSwipeFadeTransition.h */,
+				498C54EE17550EFE00438969 /* ADSwipeFadeTransition.m */,
+				498C54F01755119D00438969 /* ADScaleTransition.h */,
+				498C54F11755119E00438969 /* ADScaleTransition.m */,
 			);
 			name = Templates;
 			sourceTree = "<group>";
@@ -292,6 +302,8 @@
 				498C54AF1753B56E00438969 /* ADZoomTransition.m in Sources */,
 				498C54B01753B56E00438969 /* UIViewController+ADTransitionController.m in Sources */,
 				498C54B31753B59600438969 /* ALTransitionTestViewController.m in Sources */,
+				498C54EF17550EFF00438969 /* ADSwipeFadeTransition.m in Sources */,
+				498C54F21755119F00438969 /* ADScaleTransition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
