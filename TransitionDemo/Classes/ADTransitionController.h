@@ -22,10 +22,13 @@
     UINavigationBar * _navigationBar;
     UIView *          _containerView;
 }
+
+@property (nonatomic,copy) NSMutableArray * viewControllers;
+@property(nonatomic, getter = isNavigationBarHidden, setter = setNavigationBarHidden:) BOOL navigationBarHidden;
+- (void)setNavigationBarHidden:(BOOL)hidden animated:(BOOL)animated;
+
 - (void)pushViewController:(UIViewController *)viewController withTransition:(ADTransition *)animation;
 - (UIViewController *)popViewController;
 - (UIViewController *)popViewControllerWithTransition:(ADTransition *)animation;
-@property (nonatomic,copy) NSMutableArray * viewControllers;
-@property(nonatomic, getter=isNavigationBarHidden, setter = setNavigationBarHidden:) BOOL navigationBarHidden;
-- (void)setNavigationBarHidden:(BOOL)hidden animated:(BOOL)animated;
+
 @end

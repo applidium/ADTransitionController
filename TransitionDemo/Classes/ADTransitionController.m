@@ -22,9 +22,17 @@
 
 NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssociationKey";
 
+#define AD_NAVIGATION_BAR_HEIGHT 44.0f
+#define AD_Z_DISTANCE 1000.0f
+
 @interface ADTransitionController (Private)
 - (void)_initialize;
 - (void)_transitionfromView:(UIView *)viewOut toView:(UIView *)viewIn withTransition:(ADTransition *)animation;
+@end
+
+@interface ADTransitionController () {
+    BOOL _shoudPopItem;
+}
 @end
 
 @implementation ADTransitionController
@@ -42,6 +50,12 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
     return self;
 }
 
+- (void)dealloc {
+    [_transitions release], _transitions = nil;
+    [_viewControllers release], _viewControllers = nil;
+    [super dealloc];
+}
+
 - (void)loadView {
     UIView * view = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 100.0f, 100.0f)];
     view.autoresizesSubviews = YES;
@@ -49,32 +63,37 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
     self.view = view;
     [view release];
     
-    CGFloat navigationBarHeight = 44.0f;
-    _containerView = [[ADTransitionView alloc] initWithFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y + navigationBarHeight, self.view.frame.size.width, self.view.frame.size.height - navigationBarHeight)];
-    
     // Setting the perspective
-    float zDistance = 1000.0f;
+    float zDistance = AD_Z_DISTANCE;
     CATransform3D sublayerTransform = CATransform3DIdentity;
     sublayerTransform.m34 = 1.0 / -zDistance;
     self.view.layer.sublayerTransform = sublayerTransform;
     
-    _containerView.autoresizesSubviews = YES;
-    _containerView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    _containerView.clipsToBounds = YES;
+    // Create and add navigation bar to the view
+    CGFloat navigationBarHeight = AD_NAVIGATION_BAR_HEIGHT;
     _navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, navigationBarHeight)];
     _navigationBar.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
     _navigationBar.delegate = self;
     [self.view addSubview:_navigationBar];
     [_navigationBar release];
+    
+    // Create and add the container view that will hold the controller views
+    _containerView = [[ADTransitionView alloc] initWithFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y + navigationBarHeight, self.view.frame.size.width, self.view.frame.size.height - navigationBarHeight)];
+    _containerView.autoresizesSubviews = YES;
+    _containerView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:_containerView];
     [_containerView release];
     
-    UIViewController * topViewController = self.viewControllers.lastObject;
-    [_containerView addSubview:topViewController.view];
-    topViewController.view.frame = CGRectMake(0.0f, 0.0f, _containerView.frame.size.width, _containerView.frame.size.height);
-    
+    // Add previous view controllers to the container and create navigation items
     NSMutableArray * items = [[NSMutableArray alloc] init];
     for (UIViewController * viewController in self.viewControllers) {
+        [self addChildViewController:viewController];
+        viewController.view.frame = _containerView.bounds;
+        if (viewController == self.viewControllers.lastObject) {
+            [_containerView addSubview:viewController.view];
+        }
+        [viewController didMoveToParentViewController:self];
+        
         UINavigationItem * navigationItem = [[UINavigationItem alloc] initWithTitle:viewController.title];
         [items addObject:navigationItem];
         [navigationItem release];
@@ -83,30 +102,33 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
     [items release];
 }
 
+#pragma mark -
+#pragma mark Appearance
+
+// Forwarding appearance messages when the container appears or disappears
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [[_viewControllers lastObject] viewWillAppear:animated];
+    [[_viewControllers lastObject] beginAppearanceTransition:YES animated:animated];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [[_viewControllers lastObject] viewDidAppear:animated];
+    [[_viewControllers lastObject] endAppearanceTransition];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [[_viewControllers lastObject] viewWillDisappear:animated];
+    [[_viewControllers lastObject] beginAppearanceTransition:NO animated:YES];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-    [[_viewControllers lastObject] viewDidDisappear:animated];
+    [[_viewControllers lastObject] endAppearanceTransition];
 }
 
-- (void)dealloc {
-    [_transitions release], _transitions = nil;
-    [_viewControllers release], _viewControllers = nil;
-    [super dealloc];
+// We are responsible for telling the child when its views are going to appear or disappear
+- (BOOL)shouldAutomaticallyForwardAppearanceMethods {
+    return NO;
 }
 
 #pragma mark -
@@ -118,10 +140,6 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
     
     objc_setAssociatedObject(viewController, ADTransitionControllerAssociationKey, self, OBJC_ASSOCIATION_ASSIGN);
     
-    BOOL animated = transition ? YES : NO;
-    
-    
-    transition.delegate = self;
     UIViewController * viewControllerToRemoveFromView = [_viewControllers lastObject];
     
     [_viewControllers addObject:viewController];
@@ -131,16 +149,23 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
         [_transitions addObject:[ADTransition nullTransition]];
     }
     
+    if (!_containerView) {
+        return;
+    }
+    
+    BOOL animated = transition ? YES : NO;
+    
     UIView * viewIn = viewController.view;
-    UIView * viewOut = viewControllerToRemoveFromView.view;
-    
-    [viewController viewWillAppear:animated];
-    [viewControllerToRemoveFromView viewWillDisappear:animated];
-    
+    [self addChildViewController:viewController];
+    [viewController beginAppearanceTransition:YES animated:animated];
+    viewIn.frame = _containerView.bounds;
     [_containerView addSubview:viewIn];
-    viewIn.frame = CGRectMake(0.0f, 0.0f, _containerView.frame.size.width, _containerView.frame.size.height);
+    
+    UIView * viewOut = viewControllerToRemoveFromView.view;
+    [viewControllerToRemoveFromView beginAppearanceTransition:NO animated:animated];
     
     _isContainerViewTransitioning = animated;
+    transition.delegate = self;
     [self _transitionfromView:viewOut toView:viewIn withTransition:transition];
     
     _isNavigationBarTransitioning = animated;
@@ -152,7 +177,7 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
     [_navigationBar pushNavigationItem:navigationItem animated:animated];
     [navigationItem release];
     
-    if (!animated) {
+    if (!animated) { // Call the delegate method if no animation
         [self pushTransitionDidFinish:nil];
     }
 }
@@ -172,47 +197,55 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
     }
     BOOL animated = transition ? YES : NO;
     [_transitions removeLastObject];
-    UIViewController * outVC = [_viewControllers lastObject];
-    UIViewController * inVC = [_viewControllers objectAtIndex:([_viewControllers count]-2)];
-    [outVC viewWillDisappear:animated];
-    [inVC viewWillAppear:animated];
-    [_containerView addSubview:inVC.view];
+    
+    UIViewController * inViewController = [_viewControllers objectAtIndex:([_viewControllers count] - 2)];
+    [inViewController beginAppearanceTransition:YES animated:animated];
+    inViewController.view.frame = _containerView.bounds;
+    [_containerView addSubview:inViewController.view];
+    
+    UIViewController * outViewController = [_viewControllers lastObject];
+    [outViewController willMoveToParentViewController:nil];
+    [outViewController beginAppearanceTransition:NO animated:animated];
     
     _isNavigationBarTransitioning = animated;
+    _shoudPopItem = YES;
     [_navigationBar popNavigationItemAnimated:animated];
     
     _isContainerViewTransitioning = animated;
-    [self _transitionfromView:outVC.view toView:inVC.view withTransition:transition];
+    [self _transitionfromView:outViewController.view toView:inViewController.view withTransition:transition];
     
-    if (!animated) {
+    if (!animated) { // Call the delegate method if no animation
         [self popTransitionDidFinish:nil];
     }
-    return outVC;
+    
+    return outViewController;
 }
 
 #pragma mark -
 #pragma mark ADTransitionDelegate
 - (void)pushTransitionDidFinish:(ADTransition *)transition {
-    BOOL animated = transition ? YES : NO;
     if ([_viewControllers count] >= 2) {
-        UIViewController * outVC = [_viewControllers objectAtIndex:([_viewControllers count]-2)];
-        [outVC.view removeFromSuperview];
-        [outVC viewDidDisappear:animated];
+        UIViewController * outViewController = [_viewControllers objectAtIndex:([_viewControllers count] - 2)];
+        [outViewController.view removeFromSuperview];
+        [outViewController endAppearanceTransition];
     }
-    [[_viewControllers lastObject] viewDidAppear:animated];
+    [[_viewControllers lastObject] endAppearanceTransition];
+    [[_viewControllers lastObject] didMoveToParentViewController:self];
     _isContainerViewTransitioning = NO;
 }
 
 - (void)popTransitionDidFinish:(ADTransition *)transition {
     _containerView.layer.transform = CATransform3DIdentity;
-    ((UIViewController *)[_viewControllers objectAtIndex:_viewControllers.count - 2]).view.layer.transform = CATransform3DIdentity;
-    
-    BOOL animated = transition ? YES : NO;
-    UIViewController * outVC = [_viewControllers lastObject];
-    [outVC.view removeFromSuperview];
-    [outVC viewDidDisappear:animated];
+
+    UIViewController * outViewController = [_viewControllers lastObject];
+    [outViewController.view removeFromSuperview];
+    [outViewController endAppearanceTransition];
+    [outViewController removeFromParentViewController];
     [_viewControllers removeLastObject];
-    [[_viewControllers lastObject] viewDidAppear:animated]; // the VC on the screen is now the one on the top of the viewControllers stack
+    
+    UIViewController * inViewController = [_viewControllers lastObject];
+    inViewController.view.layer.transform = CATransform3DIdentity;
+    [inViewController endAppearanceTransition];
     _isContainerViewTransitioning = NO;
 }
 
@@ -248,11 +281,12 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
 #pragma mark UINavigationBarDelegate
 
 - (BOOL)navigationBar:(UINavigationBar *)navigationBar shouldPopItem:(UINavigationItem *)item {
-    if (_isContainerViewTransitioning) {
-        return NO;
-    } else {
-        [self popViewController]; // warning: this makes popViewController to be called twice if the pop was not initiated by the navigationBar. Fortunately, as _navigationBarTransitioning == YES, the second call does nothing (at least if the pop transition is animated).
+    if (_shoudPopItem) {
+        _shoudPopItem = NO;
         return YES;
+    } else { // Hit the back button of the navigation bar
+        [self popViewController];
+        return NO;
     }
 }
 
@@ -263,6 +297,7 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
 -(void)navigationBar:(UINavigationBar *)navigationBar didPushItem:(UINavigationItem *)item {
     _isNavigationBarTransitioning = NO;
 }
+
 @end
 
 @implementation ADTransitionController (Private)
@@ -272,6 +307,7 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
         _transitions = [[NSMutableArray alloc] init];
         _isContainerViewTransitioning = NO;
         _isNavigationBarTransitioning = NO;
+        _shoudPopItem = NO;
     }
 }
 
@@ -284,7 +320,6 @@ NSString * NSStringFromCATransform3D(CATransform3D transform) {
     viewOut.layer.doubleSided = NO;
     if ([transition isKindOfClass:[ADTransformTransition class]]) { // ADTransformTransition
         ADTransformTransition * transformTransition = (ADTransformTransition *)transition;
-        // 
         viewIn.layer.transform = transformTransition.inLayerTransform;
         viewOut.layer.transform = transformTransition.outLayerTransform;
         

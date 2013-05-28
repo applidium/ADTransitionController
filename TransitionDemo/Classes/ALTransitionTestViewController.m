@@ -172,19 +172,19 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    NSLog(@"ALTransitionTestViewController viewDidAppear: %d", animated);
+    NSLog(@"ALTransitionTestViewController %d viewDidAppear: %d", self.index, animated);
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    NSLog(@"ALTransitionTestViewController viewWillAppear: %d", animated);
+    NSLog(@"ALTransitionTestViewController %d viewWillAppear: %d", self.index, animated);
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
-    NSLog(@"ALTransitionTestViewController viewDidDisappear: %d", animated);
+    NSLog(@"ALTransitionTestViewController %d viewDidDisappear: %d", self.index, animated);
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    NSLog(@"ALTransitionTestViewController viewWillDisappear: %d", animated);
+    NSLog(@"ALTransitionTestViewController %d viewWillDisappear: %d", self.index, animated);
 }
 
 - (IBAction)setTop:(id)sender {
