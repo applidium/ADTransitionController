@@ -14,6 +14,8 @@
 }
 @end
 
+@protocol ADTransitionControllerDelegate;
+
 @interface ADTransitionController : UIViewController <ADTransitionDelegate, UINavigationBarDelegate> {
     NSMutableArray *  _viewControllers;
     NSMutableArray *  _transitions; // Transition stack, paired with the view controller stack
@@ -23,7 +25,9 @@
     UIView *          _containerView;
 }
 
-@property (nonatomic,copy) NSMutableArray * viewControllers;
+@property (nonatomic, copy) NSMutableArray * viewControllers;
+@property (nonatomic, readonly, retain) UIViewController * topViewController;
+@property (nonatomic, assign) id<ADTransitionControllerDelegate> delegate;
 @property(nonatomic, getter = isNavigationBarHidden, setter = setNavigationBarHidden:) BOOL navigationBarHidden;
 - (void)setNavigationBarHidden:(BOOL)hidden animated:(BOOL)animated;
 
@@ -31,4 +35,9 @@
 - (UIViewController *)popViewController;
 - (UIViewController *)popViewControllerWithTransition:(ADTransition *)animation;
 
+@end
+
+@protocol ADTransitionControllerDelegate <NSObject>
+- (void)transitionController:(ADTransitionController *)transitionController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated;
+- (void)transitionController:(ADTransitionController *)transitionController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated;
 @end

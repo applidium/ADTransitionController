@@ -37,6 +37,8 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
 
 @implementation ADTransitionController
 @synthesize viewControllers = _viewControllers;
+@synthesize topViewController = _topViewController;
+@synthesize delegate = _delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -102,6 +104,11 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
     [items release];
 }
 
+- (UIViewController *)topViewController {
+    return [_viewControllers lastObject];
+}
+
+
 #pragma mark -
 #pragma mark Appearance
 
@@ -155,9 +162,13 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
     
     BOOL animated = transition ? YES : NO;
     
+    
     UIView * viewIn = viewController.view;
     [self addChildViewController:viewController];
     [viewController beginAppearanceTransition:YES animated:animated];
+    if ([self.delegate respondsToSelector:@selector(transitionController:willShowViewController:animated:)]) {
+        [self.delegate transitionController:self willShowViewController:viewController animated:animated];
+    }
     viewIn.frame = _containerView.bounds;
     [_containerView addSubview:viewIn];
     
@@ -200,6 +211,9 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
     
     UIViewController * inViewController = [_viewControllers objectAtIndex:([_viewControllers count] - 2)];
     [inViewController beginAppearanceTransition:YES animated:animated];
+    if ([self.delegate respondsToSelector:@selector(transitionController:willShowViewController:animated:)]) {
+        [self.delegate transitionController:self willShowViewController:inViewController animated:animated];
+    }
     inViewController.view.frame = _containerView.bounds;
     [_containerView addSubview:inViewController.view];
     
@@ -224,17 +238,23 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
 #pragma mark -
 #pragma mark ADTransitionDelegate
 - (void)pushTransitionDidFinish:(ADTransition *)transition {
+    BOOL animated = transition ? YES : NO;
     if ([_viewControllers count] >= 2) {
         UIViewController * outViewController = [_viewControllers objectAtIndex:([_viewControllers count] - 2)];
         [outViewController.view removeFromSuperview];
         [outViewController endAppearanceTransition];
     }
-    [[_viewControllers lastObject] endAppearanceTransition];
-    [[_viewControllers lastObject] didMoveToParentViewController:self];
+    UIViewController * inViewController = [_viewControllers lastObject];
+    [inViewController endAppearanceTransition];
+    [inViewController didMoveToParentViewController:self];
     _isContainerViewTransitioning = NO;
+    if ([self.delegate respondsToSelector:@selector(transitionController:didShowViewController:animated:)]) {
+        [self.delegate transitionController:self didShowViewController:inViewController animated:animated];
+    }
 }
 
 - (void)popTransitionDidFinish:(ADTransition *)transition {
+    BOOL animated = transition ? YES : NO;
     _containerView.layer.transform = CATransform3DIdentity;
 
     UIViewController * outViewController = [_viewControllers lastObject];
@@ -247,6 +267,9 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
     inViewController.view.layer.transform = CATransform3DIdentity;
     [inViewController endAppearanceTransition];
     _isContainerViewTransitioning = NO;
+    if ([self.delegate respondsToSelector:@selector(transitionController:didShowViewController:animated:)]) {
+        [self.delegate transitionController:self didShowViewController:inViewController animated:animated];
+    }
 }
 
 #pragma mark -
@@ -308,6 +331,7 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
         _isContainerViewTransitioning = NO;
         _isNavigationBarTransitioning = NO;
         _shoudPopItem = NO;
+        _delegate = nil;
     }
 }
 
