@@ -20,9 +20,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     
-    ADTransitionController * transitionController = [[ADTransitionController alloc] init];
     ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:nil bundle:nil];
-    [transitionController pushViewController:viewController withTransition:nil];
+    ADTransitionController * transitionController = [[ADTransitionController alloc] initWithRootViewController:viewController];
     [viewController release];
     
     self.window.rootViewController = transitionController;

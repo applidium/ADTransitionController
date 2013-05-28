@@ -52,6 +52,14 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
     return self;
 }
 
+- (id)initWithRootViewController:(UIViewController *)rootViewController {
+    if (self = [super init]) {
+        [self _initialize];
+        [self pushViewController:rootViewController withTransition:nil];
+    }
+    return self;
+}
+
 - (void)dealloc {
     [_transitions release], _transitions = nil;
     [_viewControllers release], _viewControllers = nil;

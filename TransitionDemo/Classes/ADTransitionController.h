@@ -31,6 +31,7 @@
 @property(nonatomic, getter = isNavigationBarHidden, setter = setNavigationBarHidden:) BOOL navigationBarHidden;
 - (void)setNavigationBarHidden:(BOOL)hidden animated:(BOOL)animated;
 
+- (id)initWithRootViewController:(UIViewController *)rootViewController;
 - (void)pushViewController:(UIViewController *)viewController withTransition:(ADTransition *)animation;
 - (UIViewController *)popViewController;
 - (UIViewController *)popViewControllerWithTransition:(ADTransition *)animation;
