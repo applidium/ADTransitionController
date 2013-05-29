@@ -38,6 +38,7 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
 @implementation ADTransitionController
 @synthesize viewControllers = _viewControllers;
 @synthesize topViewController = _topViewController;
+@synthesize visibleViewController = _visibleViewController;
 @synthesize delegate = _delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -116,6 +117,14 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
     return [_viewControllers lastObject];
 }
 
+- (UIViewController *)visibleViewController {
+    UIViewController * topViewController = [self topViewController];
+    if (topViewController.presentedViewController) {
+        return topViewController.presentedViewController;
+    } else {
+        return topViewController;
+    }
+}
 
 #pragma mark -
 #pragma mark Appearance
