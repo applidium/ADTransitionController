@@ -36,7 +36,10 @@
 - (void)pushViewController:(UIViewController *)viewController withTransition:(ADTransition *)animation;
 - (UIViewController *)popViewController;
 - (UIViewController *)popViewControllerWithTransition:(ADTransition *)animation;
-
+- (NSArray *)popToViewController:(UIViewController *)viewController;
+- (NSArray *)popToViewController:(UIViewController *)viewController withTransition:(ADTransition *)transition ;
+- (NSArray *)popToRootViewController;
+- (NSArray *)popToRootViewControllerWithTransition:(ADTransition *)transition;
 @end
 
 @protocol ADTransitionControllerDelegate <NSObject>

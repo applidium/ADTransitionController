@@ -156,7 +156,7 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
 }
 
 #pragma mark -
-#pragma mark Push - Pop
+#pragma mark Push
 - (void)pushViewController:(UIViewController *)viewController withTransition:(ADTransition *)transition {
     if (_isContainerViewTransitioning || _isNavigationBarTransitioning) {
         return;
@@ -210,13 +210,14 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
     }
 }
 
+#pragma mark -
+#pragma mark Pop
 - (UIViewController *)popViewController {
     if ([_transitions count] > 0) {
         UIViewController * viewController = [self popViewControllerWithTransition:[[_transitions lastObject] reverseTransition]];
         return viewController;
-    } else {
-        return nil;
     }
+    return nil;
 }
 
 - (UIViewController *)popViewControllerWithTransition:(ADTransition *)transition {
@@ -243,6 +244,7 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
     [_navigationBar popNavigationItemAnimated:animated];
     
     _isContainerViewTransitioning = animated;
+    transition.delegate = self;
     [self _transitionfromView:outViewController.view toView:inViewController.view withTransition:transition];
     
     if (!animated) { // Call the delegate method if no animation
@@ -250,6 +252,74 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
     }
     
     return outViewController;
+}
+
+- (NSArray *)popToViewController:(UIViewController *)viewController {
+    if ([_transitions count] > 0) {
+        NSArray * viewControllers = [self popToViewController:viewController withTransition:[[_transitions lastObject] reverseTransition]];
+        return viewControllers;
+    }
+    return nil;
+}
+
+- (NSArray *)popToViewController:(UIViewController *)viewController withTransition:(ADTransition *)transition {
+    NSUInteger indexInViewController = [_viewControllers indexOfObject:viewController];
+    if (indexInViewController == NSNotFound || _isContainerViewTransitioning || _isNavigationBarTransitioning) {
+        return nil;
+    }
+    
+    // Create array that will be returned
+    NSMutableArray * outViewControllers = [NSMutableArray arrayWithCapacity:(_viewControllers.count - indexInViewController - 1)];
+    for (int i = indexInViewController + 1; i < _viewControllers.count; i++) {
+        [outViewControllers addObject:_viewControllers[i]];
+    }
+    
+    ADTransition * lastTransition = [[_transitions lastObject] retain];
+    // Remove all viewControllers and transitions from stack
+    for (UIViewController * viewController in outViewControllers) {
+        [_viewControllers removeLastObject];
+        [_transitions removeLastObject];
+        [viewController willMoveToParentViewController:nil];
+        [viewController removeFromParentViewController];
+    }
+    // and re-add last transition to keep the right count and to pop it later
+    [_transitions addObject:lastTransition];
+    [lastTransition release];
+    
+    // Set up navigation bar items
+    NSMutableArray * items = [[NSMutableArray alloc] initWithCapacity:(_viewControllers.count - indexInViewController - 1)];
+    for (int i = 0 ; i < _navigationBar.items.count && i <= indexInViewController; i++) {
+        [items addObject:_navigationBar.items[i]];
+    }
+    // add last item to keep the right count and to pop it later
+    [items addObject:[_navigationBar.items lastObject]];
+    [_navigationBar setItems:items];
+    [items release];
+    
+    // Push last view controller on stack to pop it later
+    UIViewController * outViewController = [outViewControllers lastObject];
+    [_viewControllers addObject:outViewController];
+    [self addChildViewController:outViewController];
+    [outViewController didMoveToParentViewController:self];
+    
+    [self popViewControllerWithTransition:transition];
+    
+    return outViewControllers;
+}
+
+- (NSArray *)popToRootViewController {
+    if ([_transitions count] > 0) {
+        NSArray * viewControllers = [self popToRootViewControllerWithTransition:[[_transitions lastObject] reverseTransition]];
+        return viewControllers;
+    }
+    return nil;
+}
+
+- (NSArray *)popToRootViewControllerWithTransition:(ADTransition *)transition {
+    if (_viewControllers.count > 1) { // need at least two controllers
+        return [self popToViewController:_viewControllers[0] withTransition:transition];
+    }
+    return nil;
 }
 
 #pragma mark -
