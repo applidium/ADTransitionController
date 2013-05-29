@@ -15,7 +15,7 @@
     if (self != nil) {
         const CGFloat viewWidth = sourceRect.size.width;
         const CGFloat viewHeight = sourceRect.size.height;
-        const CGFloat inAngle = M_PI;
+        const CGFloat inAngle = M_PI - 0.001f; // epsilon for modulo
         const CGFloat outAngle = M_PI / 2.0f;
         
         CGPoint inAnchorPoint;
