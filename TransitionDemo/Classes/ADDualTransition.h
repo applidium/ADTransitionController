@@ -9,16 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "ADTransition.h"
 
-typedef enum {
-    ADDualTransitionTemplateFade,
-    ADDualTransitionTemplateScaleFade,
-    ADDualTransitionTemplateFlip,
-    ADDualTransitionTemplateBackFade,
-    ADDualTransitionTemplateSwipe,
-    ADDualTransitionTemplateSwap,
-    ADDualTransitionTemplateCarrouselRightToLeft
-} ADDualTransitionTemplate;
-
 @interface ADDualTransition : ADTransition {
     CAAnimation * _inAnimation;
     CAAnimation * _outAnimation;
