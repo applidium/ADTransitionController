@@ -7,7 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIViewController+ADTransitionController.h"
 #import "ADTransition.h"
+#import "ADDualTransition.h"
+#import "ADTransformTransition.h"
+#import "ADCarrouselTransition.h"
+#import "ADCubeTransition.h"
+#import "ADCrossTransition.h"
+#import "ADFadeTransition.h"
+#import "ADFlipTransition.h"
+#import "ADSwapTransition.h"
+#import "ADGhostTransition.h"
+#import "ADBackFadeTransition.h"
+#import "ADZoomTransition.h"
+#import "ADSwipeTransition.h"
+#import "ADSwipeFadeTransition.h"
+#import "ADScaleTransition.h"
 
 // Our container view must be backed by a CATransformLayer
 @interface ADTransitionView : UIView {    

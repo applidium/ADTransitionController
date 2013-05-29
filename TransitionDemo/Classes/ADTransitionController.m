@@ -7,12 +7,8 @@
 //
 
 #import "ADTransitionController.h"
-#import "ADTransformTransition.h"
-#import "ADDualTransition.h"
-
 #import <QuartzCore/CoreAnimation.h>
 #import <objc/runtime.h>
-#import "UIViewController+ADTransitionController.h"
 
 @implementation ADTransitionView
 + (Class)layerClass {

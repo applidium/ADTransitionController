@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ADTransition.h"
+#import "ADTransitionController.h"
 
 @interface ALTransitionTestViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
     NSInteger _index;
