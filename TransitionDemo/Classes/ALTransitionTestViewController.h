@@ -33,6 +33,9 @@
 - (IBAction)swipe:(id)sender;
 - (IBAction)swipeFade:(id)sender;
 - (IBAction)scale:(id)sender;
+- (IBAction)glue:(id)sender;
+- (IBAction)pushRotate:(id)sender;
+- (IBAction)fold:(id)sender;
 - (IBAction)swap:(id)sender;
 - (IBAction)flip:(id)sender;
 - (IBAction)pop:(id)sender;

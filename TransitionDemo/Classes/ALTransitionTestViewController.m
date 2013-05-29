@@ -77,7 +77,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     switch (section) {
         case 0: //ADDualTransition
-            return 9;
+            return 12;
         case 1: //ADTransformTransition
             return 3;
     }
@@ -110,10 +110,10 @@
                     text = @"Swipe";
                     break;
                 case 1:
-                    text = @"Zoom";
+                    text = @"PushRotate";
                     break;
                 case 2:
-                    text = @"Ghost";
+                    text = @"Fold";
                     break;
                 case 3:
                     text = @"BackFade";
@@ -132,6 +132,15 @@
                     break;
                 case 8:
                     text = @"Scale";
+                    break;
+                case 9:
+                    text = @"Glue";
+                    break;
+                case 10:
+                    text = @"Zoom";
+                    break;
+                case 11:
+                    text = @"Ghost";
                     break;
             }
             break;
@@ -164,11 +173,11 @@
                 case 0: // Swipe
                     [self swipe:nil];
                     break;
-                case 1: // Zoom
-                    [self focus:nil];
+                case 1: // PushRotate
+                    [self pushRotate:nil];
                     break;
-                case 2: // Ghost
-                    [self ghost:nil];
+                case 2: // Fold
+                    [self fold:nil];
                     break;
                 case 3: // BackFade
                     [self backFade:nil];
@@ -187,6 +196,15 @@
                     break;
                 case 8: // Scale
                     [self scale:nil];
+                    break;
+                case 9: // Glue
+                    [self glue:nil];
+                    break;
+                case 10: // Zoom
+                    [self focus:nil];
+                    break;
+                case 11: // Ghost
+                    [self ghost:nil];
                     break;
             }
             break;
@@ -273,6 +291,27 @@
 - (IBAction)scale:(id)sender {
     ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:@"ALTransitionTestViewController" bundle:nil index:self.index+1];
     ADTransition * animation = [[ADScaleTransition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
+    [self.transitionController pushViewController:viewController withTransition:animation];
+    [animation release];
+    [viewController release];
+}
+- (IBAction)glue:(id)sender {
+    ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:@"ALTransitionTestViewController" bundle:nil index:self.index+1];
+    ADTransition * animation = [[ADGlueTransition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
+    [self.transitionController pushViewController:viewController withTransition:animation];
+    [animation release];
+    [viewController release];
+}
+- (IBAction)pushRotate:(id)sender {
+    ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:@"ALTransitionTestViewController" bundle:nil index:self.index+1];
+    ADTransition * animation = [[ADPushRotate alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
+    [self.transitionController pushViewController:viewController withTransition:animation];
+    [animation release];
+    [viewController release];
+}
+- (IBAction)fold:(id)sender {
+    ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:@"ALTransitionTestViewController" bundle:nil index:self.index+1];
+    ADTransition * animation = [[ADFoldTransition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
     [self.transitionController pushViewController:viewController withTransition:animation];
     [animation release];
     [viewController release];
