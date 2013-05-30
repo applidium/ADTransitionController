@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Applidium. All rights reserved.
 //
 
-#import "ADPushRotate.h"
+#import "ADPushRotateTransition.h"
 
-@implementation ADPushRotate
+@implementation ADPushRotateTransition
 
 - (id)initWithDuration:(CFTimeInterval)duration orientation:(ADTransitionOrientation)orientation sourceRect:(CGRect)sourceRect {
     const CGFloat viewWidth = sourceRect.size.width;

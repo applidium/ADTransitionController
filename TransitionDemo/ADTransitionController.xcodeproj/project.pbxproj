@@ -36,7 +36,7 @@
 		498C54EF17550EFF00438969 /* ADSwipeFadeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54EE17550EFE00438969 /* ADSwipeFadeTransition.m */; };
 		498C54F21755119F00438969 /* ADScaleTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54F11755119E00438969 /* ADScaleTransition.m */; };
 		498C54F81756497E00438969 /* ADGlueTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54F71756497D00438969 /* ADGlueTransition.m */; };
-		498C54FB17565C6900438969 /* ADPushRotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54FA17565C6800438969 /* ADPushRotate.m */; };
+		498C54FB17565C6900438969 /* ADPushRotateTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54FA17565C6800438969 /* ADPushRotateTransition.m */; };
 		498C54FE1756601E00438969 /* ADFoldTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54FD1756601D00438969 /* ADFoldTransition.m */; };
 		49F4C389175776A40083DE48 /* ADSlideTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F4C388175776A40083DE48 /* ADSlideTransition.m */; };
 /* End PBXBuildFile section */
@@ -94,8 +94,8 @@
 		498C54F11755119E00438969 /* ADScaleTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADScaleTransition.m; path = Classes/ADScaleTransition.m; sourceTree = SOURCE_ROOT; };
 		498C54F61756497D00438969 /* ADGlueTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADGlueTransition.h; path = Classes/ADGlueTransition.h; sourceTree = SOURCE_ROOT; };
 		498C54F71756497D00438969 /* ADGlueTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADGlueTransition.m; path = Classes/ADGlueTransition.m; sourceTree = SOURCE_ROOT; };
-		498C54F917565C6700438969 /* ADPushRotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADPushRotate.h; path = Classes/ADPushRotate.h; sourceTree = SOURCE_ROOT; };
-		498C54FA17565C6800438969 /* ADPushRotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADPushRotate.m; path = Classes/ADPushRotate.m; sourceTree = SOURCE_ROOT; };
+		498C54F917565C6700438969 /* ADPushRotateTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADPushRotateTransition.h; path = Classes/ADPushRotateTransition.h; sourceTree = SOURCE_ROOT; };
+		498C54FA17565C6800438969 /* ADPushRotateTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADPushRotateTransition.m; path = Classes/ADPushRotateTransition.m; sourceTree = SOURCE_ROOT; };
 		498C54FC1756601C00438969 /* ADFoldTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADFoldTransition.h; path = Classes/ADFoldTransition.h; sourceTree = SOURCE_ROOT; };
 		498C54FD1756601D00438969 /* ADFoldTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADFoldTransition.m; path = Classes/ADFoldTransition.m; sourceTree = SOURCE_ROOT; };
 		49F4C387175776A30083DE48 /* ADSlideTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADSlideTransition.h; path = Classes/ADSlideTransition.h; sourceTree = SOURCE_ROOT; };
@@ -228,8 +228,8 @@
 				498C54F11755119E00438969 /* ADScaleTransition.m */,
 				498C54F61756497D00438969 /* ADGlueTransition.h */,
 				498C54F71756497D00438969 /* ADGlueTransition.m */,
-				498C54F917565C6700438969 /* ADPushRotate.h */,
-				498C54FA17565C6800438969 /* ADPushRotate.m */,
+				498C54F917565C6700438969 /* ADPushRotateTransition.h */,
+				498C54FA17565C6800438969 /* ADPushRotateTransition.m */,
 				498C54FC1756601C00438969 /* ADFoldTransition.h */,
 				498C54FD1756601D00438969 /* ADFoldTransition.m */,
 				49F4C387175776A30083DE48 /* ADSlideTransition.h */,
@@ -325,7 +325,7 @@
 				498C54EF17550EFF00438969 /* ADSwipeFadeTransition.m in Sources */,
 				498C54F21755119F00438969 /* ADScaleTransition.m in Sources */,
 				498C54F81756497E00438969 /* ADGlueTransition.m in Sources */,
-				498C54FB17565C6900438969 /* ADPushRotate.m in Sources */,
+				498C54FB17565C6900438969 /* ADPushRotateTransition.m in Sources */,
 				498C54FE1756601E00438969 /* ADFoldTransition.m in Sources */,
 				49F4C389175776A40083DE48 /* ADSlideTransition.m in Sources */,
 			);

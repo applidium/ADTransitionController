@@ -24,7 +24,7 @@
 #import "ADSwipeFadeTransition.h"
 #import "ADScaleTransition.h"
 #import "ADGlueTransition.h"
-#import "ADPushRotate.h"
+#import "ADPushRotateTransition.h"
 #import "ADFoldTransition.h"
 #import "ADSlideTransition.h"
 
