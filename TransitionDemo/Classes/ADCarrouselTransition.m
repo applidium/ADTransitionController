@@ -10,8 +10,8 @@
 
 
 @implementation ADCarrouselTransition
-- (id)initWithDuration:(CFTimeInterval)duration forType:(ADTransitionType)type orientation:(ADTransitionOrientation)orientation sourceRect:(CGRect)sourceRect {
-    self = [super initWithDuration:duration forType:type];
+- (id)initWithDuration:(CFTimeInterval)duration orientation:(ADTransitionOrientation)orientation sourceRect:(CGRect)sourceRect {
+    self = [super initWithDuration:duration];
     if (self != nil) {
         CAAnimation * animation = nil;
         CGFloat viewWidth = sourceRect.size.width;

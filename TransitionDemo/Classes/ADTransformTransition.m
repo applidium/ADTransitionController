@@ -22,51 +22,34 @@
     [super dealloc];
 }
 
-- (id)initWithAnimation:(CAAnimation *)animation inLayerTransform:(CATransform3D)inTransform outLayerTransform:(CATransform3D)outTransform forType:(ADTransitionType)type {
+- (id)initWithAnimation:(CAAnimation *)animation inLayerTransform:(CATransform3D)inTransform outLayerTransform:(CATransform3D)outTransform {
     self = [super init];
     if (self) {
         _animation = [animation copy]; // the instances should be different because we don't want them to have the same delegate
         _animation.delegate = self;
         _inLayerTransform = inTransform;
         _outLayerTransform = outTransform;
-        _type = type;
     }
     return self;
 }
 
-- (id)initWithDuration:(CFTimeInterval)duration forType:(ADTransitionType)type {
+- (id)initWithDuration:(CFTimeInterval)duration {
     self = [super init];
     if (self != nil) {
         _inLayerTransform = CATransform3DIdentity;
         _outLayerTransform = CATransform3DIdentity;
-        _type = type;
     }
     return self;
 }
 
-- (id)initWithDuration:(CFTimeInterval)duration forType:(ADTransitionType)type sourceRect:(CGRect)sourceRect {
-    return  [self initWithDuration:duration forType:type];
+- (id)initWithDuration:(CFTimeInterval)duration sourceRect:(CGRect)sourceRect {
+    return  [self initWithDuration:duration];
 }
 
 - (ADTransition *)reverseTransition {
-    if (self.type == ADTransitionTypeNull) {
-        return self;
-    }
-    ADTransformTransition * reversedTransition = nil;
-    switch (self.type) {
-        case ADTransitionTypePop:
-            reversedTransition = [[ADTransformTransition alloc] initWithAnimation:_animation inLayerTransform:_outLayerTransform outLayerTransform:_inLayerTransform forType:ADTransitionTypePush];
-            break;
-        case ADTransitionTypePush:
-            reversedTransition = [[ADTransformTransition alloc] initWithAnimation:_animation inLayerTransform:_outLayerTransform outLayerTransform:_inLayerTransform forType:ADTransitionTypePop];
-            break;
-        default:
-            NSAssert(FALSE, @"Unhandled case in switch statement !");
-            break;
-    }
+    ADTransformTransition * reversedTransition = [[ADTransformTransition alloc] initWithAnimation:_animation inLayerTransform:_outLayerTransform outLayerTransform:_inLayerTransform];;
     reversedTransition.delegate = self.delegate; // Pointer assignment
     reversedTransition.animation.speed = - 1.0 * reversedTransition.animation.speed;
-
     return [reversedTransition autorelease];
 }
 

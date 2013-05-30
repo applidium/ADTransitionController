@@ -17,9 +17,8 @@
 @property (nonatomic, readonly) CAAnimation * inAnimation;
 @property (nonatomic, readonly) CAAnimation * outAnimation;
 
-- (id)initWithDuration:(CFTimeInterval)duration; // ADTransitionTypePush is assumed
-- (id)initWithType:(ADTransitionType)type;
-- (id)initWithInAnimation:(CAAnimation *)inAnimation andOutAnimation:(CAAnimation *)outAnimation forType:(ADTransitionType)type;
+- (id)initWithDuration:(CFTimeInterval)duration;
+- (id)initWithInAnimation:(CAAnimation *)inAnimation andOutAnimation:(CAAnimation *)outAnimation;
 - (void)finishInit;
 
 @end

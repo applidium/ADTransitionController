@@ -11,7 +11,7 @@
 
 @implementation ADGhostTransition
 - (id)initWithDuration:(CFTimeInterval)duration {
-    self = [super initWithType:ADTransitionTypePush];
+    self = [super init];
     if (self != nil) {
         CABasicAnimation * inFadeAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
         inFadeAnimation.fromValue = [NSNumber numberWithFloat:0.0f];

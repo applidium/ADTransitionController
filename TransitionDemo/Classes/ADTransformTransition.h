@@ -19,7 +19,7 @@
 @property (readonly) CATransform3D inLayerTransform;
 @property (readonly) CATransform3D outLayerTransform;
 
-- (id)initWithAnimation:(CAAnimation *)animation inLayerTransform:(CATransform3D)inTransform outLayerTransform:(CATransform3D)outTransform forType:(ADTransitionType)type;
-- (id)initWithDuration:(CFTimeInterval)duration forType:(ADTransitionType)type;
-- (id)initWithDuration:(CFTimeInterval)duration forType:(ADTransitionType)type sourceRect:(CGRect)sourceRect;
+- (id)initWithAnimation:(CAAnimation *)animation inLayerTransform:(CATransform3D)inTransform outLayerTransform:(CATransform3D)outTransform;
+- (id)initWithDuration:(CFTimeInterval)duration;
+- (id)initWithDuration:(CFTimeInterval)duration sourceRect:(CGRect)sourceRect;
 @end

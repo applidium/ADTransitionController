@@ -30,7 +30,7 @@ CGPoint CGRectCenter(CGRect rect) {
     outAnimation.toValue = [NSNumber numberWithDouble:-0.001f];
     outAnimation.duration = duration;
 
-    self = [super initWithInAnimation:zoomAnimation andOutAnimation:outAnimation forType:ADTransitionTypePush];
+    self = [super initWithInAnimation:zoomAnimation andOutAnimation:outAnimation];
     return self;
 }
 @end

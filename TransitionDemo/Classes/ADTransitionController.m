@@ -190,6 +190,7 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
     
     _isContainerViewTransitioning = animated;
     transition.delegate = self;
+    transition.type = ADTransitionTypePush;
     [self _transitionfromView:viewOut toView:viewIn withTransition:transition];
     
     _isNavigationBarTransitioning = animated;
@@ -241,6 +242,7 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
     
     _isContainerViewTransitioning = animated;
     transition.delegate = self;
+    transition.type = ADTransitionTypePop;
     [self _transitionfromView:outViewController.view toView:inViewController.view withTransition:transition];
     
     if (!animated) { // Call the delegate method if no animation

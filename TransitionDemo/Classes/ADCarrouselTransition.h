@@ -12,5 +12,5 @@
 @interface ADCarrouselTransition : ADTransformTransition {
     
 }
-- (id)initWithDuration:(CFTimeInterval)duration forType:(ADTransitionType)type orientation:(ADTransitionOrientation)orientation sourceRect:(CGRect)sourceRect;
+- (id)initWithDuration:(CFTimeInterval)duration orientation:(ADTransitionOrientation)orientation sourceRect:(CGRect)sourceRect;
 @end

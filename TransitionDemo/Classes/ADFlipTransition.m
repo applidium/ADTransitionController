@@ -11,7 +11,7 @@
 
 @implementation ADFlipTransition
 - (id)initWithDuration:(CFTimeInterval)duration orientation:(ADTransitionOrientation)orientation sourceRect:(CGRect)sourceRect {
-    self = [super initWithType:ADTransitionTypePush];
+    self = [super init];
     if (self != nil) {
         CGFloat viewWidth = sourceRect.size.width;
         CGFloat viewHeight = sourceRect.size.height;

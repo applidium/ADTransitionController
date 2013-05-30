@@ -12,14 +12,13 @@
 @synthesize inAnimation = _inAnimation;
 @synthesize outAnimation = _outAnimation;
 
-- (id)initWithInAnimation:(CAAnimation *)inAnimation andOutAnimation:(CAAnimation *)outAnimation forType:(ADTransitionType)type {
+- (id)initWithInAnimation:(CAAnimation *)inAnimation andOutAnimation:(CAAnimation *)outAnimation {
     self = [self init];
     if (self != nil) {
         _inAnimation = inAnimation;
         [_inAnimation retain];
         _outAnimation = outAnimation;
         [_outAnimation retain];
-        _type = type;
         [self finishInit];
     }
     return self;
@@ -27,14 +26,6 @@
 
 - (id)initWithDuration:(CFTimeInterval)duration {
     return nil;
-}
-
-- (id)initWithType:(ADTransitionType)type {
-    self = [super init];
-    if (self != nil) {
-        _type = type;
-    }
-    return self;
 }
 
 - (void)dealloc {
@@ -52,27 +43,10 @@
 }
 
 - (ADTransition *)reverseTransition {
-    if (self.type == ADTransitionTypeNull) {
-        return self;
-    }
     CAAnimation * inAnimationCopy = [self.inAnimation copy];
     CAAnimation * outAnimationCopy = [self.outAnimation copy];
-    ADTransitionType reversedType;
-    switch (self.type) {
-        case ADTransitionTypePop:
-            reversedType = ADTransitionTypePush;
-            break;
-        case ADTransitionTypePush:
-            reversedType = ADTransitionTypePop;
-            break;
-        default:
-            NSAssert(FALSE, @"Unhandled case in switch statement !");
-            reversedType = ADTransitionTypeNull;
-            break;
-    }
     ADDualTransition * reversedTransition = [[ADDualTransition alloc] initWithInAnimation:outAnimationCopy // Swapped
-                                                                          andOutAnimation:inAnimationCopy
-                                                                                  forType:reversedType];
+                                                                          andOutAnimation:inAnimationCopy];
     reversedTransition.delegate = self.delegate; // Pointer assignment
     reversedTransition.inAnimation.speed = -1.0 * reversedTransition.inAnimation.speed;
     reversedTransition.outAnimation.speed = -1.0 * reversedTransition.outAnimation.speed;

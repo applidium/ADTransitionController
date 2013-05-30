@@ -255,21 +255,21 @@
 }
 - (IBAction)cube:(id)sender {
     ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:@"ALTransitionTestViewController" bundle:nil index:self.index+1];
-    ADTransition * animation = [[ADCubeTransition alloc] initWithDuration:_duration forType:ADTransitionTypePush orientation:_orientation sourceRect:self.view.frame];
+    ADTransition * animation = [[ADCubeTransition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
     [self.transitionController pushViewController:viewController withTransition:animation];
     [animation release];
     [viewController release];
 }
 - (IBAction)carrousel:(id)sender {
     ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:@"ALTransitionTestViewController" bundle:nil index:self.index+1];
-    ADTransition * animation = [[ADCarrouselTransition alloc] initWithDuration:_duration forType:ADTransitionTypePush orientation:_orientation sourceRect:self.view.frame];
+    ADTransition * animation = [[ADCarrouselTransition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
     [self.transitionController pushViewController:viewController withTransition:animation];
     [animation release];
     [viewController release];
 }
 - (IBAction)cross:(id)sender {
     ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:@"ALTransitionTestViewController" bundle:nil index:self.index+1];
-    ADTransition * animation = [[ADCrossTransition alloc] initWithDuration:_duration forType:ADTransitionTypePush];
+    ADTransition * animation = [[ADCrossTransition alloc] initWithDuration:_duration];
     [self.transitionController pushViewController:viewController withTransition:animation];
     [animation release];
     [viewController release];

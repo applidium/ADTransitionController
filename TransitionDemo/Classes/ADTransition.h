@@ -44,5 +44,5 @@ typedef enum {
 - (ADTransition *)reverseTransition;
 - (NSArray *)getCircleApproximationTimingFunctions;
 @property (nonatomic, assign) id <ADTransitionDelegate> delegate;
-@property (nonatomic, readonly) ADTransitionType type;
+@property (nonatomic, assign) ADTransitionType type;
 @end

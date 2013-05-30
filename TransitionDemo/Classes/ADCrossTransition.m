@@ -10,8 +10,8 @@
 
 
 @implementation ADCrossTransition
-- (id)initWithDuration:(CFTimeInterval)duration forType:(ADTransitionType)type {
-    self = [super initWithDuration:duration forType:type];
+- (id)initWithDuration:(CFTimeInterval)duration {
+    self = [super initWithDuration:duration];
     if (self != nil) {
         CAAnimation * animation = nil;
         animation = [CABasicAnimation animationWithKeyPath:@"transform"];

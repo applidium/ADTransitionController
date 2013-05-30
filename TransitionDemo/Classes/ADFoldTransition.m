@@ -11,7 +11,7 @@
 @implementation ADFoldTransition
 
 - (id)initWithDuration:(CFTimeInterval)duration orientation:(ADTransitionOrientation)orientation sourceRect:(CGRect)sourceRect {
-    self = [super initWithType:ADTransitionTypePush];
+    self = [super init];
     if (self != nil) {
         const CGFloat viewWidth = sourceRect.size.width;
         const CGFloat viewHeight = sourceRect.size.height;
