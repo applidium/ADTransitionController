@@ -9,9 +9,5 @@
 #import <Foundation/Foundation.h>
 #import "ADTransformTransition.h"
 
-
-@interface ADCrossTransition : ADTransformTransition {
-    
-}
-
+@interface ADCrossTransition : ADTransformTransition 
 @end

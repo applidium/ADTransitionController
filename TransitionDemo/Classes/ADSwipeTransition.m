@@ -8,7 +8,6 @@
 
 #import "ADSwipeTransition.h"
 
-
 @implementation ADSwipeTransition
 
 - (id)initWithDuration:(CFTimeInterval)duration orientation:(ADTransitionOrientation)orientation sourceRect:(CGRect)sourceRect {

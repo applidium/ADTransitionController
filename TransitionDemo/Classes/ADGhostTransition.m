@@ -8,8 +8,8 @@
 
 #import "ADGhostTransition.h"
 
-
 @implementation ADGhostTransition
+
 - (id)initWithDuration:(CFTimeInterval)duration {    
     CABasicAnimation * inFadeAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
     inFadeAnimation.fromValue = [NSNumber numberWithFloat:0.0f];
@@ -38,4 +38,5 @@
     self = [super initWithInAnimation:inAnimation andOutAnimation:outAnimation];
     return self;
 }
+
 @end

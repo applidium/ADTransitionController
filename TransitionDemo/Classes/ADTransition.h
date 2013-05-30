@@ -40,9 +40,11 @@ typedef enum {
     id <ADTransitionDelegate> _delegate;
     ADTransitionType _type;
 }
+
+@property (nonatomic, assign) id <ADTransitionDelegate> delegate;
+@property (nonatomic, assign) ADTransitionType type;
+
 + (ADTransition *)nullTransition;
 - (ADTransition *)reverseTransition;
 - (NSArray *)getCircleApproximationTimingFunctions;
-@property (nonatomic, assign) id <ADTransitionDelegate> delegate;
-@property (nonatomic, assign) ADTransitionType type;
 @end

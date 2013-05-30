@@ -8,7 +8,6 @@
 
 #import "ADFadeTransition.h"
 
-
 @implementation ADFadeTransition
 
 - (id)initWithDuration:(CFTimeInterval)duration {

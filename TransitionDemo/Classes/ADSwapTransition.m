@@ -9,8 +9,8 @@
 #import "ADSwapTransition.h"
 #import "ADDualTransition.h"
 
-
 @implementation ADSwapTransition
+
 - (id)initWithDuration:(CFTimeInterval)duration orientation:(ADTransitionOrientation)orientation sourceRect:(CGRect)sourceRect {
     CGFloat viewWidth = sourceRect.size.width;
     CGFloat viewHeight = sourceRect.size.height;
@@ -83,4 +83,5 @@
     self = [super initWithInAnimation:inAnimation andOutAnimation:outAnimation];
     return self;
 }
+
 @end

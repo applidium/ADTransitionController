@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "ADTransformTransition.h"
 
-
-@interface ADCubeTransition : ADTransformTransition {
-}
+@interface ADCubeTransition : ADTransformTransition
 - (id)initWithDuration:(CFTimeInterval)duration orientation:(ADTransitionOrientation)orientation sourceRect:(CGRect)sourceRect;
 @end

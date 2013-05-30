@@ -8,8 +8,8 @@
 
 #import "ADCrossTransition.h"
 
-
 @implementation ADCrossTransition
+
 - (id)initWithDuration:(CFTimeInterval)duration {
     if (self = [super initWithDuration:duration]) {
         CAAnimation * animation = nil;
@@ -24,4 +24,5 @@
     }
     return self;
 }
+
 @end

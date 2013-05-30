@@ -9,9 +9,5 @@
 #import <Foundation/Foundation.h>
 #import "ADDualTransition.h"
 
-
-@interface ADBackFadeTransition : ADDualTransition {
-    
-}
-
+@interface ADBackFadeTransition : ADDualTransition
 @end

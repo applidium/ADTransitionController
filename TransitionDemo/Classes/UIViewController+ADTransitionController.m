@@ -12,7 +12,9 @@
 extern NSString * ADTransitionControllerAssociationKey;
 
 @implementation UIViewController (ADTransitionController)
+
 - (ADTransitionController *)transitionController {
     return (ADTransitionController *)objc_getAssociatedObject(self, ADTransitionControllerAssociationKey);
 }
+
 @end

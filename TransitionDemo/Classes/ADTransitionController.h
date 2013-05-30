@@ -29,8 +29,7 @@
 #import "ADSlideTransition.h"
 
 // Our container view must be backed by a CATransformLayer
-@interface ADTransitionView : UIView {    
-}
+@interface ADTransitionView : UIView
 @end
 
 @protocol ADTransitionControllerDelegate;
@@ -49,9 +48,9 @@
 @property (nonatomic, readonly, retain) UIViewController * visibleViewController;
 @property (nonatomic, assign) id<ADTransitionControllerDelegate> delegate;
 @property(nonatomic, getter = isNavigationBarHidden, setter = setNavigationBarHidden:) BOOL navigationBarHidden;
-- (void)setNavigationBarHidden:(BOOL)hidden animated:(BOOL)animated;
 
 - (id)initWithRootViewController:(UIViewController *)rootViewController;
+- (void)setNavigationBarHidden:(BOOL)hidden animated:(BOOL)animated;
 - (void)pushViewController:(UIViewController *)viewController withTransition:(ADTransition *)transition;
 - (UIViewController *)popViewController;
 - (UIViewController *)popViewControllerWithTransition:(ADTransition *)transition;

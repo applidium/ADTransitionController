@@ -20,5 +20,4 @@
 - (id)initWithDuration:(CFTimeInterval)duration;
 - (id)initWithInAnimation:(CAAnimation *)inAnimation andOutAnimation:(CAAnimation *)outAnimation;
 - (void)finishInit;
-
 @end

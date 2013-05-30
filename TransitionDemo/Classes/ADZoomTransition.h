@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "ADDualTransition.h"
 
-@interface ADZoomTransition : ADDualTransition {    
-}
+@interface ADZoomTransition : ADDualTransition
 - (id)initWithSourceRect:(CGRect)sourceRect andTargetRect:(CGRect)targetRect forDuration:(double)duration;
 @end

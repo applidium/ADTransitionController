@@ -8,8 +8,8 @@
 
 #import "ADCubeTransition.h"
 
-
 @implementation ADCubeTransition
+
 - (id)initWithDuration:(CFTimeInterval)duration orientation:(ADTransitionOrientation)orientation sourceRect:(CGRect)sourceRect {
     if (self = [super initWithDuration:duration]) {
         CAAnimation * animation = nil;
@@ -60,4 +60,5 @@
     }
     return self; 
 }
+
 @end

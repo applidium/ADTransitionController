@@ -9,9 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "ADDualTransition.h"
 
-
-@interface ADSwipeTransition : ADDualTransition {
-    
-}
+@interface ADSwipeTransition : ADDualTransition
 - (id)initWithDuration:(CFTimeInterval)duration orientation:(ADTransitionOrientation)orientation sourceRect:(CGRect)sourceRect;
 @end
