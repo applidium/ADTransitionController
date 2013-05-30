@@ -36,6 +36,7 @@
 - (IBAction)glue:(id)sender;
 - (IBAction)pushRotate:(id)sender;
 - (IBAction)fold:(id)sender;
+- (IBAction)slide:(id)sender;
 - (IBAction)swap:(id)sender;
 - (IBAction)flip:(id)sender;
 - (IBAction)pop:(id)sender;

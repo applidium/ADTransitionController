@@ -26,6 +26,7 @@
 #import "ADGlueTransition.h"
 #import "ADPushRotate.h"
 #import "ADFoldTransition.h"
+#import "ADSlideTransition.h"
 
 // Our container view must be backed by a CATransformLayer
 @interface ADTransitionView : UIView {    

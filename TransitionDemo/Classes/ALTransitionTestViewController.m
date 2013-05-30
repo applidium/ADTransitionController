@@ -77,7 +77,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     switch (section) {
         case 0: //ADDualTransition
-            return 12;
+            return 13;
         case 1: //ADTransformTransition
             return 3;
     }
@@ -107,7 +107,7 @@
         case 0: //ADDualTransition
             switch (indexPath.row) {
                 case 0:
-                    text = @"Swipe";
+                    text = @"Slide";
                     break;
                 case 1:
                     text = @"PushRotate";
@@ -142,6 +142,9 @@
                 case 11:
                     text = @"Ghost";
                     break;
+                case 12:
+                    text = @"Swipe";
+                    break;
             }
             break;
         case 1: //ADTransformTransition
@@ -170,8 +173,8 @@
     switch (indexPath.section) {
         case 0: //ADDualTransition
             switch (indexPath.row) {
-                case 0: // Swipe
-                    [self swipe:nil];
+                case 0: // Slide
+                    [self slide:nil];
                     break;
                 case 1: // PushRotate
                     [self pushRotate:nil];
@@ -205,6 +208,9 @@
                     break;
                 case 11: // Ghost
                     [self ghost:nil];
+                    break;
+                case 12: // Swipe
+                    [self swipe:nil];
                     break;
             }
             break;
@@ -305,6 +311,13 @@
 - (IBAction)pushRotate:(id)sender {
     ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:@"ALTransitionTestViewController" bundle:nil index:self.index+1];
     ADTransition * animation = [[ADPushRotate alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
+    [self.transitionController pushViewController:viewController withTransition:animation];
+    [animation release];
+    [viewController release];
+}
+- (IBAction)slide:(id)sender {
+    ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:@"ALTransitionTestViewController" bundle:nil index:self.index+1];
+    ADTransition * animation = [[ADSlideTransition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
     [self.transitionController pushViewController:viewController withTransition:animation];
     [animation release];
     [viewController release];
