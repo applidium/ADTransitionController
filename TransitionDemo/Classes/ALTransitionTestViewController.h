@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ADTransitionController.h"
+#import "ALSettingsViewController.h"
 
-@interface ALTransitionTestViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
+@interface ALTransitionTestViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ALSettingsDelegate> {
     NSInteger _index;
     UILabel * _indexLabel;
     UILabel * _durationLabel;
@@ -18,8 +19,8 @@
     CGFloat _duration;
     ADTransitionOrientation _orientation;
 }
-@property (nonatomic, retain) IBOutlet UILabel * indexLabel;
-@property (nonatomic, retain) IBOutlet UILabel * durationLabel;
+
+@property (retain, nonatomic) IBOutlet UIButton * settingsButton;
 @property (retain, nonatomic) IBOutlet UITableView * tableView;
 @property (nonatomic) NSInteger index;
 
@@ -39,12 +40,6 @@
 - (IBAction)slide:(id)sender;
 - (IBAction)swap:(id)sender;
 - (IBAction)flip:(id)sender;
-- (IBAction)pop:(id)sender;
-- (IBAction)showHideNavigationBar:(id)sender;
-- (IBAction)setTop:(id)sender;
-- (IBAction)setBottom:(id)sender;
-- (IBAction)setLeft:(id)sender;
-- (IBAction)setRight:(id)sender;
 - (IBAction)focus:(id)sender;
-- (IBAction)durationChanged:(id)sender;
+- (IBAction)showSettings:(id)sender;
 @end

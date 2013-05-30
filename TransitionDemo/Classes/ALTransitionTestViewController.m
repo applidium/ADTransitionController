@@ -8,24 +8,27 @@
 
 #import "ALTransitionTestViewController.h"
 
+@interface ALTransitionTestViewController (Private)
+- (void)_retrieveSettings;
+- (void)_defaultsSettings;
+@end
+
 @implementation ALTransitionTestViewController
-@synthesize indexLabel = _indexLabel;
-@synthesize durationLabel = _durationLabel;
+
 @synthesize index = _index;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil index:(NSInteger)index {
     self = [self initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     self.index = index;
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:AL_SPEED_KEY]) {
+        [self _defaultsSettings];
+    }
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.indexLabel.text = [NSString stringWithFormat:@"%d", self.index];
     self.title = [NSString stringWithFormat:@"Index: %d", self.index];
-    _orientation = ADTransitionRightToLeft;
-    _duration = 0.5f;
-    self.durationLabel.text = [NSString stringWithFormat:@"Duration: %.1fs", _duration];
     
     UIColor * color = nil;
     int imageIndex = arc4random()%6;
@@ -52,9 +55,11 @@
             break;
     }
     self.tableView.backgroundColor = color;
+    [self _retrieveSettings];
 }
 
 - (void)viewDidUnload {
+    [self setSettingsButton:nil];
     [super viewDidUnload];
     [_durationLabel release], _durationLabel = nil;
     [_indexLabel release], _indexLabel = nil;       
@@ -64,6 +69,7 @@
     [_durationLabel release], _durationLabel = nil;
     [_indexLabel release], _indexLabel = nil;
     [_tableView release];
+    [_settingsButton release];
     [super dealloc];   
 }
 
@@ -353,8 +359,15 @@
     [viewController release];
 }
 
-- (IBAction)showHideNavigationBar:(id)sender {
-    [self.transitionController setNavigationBarHidden:![self.transitionController isNavigationBarHidden]];
+- (IBAction)showSettings:(id)sender {
+    ALSettingsViewController * settingsViewController = [[ALSettingsViewController alloc] init];
+    settingsViewController.delegate = self;
+    if ([self respondsToSelector:@selector(presentViewController:animated:completion:)]) {
+        [self presentViewController:settingsViewController animated:YES completion:nil];
+    } else {
+        [self presentModalViewController:settingsViewController animated:YES];
+    }
+    [settingsViewController release];
 }
 
 
@@ -378,24 +391,29 @@
 }
 
 #pragma mark -
-#pragma mark Orientation
-- (IBAction)setTop:(id)sender {
-    _orientation = ADTransitionBottomToTop;
-}
-- (IBAction)setBottom:(id)sender {
-    _orientation = ADTransitionTopToBottom;
-}
-- (IBAction)setLeft:(id)sender {
-    _orientation = ADTransitionRightToLeft;
-}
-- (IBAction)setRight:(id)sender {
-    _orientation = ADTransitionLeftToRight;
+#pragma mark ALSettingsDelegate methods
+
+- (void)settingsViewControllerDidUpdateSettings:(ALSettingsViewController *)settingsViewController {
+    [self _retrieveSettings];
 }
 
-#pragma mark -
-#pragma mark Duration
-- (IBAction)durationChanged:(id)sender {
-    _duration = ((UISlider *)sender).value;
-    self.durationLabel.text = [NSString stringWithFormat:@"Duration: %.1fs", _duration];
+@end
+
+@implementation ALTransitionTestViewController (Private)
+
+- (void)_retrieveSettings {
+    NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+    _duration = [[defaults objectForKey:AL_SPEED_KEY] floatValue];
+    _orientation = [[defaults objectForKey:AL_ORIENTATION_KEY] intValue];
+    [self.transitionController setNavigationBarHidden:[[defaults objectForKey:AL_NAVIGATION_BAR_HIDDEN_KEY] boolValue]];
 }
+
+- (void)_defaultsSettings {
+    NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setValue:@(0.5f) forKey:AL_SPEED_KEY];
+    [defaults setValue:@NO forKey:AL_NAVIGATION_BAR_HIDDEN_KEY];
+    [defaults setValue:@(ADTransitionLeftToRight) forKey:AL_ORIENTATION_KEY];
+    [defaults synchronize];
+}
+
 @end

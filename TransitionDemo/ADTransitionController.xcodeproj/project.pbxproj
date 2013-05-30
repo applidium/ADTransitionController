@@ -39,6 +39,8 @@
 		498C54FB17565C6900438969 /* ADPushRotateTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54FA17565C6800438969 /* ADPushRotateTransition.m */; };
 		498C54FE1756601E00438969 /* ADFoldTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54FD1756601D00438969 /* ADFoldTransition.m */; };
 		49F4C389175776A40083DE48 /* ADSlideTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F4C388175776A40083DE48 /* ADSlideTransition.m */; };
+		49F4C38D1757987E0083DE48 /* ALSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F4C38B1757987C0083DE48 /* ALSettingsViewController.m */; };
+		49F4C390175798A50083DE48 /* ALSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49F4C38F175798A50083DE48 /* ALSettingsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +102,9 @@
 		498C54FD1756601D00438969 /* ADFoldTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADFoldTransition.m; path = Classes/ADFoldTransition.m; sourceTree = SOURCE_ROOT; };
 		49F4C387175776A30083DE48 /* ADSlideTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADSlideTransition.h; path = Classes/ADSlideTransition.h; sourceTree = SOURCE_ROOT; };
 		49F4C388175776A40083DE48 /* ADSlideTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADSlideTransition.m; path = Classes/ADSlideTransition.m; sourceTree = SOURCE_ROOT; };
+		49F4C38A1757987B0083DE48 /* ALSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ALSettingsViewController.h; path = Classes/ALSettingsViewController.h; sourceTree = SOURCE_ROOT; };
+		49F4C38B1757987C0083DE48 /* ALSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ALSettingsViewController.m; path = Classes/ALSettingsViewController.m; sourceTree = SOURCE_ROOT; };
+		49F4C38F175798A50083DE48 /* ALSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALSettingsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +178,8 @@
 				498C546B1753B2E200438969 /* ADAppDelegate.m */,
 				498C54B11753B59600438969 /* ALTransitionTestViewController.h */,
 				498C54B21753B59600438969 /* ALTransitionTestViewController.m */,
+				49F4C38A1757987B0083DE48 /* ALSettingsViewController.h */,
+				49F4C38B1757987C0083DE48 /* ALSettingsViewController.m */,
 				498C54A01753B56E00438969 /* UIViewController+ADTransitionController.h */,
 				498C54A11753B56E00438969 /* UIViewController+ADTransitionController.m */,
 				498C549C1753B56E00438969 /* ADTransitionController.h */,
@@ -191,6 +198,7 @@
 		498C547D1753B4DE00438969 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				49F4C38F175798A50083DE48 /* ALSettingsViewController.xib */,
 				498C54BB1753BC9D00438969 /* ALTransitionTestViewController.xib */,
 				498C547E1753B4DE00438969 /* Default-568h@2x.png */,
 				498C547F1753B4DE00438969 /* Default.png */,
@@ -294,6 +302,7 @@
 				498C54821753B4DE00438969 /* Default.png in Resources */,
 				498C54831753B4DE00438969 /* Default@2x.png in Resources */,
 				498C54C01753BC9D00438969 /* ALTransitionTestViewController.xib in Resources */,
+				49F4C390175798A50083DE48 /* ALSettingsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +337,7 @@
 				498C54FB17565C6900438969 /* ADPushRotateTransition.m in Sources */,
 				498C54FE1756601E00438969 /* ADFoldTransition.m in Sources */,
 				49F4C389175776A40083DE48 /* ADSlideTransition.m in Sources */,
+				49F4C38D1757987E0083DE48 /* ALSettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
