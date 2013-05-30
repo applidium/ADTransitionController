@@ -101,9 +101,11 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
         }
         [viewController didMoveToParentViewController:self];
         
-        UINavigationItem * navigationItem = [[UINavigationItem alloc] initWithTitle:viewController.title];
+        UINavigationItem * navigationItem = viewController.navigationItem;
+        if (!navigationItem) {
+            navigationItem = [[[UINavigationItem alloc] initWithTitle:viewController.title] autorelease];
+        }
         [items addObject:navigationItem];
-        [navigationItem release];
     }
     [_navigationBar setItems:items];
     [items release];
@@ -194,13 +196,16 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
     [self _transitionfromView:viewOut toView:viewIn withTransition:transition];
     
     _isNavigationBarTransitioning = animated;
-    UINavigationItem * navigationItem = [[UINavigationItem alloc] initWithTitle:viewController.title];
+    
+    UINavigationItem * navigationItem = viewController.navigationItem;
+    if (!navigationItem) {
+        navigationItem = [[[UINavigationItem alloc] initWithTitle:viewController.title] autorelease];
+    }
     if (animated) {
         _isNavigationBarTransitioning = YES;
     }
     navigationItem.hidesBackButton = (_viewControllers.count == 0); // Hide the "Back" button for the root view controller
     [_navigationBar pushNavigationItem:navigationItem animated:animated];
-    [navigationItem release];
     
     if (!animated) { // Call the delegate method if no animation
         [self pushTransitionDidFinish:nil];
