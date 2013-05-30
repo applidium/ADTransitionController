@@ -23,8 +23,7 @@
 }
 
 - (id)initWithAnimation:(CAAnimation *)animation inLayerTransform:(CATransform3D)inTransform outLayerTransform:(CATransform3D)outTransform {
-    self = [super init];
-    if (self) {
+    if (self = [super init]) {
         _animation = [animation copy]; // the instances should be different because we don't want them to have the same delegate
         _animation.delegate = self;
         _inLayerTransform = inTransform;
@@ -34,8 +33,7 @@
 }
 
 - (id)initWithDuration:(CFTimeInterval)duration {
-    self = [super init];
-    if (self != nil) {
+    if (self = [super init]) {
         _inLayerTransform = CATransform3DIdentity;
         _outLayerTransform = CATransform3DIdentity;
     }
@@ -43,7 +41,7 @@
 }
 
 - (id)initWithDuration:(CFTimeInterval)duration sourceRect:(CGRect)sourceRect {
-    return  [self initWithDuration:duration];
+    return [self initWithDuration:duration];
 }
 
 - (ADTransition *)reverseTransition {

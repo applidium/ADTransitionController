@@ -11,15 +11,14 @@
 
 @implementation ADCrossTransition
 - (id)initWithDuration:(CFTimeInterval)duration {
-    self = [super initWithDuration:duration];
-    if (self != nil) {
+    if (self = [super initWithDuration:duration]) {
         CAAnimation * animation = nil;
         animation = [CABasicAnimation animationWithKeyPath:@"transform"];
         ((CABasicAnimation *)animation).fromValue = [NSValue valueWithCATransform3D:CATransform3DMakeRotation(M_PI * 0.5f, 0.0f, 1.0f, 0.0f)];
         ((CABasicAnimation *)animation).toValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
         _outLayerTransform = CATransform3DRotate(_outLayerTransform, -M_PI * 0.5f, 0.0f, 1.0f, 0.0f);
-        _animation = [animation retain];
         
+        _animation = [animation retain];
         _animation.duration = duration;
         _animation.delegate = self;
     }

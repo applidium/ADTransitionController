@@ -13,12 +13,9 @@
 @synthesize outAnimation = _outAnimation;
 
 - (id)initWithInAnimation:(CAAnimation *)inAnimation andOutAnimation:(CAAnimation *)outAnimation {
-    self = [self init];
-    if (self != nil) {
-        _inAnimation = inAnimation;
-        [_inAnimation retain];
-        _outAnimation = outAnimation;
-        [_outAnimation retain];
+    if (self = [self init]) {
+        _inAnimation = [inAnimation retain];
+        _outAnimation = [outAnimation retain];
         [self finishInit];
     }
     return self;

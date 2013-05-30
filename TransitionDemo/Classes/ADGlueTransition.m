@@ -11,81 +11,75 @@
 @implementation ADGlueTransition
 
 - (id)initWithDuration:(CFTimeInterval)duration orientation:(ADTransitionOrientation)orientation sourceRect:(CGRect)sourceRect {
-    self = [super init];
-    if (self != nil) {
-        const CGFloat viewWidth = sourceRect.size.width;
-        const CGFloat viewHeight = sourceRect.size.height;
-        const CGFloat widthAngle = M_PI / 4.0f;
-        const CGFloat heightAngle = M_PI / 6.0f;
-        
-        CABasicAnimation * inSwipeAnimation = [CABasicAnimation animationWithKeyPath:@"transform"];
-        inSwipeAnimation.toValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
-        
-        CGPoint anchorPoint;
-        CATransform3D startTranslation;
-        CATransform3D rotation;
-        switch (orientation) {
-            case ADTransitionRightToLeft:
-            {
-                inSwipeAnimation.fromValue = [NSValue valueWithCATransform3D:CATransform3DMakeTranslation(1.5 *viewWidth, 0.0f, 0.0f)];
-                anchorPoint = CGPointMake(0, 0.5f);
-                startTranslation = CATransform3DMakeTranslation(-viewWidth * 0.5f, 0, 0);
-                rotation = CATransform3DRotate(startTranslation,widthAngle, 0, 1.0f, 0);
-            }
-                break;
-            case ADTransitionLeftToRight:
-            {
-                inSwipeAnimation.fromValue = [NSValue valueWithCATransform3D:CATransform3DMakeTranslation(- 1.5 * viewWidth, 0.0f, 0.0f)];
-                anchorPoint = CGPointMake(1.0f, 0.5f);
-                startTranslation = CATransform3DMakeTranslation(viewWidth * 0.5f, 0, 0);
-                rotation = CATransform3DRotate(startTranslation, -widthAngle, 0, 1.0f, 0);
-            }
-                break;
-            case ADTransitionTopToBottom:
-            {
-                inSwipeAnimation.fromValue = [NSValue valueWithCATransform3D:CATransform3DMakeTranslation(0.0f, - 1.5 * viewHeight, 0.0f)];
-                anchorPoint = CGPointMake(0.5f, 1.0f);
-                startTranslation = CATransform3DMakeTranslation(0, viewHeight * 0.5f, 0);
-                rotation = CATransform3DRotate(startTranslation, heightAngle, 1.0f, 0, 0);
-            }
-                break;
-            case ADTransitionBottomToTop:
-            {
-                inSwipeAnimation.fromValue = [NSValue valueWithCATransform3D:CATransform3DMakeTranslation(0.0f, 1.5 * viewHeight, 0.0f)];
-                anchorPoint = CGPointMake(0.5f, 0);
-                startTranslation = CATransform3DMakeTranslation(0, -viewHeight * 0.5f, 0);
-                rotation = CATransform3DRotate(startTranslation, -heightAngle, 1.0f, 0, 0);
-            }
-                break;
-            default:
-                NSAssert(FALSE, @"Unhandled ADTransitionOrientation");
-                break;
+    const CGFloat viewWidth = sourceRect.size.width;
+    const CGFloat viewHeight = sourceRect.size.height;
+    const CGFloat widthAngle = M_PI / 4.0f;
+    const CGFloat heightAngle = M_PI / 6.0f;
+    
+    CABasicAnimation * inSwipeAnimation = [CABasicAnimation animationWithKeyPath:@"transform"];
+    inSwipeAnimation.toValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
+    
+    CGPoint anchorPoint;
+    CATransform3D startTranslation;
+    CATransform3D rotation;
+    switch (orientation) {
+        case ADTransitionRightToLeft:
+        {
+            inSwipeAnimation.fromValue = [NSValue valueWithCATransform3D:CATransform3DMakeTranslation(1.5 *viewWidth, 0.0f, 0.0f)];
+            anchorPoint = CGPointMake(0, 0.5f);
+            startTranslation = CATransform3DMakeTranslation(-viewWidth * 0.5f, 0, 0);
+            rotation = CATransform3DRotate(startTranslation,widthAngle, 0, 1.0f, 0);
         }
-        
-        CATransform3D endTranslation = CATransform3DTranslate(startTranslation, 0, 0, -viewWidth * 0.7f);
-        
-        CABasicAnimation * outAnchorPointAnimation = [CABasicAnimation animationWithKeyPath:@"anchorPoint"];
-        outAnchorPointAnimation.fromValue = [NSValue valueWithCGPoint:anchorPoint];
-        outAnchorPointAnimation.toValue = [NSValue valueWithCGPoint:anchorPoint];
-        
-        CAKeyframeAnimation * outTransformKeyFrameAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
-        outTransformKeyFrameAnimation.values = @[[NSValue valueWithCATransform3D:startTranslation], [NSValue valueWithCATransform3D:rotation], [NSValue valueWithCATransform3D:endTranslation]];
-        outTransformKeyFrameAnimation.timingFunctions = [self getCircleApproximationTimingFunctions];
-
-        CAKeyframeAnimation * outOpacityKeyFrameAnimation = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
-        outOpacityKeyFrameAnimation.values = @[[NSNumber numberWithFloat:1.0f], [NSNumber numberWithFloat:1.0f], [NSNumber numberWithFloat:0.0f]];
-        
-        CAAnimationGroup * outAnimation = [CAAnimationGroup animation];
-        [outAnimation setAnimations:@[outOpacityKeyFrameAnimation, outTransformKeyFrameAnimation, outAnchorPointAnimation]];
-        
-        _inAnimation = inSwipeAnimation;
-        _outAnimation = outAnimation;
-        _inAnimation.duration = duration;
-        _outAnimation.duration = duration;
-        [_inAnimation retain];
-        [_outAnimation retain];
-        [self finishInit];
+            break;
+        case ADTransitionLeftToRight:
+        {
+            inSwipeAnimation.fromValue = [NSValue valueWithCATransform3D:CATransform3DMakeTranslation(- 1.5 * viewWidth, 0.0f, 0.0f)];
+            anchorPoint = CGPointMake(1.0f, 0.5f);
+            startTranslation = CATransform3DMakeTranslation(viewWidth * 0.5f, 0, 0);
+            rotation = CATransform3DRotate(startTranslation, -widthAngle, 0, 1.0f, 0);
+        }
+            break;
+        case ADTransitionTopToBottom:
+        {
+            inSwipeAnimation.fromValue = [NSValue valueWithCATransform3D:CATransform3DMakeTranslation(0.0f, - 1.5 * viewHeight, 0.0f)];
+            anchorPoint = CGPointMake(0.5f, 1.0f);
+            startTranslation = CATransform3DMakeTranslation(0, viewHeight * 0.5f, 0);
+            rotation = CATransform3DRotate(startTranslation, heightAngle, 1.0f, 0, 0);
+        }
+            break;
+        case ADTransitionBottomToTop:
+        {
+            inSwipeAnimation.fromValue = [NSValue valueWithCATransform3D:CATransform3DMakeTranslation(0.0f, 1.5 * viewHeight, 0.0f)];
+            anchorPoint = CGPointMake(0.5f, 0);
+            startTranslation = CATransform3DMakeTranslation(0, -viewHeight * 0.5f, 0);
+            rotation = CATransform3DRotate(startTranslation, -heightAngle, 1.0f, 0, 0);
+        }
+            break;
+        default:
+            NSAssert(FALSE, @"Unhandled ADTransitionOrientation");
+            break;
     }
+    
+    CATransform3D endTranslation = CATransform3DTranslate(startTranslation, 0, 0, -viewWidth * 0.7f);
+    
+    CABasicAnimation * outAnchorPointAnimation = [CABasicAnimation animationWithKeyPath:@"anchorPoint"];
+    outAnchorPointAnimation.fromValue = [NSValue valueWithCGPoint:anchorPoint];
+    outAnchorPointAnimation.toValue = [NSValue valueWithCGPoint:anchorPoint];
+    
+    CAKeyframeAnimation * outTransformKeyFrameAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
+    outTransformKeyFrameAnimation.values = @[[NSValue valueWithCATransform3D:startTranslation], [NSValue valueWithCATransform3D:rotation], [NSValue valueWithCATransform3D:endTranslation]];
+    outTransformKeyFrameAnimation.timingFunctions = [self getCircleApproximationTimingFunctions];
+    
+    CAKeyframeAnimation * outOpacityKeyFrameAnimation = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    outOpacityKeyFrameAnimation.values = @[[NSNumber numberWithFloat:1.0f], [NSNumber numberWithFloat:1.0f], [NSNumber numberWithFloat:0.0f]];
+    
+    CAAnimationGroup * outAnimation = [CAAnimationGroup animation];
+    [outAnimation setAnimations:@[outOpacityKeyFrameAnimation, outTransformKeyFrameAnimation, outAnchorPointAnimation]];
+    
+    inSwipeAnimation.duration = duration;
+    outAnimation.duration = duration;
+    
+    self = [super initWithInAnimation:inSwipeAnimation andOutAnimation:outAnimation];
     return self;
 }
 

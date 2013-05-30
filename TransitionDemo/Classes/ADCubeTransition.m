@@ -11,8 +11,7 @@
 
 @implementation ADCubeTransition
 - (id)initWithDuration:(CFTimeInterval)duration orientation:(ADTransitionOrientation)orientation sourceRect:(CGRect)sourceRect {
-    self = [super initWithDuration:duration];
-    if (self != nil) {
+    if (self = [super initWithDuration:duration]) {
         CAAnimation * animation = nil;
         CGFloat viewWidth = sourceRect.size.width;
         CGFloat viewHeight = sourceRect.size.height;
@@ -47,16 +46,15 @@
         cubeRotation.duration = duration;
         
         CAKeyframeAnimation * zTranslationAnimation = [CAKeyframeAnimation animationWithKeyPath:@"zPosition"];
-        zTranslationAnimation.values = [NSArray arrayWithObjects:[NSNumber numberWithFloat:0.0f], [NSNumber numberWithFloat:-36.0f], [NSNumber numberWithFloat:0.0f], nil];
+        zTranslationAnimation.values = @[[NSNumber numberWithFloat:0.0f], [NSNumber numberWithFloat:-36.0f], [NSNumber numberWithFloat:0.0f]];
         
         zTranslationAnimation.timingFunctions = [self getCircleApproximationTimingFunctions];
         zTranslationAnimation.duration = duration;
         
         animation = [CAAnimationGroup animation];
-        [(CAAnimationGroup *)animation setAnimations:[NSArray arrayWithObjects:cubeRotation, zTranslationAnimation, nil]];
+        [(CAAnimationGroup *)animation setAnimations:@[cubeRotation, zTranslationAnimation]];
         
         _animation = [animation retain];
-        
         _animation.duration = duration;
         _animation.delegate = self;
     }
