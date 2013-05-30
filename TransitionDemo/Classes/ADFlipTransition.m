@@ -66,9 +66,11 @@
     
     CAAnimationGroup * inAnimation = [CAAnimationGroup animation];
     [inAnimation setAnimations:@[inFlipAnimation, zTranslationAnimation]];
+    inAnimation.duration = duration;
     
     CAAnimationGroup * outAnimation = [CAAnimationGroup animation];
     [outAnimation setAnimations:@[outFlipAnimation, zTranslationAnimation]];
+    outAnimation.duration = duration;
     
     self = [super initWithInAnimation:inAnimation andOutAnimation:outAnimation];
     return self;
