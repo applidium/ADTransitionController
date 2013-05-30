@@ -51,9 +51,9 @@
 - (void)setNavigationBarHidden:(BOOL)hidden animated:(BOOL)animated;
 
 - (id)initWithRootViewController:(UIViewController *)rootViewController;
-- (void)pushViewController:(UIViewController *)viewController withTransition:(ADTransition *)animation;
+- (void)pushViewController:(UIViewController *)viewController withTransition:(ADTransition *)transition;
 - (UIViewController *)popViewController;
-- (UIViewController *)popViewControllerWithTransition:(ADTransition *)animation;
+- (UIViewController *)popViewControllerWithTransition:(ADTransition *)transition;
 - (NSArray *)popToViewController:(UIViewController *)viewController;
 - (NSArray *)popToViewController:(UIViewController *)viewController withTransition:(ADTransition *)transition ;
 - (NSArray *)popToRootViewController;

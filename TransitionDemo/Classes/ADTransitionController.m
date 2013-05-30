@@ -23,7 +23,7 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
 
 @interface ADTransitionController (Private)
 - (void)_initialize;
-- (void)_transitionfromView:(UIView *)viewOut toView:(UIView *)viewIn withTransition:(ADTransition *)animation;
+- (void)_transitionfromView:(UIView *)viewOut toView:(UIView *)viewIn withTransition:(ADTransition *)transition;
 @end
 
 @interface ADTransitionController () {
