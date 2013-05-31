@@ -10,6 +10,10 @@
 #import <QuartzCore/CoreAnimation.h>
 #import <objc/runtime.h>
 
+@implementation CATransformLayer (MyExtension)
+-(void)setOpaque:(BOOL)opaque { return; } // Avoid warning at start "changing property opaque in transform-only layer, will have no effect"
+@end
+
 @implementation ADTransitionView
 + (Class)layerClass {
     return [CATransformLayer class];
