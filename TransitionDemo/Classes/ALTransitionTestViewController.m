@@ -31,24 +31,21 @@
     self.title = [NSString stringWithFormat:@"Index: %d", self.index];
     
     UIColor * color = nil;
-    int imageIndex = arc4random()%6;
+    int imageIndex = arc4random() % 5;
     switch (imageIndex) {
-        case 0:
-            color = [UIColor colorWithRed:138.0f / 255.0f green:214.0f / 255.0f blue:168.0f / 255.0f alpha:1.0f];
+        case 0: // Green
+            color = [UIColor colorWithRed:0.335 green:0.802 blue:0.313 alpha:1.000];
             break;
-        case 1:
+        case 1: // Yellow
             color = [UIColor colorWithRed:240.0f / 255.0f green:193.0f / 255.0f blue:93.0f / 255.0f alpha:1.0f];
             break;
-        case 2:
-            color = [UIColor colorWithRed:227.0f / 255.0f green:107.0f / 255.0f blue:95.0f / 255.0f alpha:1.0f];
+        case 2: // Red
+            color = [UIColor colorWithRed:0.890 green:0.323 blue:0.302 alpha:1.000];
             break;
-        case 3:
+        case 3: // Blue
             color = [UIColor colorWithRed:102.0f / 255.0f green:192.0f / 255.0f blue:210.0f / 255.0f alpha:1.0f];
             break;
-        case 4:
-            color = [UIColor colorWithRed:138.0f / 255.0f green:181.0f / 255.0f blue:251.0f / 255.0f alpha:1.0f];
-            break;
-        case 5:
+        case 4: // Pink
             color = [UIColor colorWithRed:255.0f / 255.0f green:140.0f / 255.0f blue:185.0f / 255.0f alpha:1.0f];
             break;
         default:

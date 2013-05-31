@@ -34,6 +34,7 @@
     [_speedLabel release];
     [_slider release];
     [_switchView release];
+    [_scrollView release];
     [super dealloc];
 }
 
@@ -42,6 +43,7 @@
     [self setSpeedLabel:nil];
     [self setSlider:nil];
     [self setSwitchView:nil];
+    [self setScrollView:nil];
     [super viewDidUnload];
 }
 
@@ -50,6 +52,7 @@
     self.slider.value = _speed;
     self.speedLabel.text = [NSString stringWithFormat:@"%.2fs", self.slider.value];
     self.switchView.on = !_navigationBarHidden;
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, CGRectGetMaxY(self.tableView.frame) - 64.0f);
 }
 
 - (IBAction)toggleNavigationBar:(UISwitch *)sender {

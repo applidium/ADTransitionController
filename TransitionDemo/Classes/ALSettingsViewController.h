@@ -17,6 +17,7 @@
 
 @interface ALSettingsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
+@property (retain, nonatomic) IBOutlet UIScrollView * scrollView;
 @property (retain, nonatomic) IBOutlet UITableView * tableView;
 @property (retain, nonatomic) IBOutlet UILabel * speedLabel;
 @property (retain, nonatomic) IBOutlet UISlider *slider;
