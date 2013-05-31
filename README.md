@@ -128,7 +128,7 @@ The `ADTransition` class is an abstract class that has two abstract subclasses :
 
 For now, the transitions available in the project are the following : 
 
-- ADCarrousselTransition
+- ADCarrouselTransition
 - ADCubeTransition
 - ADCrossTransition
 - ADFlipTransition
