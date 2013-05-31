@@ -40,6 +40,7 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
 @synthesize topViewController = _topViewController;
 @synthesize visibleViewController = _visibleViewController;
 @synthesize delegate = _delegate;
+@synthesize navigationBar = _navigationBar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -64,6 +65,7 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
 - (void)dealloc {
     [_transitions release], _transitions = nil;
     [_viewControllers release], _viewControllers = nil;
+    [_navigationBar release], _navigationBar = nil;
     [super dealloc];
 }
 
@@ -86,7 +88,6 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
     _navigationBar.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
     _navigationBar.delegate = self;
     [self.view addSubview:_navigationBar];
-    [_navigationBar release];
     
     // Create and add the container view that will hold the controller views
     _containerView = [[ADTransitionView alloc] initWithFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y + navigationBarHeight, self.view.frame.size.width, self.view.frame.size.height - navigationBarHeight)];

@@ -46,6 +46,7 @@
 @property (nonatomic, copy) NSMutableArray * viewControllers;
 @property (nonatomic, readonly, retain) UIViewController * topViewController;
 @property (nonatomic, readonly, retain) UIViewController * visibleViewController;
+@property(nonatomic, readonly) UINavigationBar * navigationBar;
 @property (nonatomic, assign) id<ADTransitionControllerDelegate> delegate;
 @property(nonatomic, getter = isNavigationBarHidden, setter = setNavigationBarHidden:) BOOL navigationBarHidden;
 
