@@ -58,6 +58,11 @@
     [self _retrieveSettings];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+}
+
 - (void)viewDidUnload {
     [self setSettingsButton:nil];
     [super viewDidUnload];
@@ -107,8 +112,7 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:sCellIdentifier] autorelease];
     }
     
-    NSString * text = @"todo";
-    
+    NSString * text = nil;
     switch (indexPath.section) {
         case 0: //ADDualTransition
             switch (indexPath.row) {
@@ -167,8 +171,8 @@
             }
             break;
     }
-    
     cell.textLabel.text = text;
+    
     return cell;
 }
 
@@ -370,26 +374,6 @@
         [self presentModalViewController:settingsViewController animated:YES];
     }
     [settingsViewController release];
-}
-
-
-#pragma mark -
-#pragma mark Appearance
-- (void)viewDidAppear:(BOOL)animated {
-    NSLog(@"ALTransitionTestViewController %d viewDidAppear: %d", self.index, animated);
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
-    NSLog(@"ALTransitionTestViewController %d viewWillAppear: %d", self.index, animated);
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    NSLog(@"ALTransitionTestViewController %d viewDidDisappear: %d", self.index, animated);
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    NSLog(@"ALTransitionTestViewController %d viewWillDisappear: %d", self.index, animated);
 }
 
 #pragma mark -

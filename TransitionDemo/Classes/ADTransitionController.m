@@ -375,7 +375,6 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
     if (animated) {
         [UIView beginAnimations:nil context:NULL];
     }
-    NSLog(@"%i %i", [self isNavigationBarHidden], hidden);
     if ([self isNavigationBarHidden] && !hidden) {
         _navigationBar.alpha = 1.0f;
         _containerView.frame = CGRectMake(_containerView.frame.origin.x, _containerView.frame.origin.y + navigationBarHeight, _containerView.frame.size.width, _containerView.frame.size.height - navigationBarHeight);
