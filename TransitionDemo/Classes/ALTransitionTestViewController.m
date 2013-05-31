@@ -210,7 +210,7 @@
                     [self glue:nil];
                     break;
                 case 10: // Zoom
-                    [self focus:nil];
+                    [self focus:[tableView cellForRowAtIndexPath:indexPath]];
                     break;
                 case 11: // Ghost
                     [self ghost:nil];
@@ -352,7 +352,9 @@
 }
 
 - (IBAction)focus:(id)sender {
-    ADTransition * transition = [[ADZoomTransition alloc] initWithSourceRect:[sender frame] andTargetRect:self.view.frame forDuration:_duration];
+    CGRect sourceRect = [sender frame];
+    sourceRect.origin.y = sourceRect.origin.y - self.tableView.contentOffset.y;
+    ADTransition * transition = [[ADZoomTransition alloc] initWithSourceRect:sourceRect andTargetRect:self.view.frame forDuration:_duration];
     ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:@"ALTransitionTestViewController" bundle:nil index:self.index+1];
     [self.transitionController pushViewController:viewController withTransition:transition];
     [transition release];
