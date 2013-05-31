@@ -414,7 +414,7 @@
     NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
     [defaults setValue:@(0.5f) forKey:AL_SPEED_KEY];
     [defaults setValue:@NO forKey:AL_NAVIGATION_BAR_HIDDEN_KEY];
-    [defaults setValue:@(ADTransitionLeftToRight) forKey:AL_ORIENTATION_KEY];
+    [defaults setValue:@(ADTransitionRightToLeft) forKey:AL_ORIENTATION_KEY];
     [defaults synchronize];
 }
 
