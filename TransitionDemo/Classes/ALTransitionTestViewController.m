@@ -52,12 +52,12 @@
             break;
     }
     self.tableView.backgroundColor = color;
-    [self _retrieveSettings];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+    [self _retrieveSettings];
 }
 
 - (void)viewDidUnload {
