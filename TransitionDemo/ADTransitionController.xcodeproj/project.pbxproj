@@ -38,7 +38,6 @@
 		498C54F81756497E00438969 /* ADGlueTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54F71756497D00438969 /* ADGlueTransition.m */; };
 		498C54FB17565C6900438969 /* ADPushRotateTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54FA17565C6800438969 /* ADPushRotateTransition.m */; };
 		498C54FE1756601E00438969 /* ADFoldTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54FD1756601D00438969 /* ADFoldTransition.m */; };
-		498F0C69175CBA1600EFBC6F /* ALTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 498F0C68175CBA1600EFBC6F /* ALTableViewCell.m */; };
 		498F0C6C175CC14800EFBC6F /* ALTableViewHeaderBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 498F0C6A175CC14800EFBC6F /* ALTableViewHeaderBackground.png */; };
 		498F0C6D175CC14800EFBC6F /* ALTableViewHeaderBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 498F0C6B175CC14800EFBC6F /* ALTableViewHeaderBackground@2x.png */; };
 		498F0C76175CC50D00EFBC6F /* ALBackButtonOff.png in Resources */ = {isa = PBXBuildFile; fileRef = 498F0C72175CC50D00EFBC6F /* ALBackButtonOff.png */; };
@@ -127,8 +126,6 @@
 		498C54FA17565C6800438969 /* ADPushRotateTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADPushRotateTransition.m; path = Classes/ADPushRotateTransition.m; sourceTree = SOURCE_ROOT; };
 		498C54FC1756601C00438969 /* ADFoldTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADFoldTransition.h; path = Classes/ADFoldTransition.h; sourceTree = SOURCE_ROOT; };
 		498C54FD1756601D00438969 /* ADFoldTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADFoldTransition.m; path = Classes/ADFoldTransition.m; sourceTree = SOURCE_ROOT; };
-		498F0C67175CBA1600EFBC6F /* ALTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ALTableViewCell.h; path = Classes/ALTableViewCell.h; sourceTree = SOURCE_ROOT; };
-		498F0C68175CBA1600EFBC6F /* ALTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ALTableViewCell.m; path = Classes/ALTableViewCell.m; sourceTree = SOURCE_ROOT; };
 		498F0C6A175CC14800EFBC6F /* ALTableViewHeaderBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ALTableViewHeaderBackground.png; sourceTree = "<group>"; };
 		498F0C6B175CC14800EFBC6F /* ALTableViewHeaderBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ALTableViewHeaderBackground@2x.png"; sourceTree = "<group>"; };
 		498F0C72175CC50D00EFBC6F /* ALBackButtonOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ALBackButtonOff.png; sourceTree = "<group>"; };
@@ -232,25 +229,9 @@
 			children = (
 				498C546A1753B2E200438969 /* ADAppDelegate.h */,
 				498C546B1753B2E200438969 /* ADAppDelegate.m */,
-				498C54B11753B59600438969 /* ALTransitionTestViewController.h */,
-				498C54B21753B59600438969 /* ALTransitionTestViewController.m */,
-				498F0C67175CBA1600EFBC6F /* ALTableViewCell.h */,
-				498F0C68175CBA1600EFBC6F /* ALTableViewCell.m */,
-				49F4C38A1757987B0083DE48 /* ALSettingsViewController.h */,
-				49F4C38B1757987C0083DE48 /* ALSettingsViewController.m */,
-				498F0CA6175CD46F00EFBC6F /* ALSettingsTableViewCell.h */,
-				498F0CA7175CD46F00EFBC6F /* ALSettingsTableViewCell.m */,
-				498C54A01753B56E00438969 /* UIViewController+ADTransitionController.h */,
-				498C54A11753B56E00438969 /* UIViewController+ADTransitionController.m */,
-				498C549C1753B56E00438969 /* ADTransitionController.h */,
-				498C549D1753B56E00438969 /* ADTransitionController.m */,
-				498C549A1753B56E00438969 /* ADTransition.h */,
-				498C549B1753B56E00438969 /* ADTransition.m */,
-				498C548C1753B56E00438969 /* ADDualTransition.h */,
-				498C548D1753B56E00438969 /* ADDualTransition.m */,
-				498C54981753B56E00438969 /* ADTransformTransition.h */,
-				498C54991753B56E00438969 /* ADTransformTransition.m */,
-				498C54B61753B80700438969 /* Templates */,
+				498F0CB2175CDC2E00EFBC6F /* Controllers */,
+				498F0CB3175CDC3B00EFBC6F /* Views */,
+				498F0CB4175CDC5900EFBC6F /* ADTransitionController */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -264,30 +245,7 @@
 				498C547E1753B4DE00438969 /* Default-568h@2x.png */,
 				498C547F1753B4DE00438969 /* Default.png */,
 				498C54801753B4DE00438969 /* Default@2x.png */,
-				498F0C7A175CC5C800EFBC6F /* ALNavigationBarBackground.png */,
-				498F0C7B175CC5C800EFBC6F /* ALNavigationBarBackground@2x.png */,
-				498F0C6A175CC14800EFBC6F /* ALTableViewHeaderBackground.png */,
-				498F0C6B175CC14800EFBC6F /* ALTableViewHeaderBackground@2x.png */,
-				498F0C72175CC50D00EFBC6F /* ALBackButtonOff.png */,
-				498F0C73175CC50D00EFBC6F /* ALBackButtonOff@2x.png */,
-				498F0C74175CC50D00EFBC6F /* ALBackButtonOn.png */,
-				498F0C75175CC50D00EFBC6F /* ALBackButtonOn@2x.png */,
-				498F0C7E175CC6C300EFBC6F /* ALSettingsButtonOff.png */,
-				498F0C7F175CC6C300EFBC6F /* ALSettingsButtonOff@2x.png */,
-				498F0C80175CC6C300EFBC6F /* ALSettingsButtonOn.png */,
-				498F0C81175CC6C300EFBC6F /* ALSettingsButtonOn@2x.png */,
-				498F0C86175CCB8300EFBC6F /* ALDoneButtonOff.png */,
-				498F0C87175CCB8300EFBC6F /* ALDoneButtonOff@2x.png */,
-				498F0C88175CCB8300EFBC6F /* ALDoneButtonOn.png */,
-				498F0C89175CCB8300EFBC6F /* ALDoneButtonOn@2x.png */,
-				498F0C9A175CD11800EFBC6F /* ALSpeedSettingBackground.png */,
-				498F0C9B175CD11800EFBC6F /* ALSpeedSettingBackground@2x.png */,
-				498F0CA2175CD42500EFBC6F /* ALCheck.png */,
-				498F0CA3175CD42500EFBC6F /* ALCheck@2x.png */,
-				498F0CA9175CD63600EFBC6F /* ALSettingsTableViewBackground.png */,
-				498F0CAA175CD63600EFBC6F /* ALSettingsTableViewBackground@2x.png */,
-				498F0CAD175CD93200EFBC6F /* ALCredits.png */,
-				498F0CAE175CD93200EFBC6F /* ALCredits@2x.png */,
+				498F0CB1175CDC0100EFBC6F /* Assets */,
 			);
 			path = Resources;
 			sourceTree = SOURCE_ROOT;
@@ -329,6 +287,75 @@
 				49F4C388175776A40083DE48 /* ADSlideTransition.m */,
 			);
 			name = Templates;
+			sourceTree = "<group>";
+		};
+		498F0CB1175CDC0100EFBC6F /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				498F0C7A175CC5C800EFBC6F /* ALNavigationBarBackground.png */,
+				498F0C7B175CC5C800EFBC6F /* ALNavigationBarBackground@2x.png */,
+				498F0C6A175CC14800EFBC6F /* ALTableViewHeaderBackground.png */,
+				498F0C6B175CC14800EFBC6F /* ALTableViewHeaderBackground@2x.png */,
+				498F0C72175CC50D00EFBC6F /* ALBackButtonOff.png */,
+				498F0C73175CC50D00EFBC6F /* ALBackButtonOff@2x.png */,
+				498F0C74175CC50D00EFBC6F /* ALBackButtonOn.png */,
+				498F0C75175CC50D00EFBC6F /* ALBackButtonOn@2x.png */,
+				498F0C7E175CC6C300EFBC6F /* ALSettingsButtonOff.png */,
+				498F0C7F175CC6C300EFBC6F /* ALSettingsButtonOff@2x.png */,
+				498F0C80175CC6C300EFBC6F /* ALSettingsButtonOn.png */,
+				498F0C81175CC6C300EFBC6F /* ALSettingsButtonOn@2x.png */,
+				498F0C86175CCB8300EFBC6F /* ALDoneButtonOff.png */,
+				498F0C87175CCB8300EFBC6F /* ALDoneButtonOff@2x.png */,
+				498F0C88175CCB8300EFBC6F /* ALDoneButtonOn.png */,
+				498F0C89175CCB8300EFBC6F /* ALDoneButtonOn@2x.png */,
+				498F0C9A175CD11800EFBC6F /* ALSpeedSettingBackground.png */,
+				498F0C9B175CD11800EFBC6F /* ALSpeedSettingBackground@2x.png */,
+				498F0CA2175CD42500EFBC6F /* ALCheck.png */,
+				498F0CA3175CD42500EFBC6F /* ALCheck@2x.png */,
+				498F0CA9175CD63600EFBC6F /* ALSettingsTableViewBackground.png */,
+				498F0CAA175CD63600EFBC6F /* ALSettingsTableViewBackground@2x.png */,
+				498F0CAD175CD93200EFBC6F /* ALCredits.png */,
+				498F0CAE175CD93200EFBC6F /* ALCredits@2x.png */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		498F0CB2175CDC2E00EFBC6F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				498C54B11753B59600438969 /* ALTransitionTestViewController.h */,
+				498C54B21753B59600438969 /* ALTransitionTestViewController.m */,
+				49F4C38A1757987B0083DE48 /* ALSettingsViewController.h */,
+				49F4C38B1757987C0083DE48 /* ALSettingsViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		498F0CB3175CDC3B00EFBC6F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				498F0CA6175CD46F00EFBC6F /* ALSettingsTableViewCell.h */,
+				498F0CA7175CD46F00EFBC6F /* ALSettingsTableViewCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		498F0CB4175CDC5900EFBC6F /* ADTransitionController */ = {
+			isa = PBXGroup;
+			children = (
+				498C549C1753B56E00438969 /* ADTransitionController.h */,
+				498C549D1753B56E00438969 /* ADTransitionController.m */,
+				498C54A01753B56E00438969 /* UIViewController+ADTransitionController.h */,
+				498C54A11753B56E00438969 /* UIViewController+ADTransitionController.m */,
+				498C549A1753B56E00438969 /* ADTransition.h */,
+				498C549B1753B56E00438969 /* ADTransition.m */,
+				498C548C1753B56E00438969 /* ADDualTransition.h */,
+				498C548D1753B56E00438969 /* ADDualTransition.m */,
+				498C54981753B56E00438969 /* ADTransformTransition.h */,
+				498C54991753B56E00438969 /* ADTransformTransition.m */,
+				498C54B61753B80700438969 /* Templates */,
+			);
+			name = ADTransitionController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -448,7 +475,6 @@
 				498C54FE1756601E00438969 /* ADFoldTransition.m in Sources */,
 				49F4C389175776A40083DE48 /* ADSlideTransition.m in Sources */,
 				49F4C38D1757987E0083DE48 /* ALSettingsViewController.m in Sources */,
-				498F0C69175CBA1600EFBC6F /* ALTableViewCell.m in Sources */,
 				498F0CA8175CD46F00EFBC6F /* ALSettingsTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

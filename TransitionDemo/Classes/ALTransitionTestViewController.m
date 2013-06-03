@@ -7,7 +7,6 @@
 //
 
 #import "ALTransitionTestViewController.h"
-#import "ALTableViewCell.h"
 
 @interface ALTransitionTestViewController (Private)
 - (void)_retrieveSettings;
@@ -18,12 +17,9 @@
 @interface ALTransitionTestViewController () {
     UIColor * _cellColor;
 }
-
 @end
 
 @implementation ALTransitionTestViewController
-
-@synthesize index = _index;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil index:(NSInteger)index {
     self = [self initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -57,7 +53,6 @@
     }
     [_cellColor release];
     _cellColor = [color retain];
-    self.tableView.backgroundColor = [UIColor whiteColor];
     
     [self _setupBarButtonItems];
 }
@@ -72,14 +67,10 @@
     [self setSettingsButton:nil];
     [self setBackButton:nil];
     [super viewDidUnload];
-    [_durationLabel release], _durationLabel = nil;
-    [_indexLabel release], _indexLabel = nil;       
 }
 
 - (void)dealloc {
-    [_cellColor release], _cellColor = nil;
-    [_durationLabel release], _durationLabel = nil;
-    [_indexLabel release], _indexLabel = nil;
+    [_cellColor release];
     [_tableView release];
     [_settingsButton release];
     [_backButton release];
@@ -149,9 +140,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString * sCellIdentifier = @"CellIdentifier";
-    ALTableViewCell * cell = (ALTableViewCell *)[tableView dequeueReusableCellWithIdentifier:sCellIdentifier];
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:sCellIdentifier];
     if (!cell) {
-        cell = [[[ALTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:sCellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:sCellIdentifier] autorelease];
     }
     
     UIView * backgroundView = [[UIView alloc] initWithFrame:cell.frame];
@@ -218,6 +209,8 @@
             break;
     }
     cell.textLabel.text = text;
+    cell.textLabel.textAlignment = UITextAlignmentCenter;
+    cell.textLabel.textColor = [UIColor colorWithWhite:0.925f alpha:1.0f];
     
     return cell;
 }

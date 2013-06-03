@@ -14,7 +14,6 @@
     ADTransitionOrientation _orientation;
     BOOL _navigationBarHidden;
 }
-
 @end
 
 @implementation ALSettingsViewController

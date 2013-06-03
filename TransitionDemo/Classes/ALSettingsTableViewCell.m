@@ -15,7 +15,6 @@
     return [[nibViews lastObject] retain];
 }
 
-
 - (void)dealloc {
     [_orientationLabel release];
     [_checkImageView release];

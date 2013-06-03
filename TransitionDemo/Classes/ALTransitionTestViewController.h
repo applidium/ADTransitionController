@@ -12,10 +12,6 @@
 
 @interface ALTransitionTestViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ALSettingsDelegate> {
     NSInteger _index;
-    UILabel * _indexLabel;
-    UILabel * _durationLabel;
-    UIImageView * _backgroundView;
-    void * _garbage;
     CGFloat _duration;
     ADTransitionOrientation _orientation;
 }
