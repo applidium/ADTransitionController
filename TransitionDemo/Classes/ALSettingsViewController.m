@@ -7,6 +7,7 @@
 //
 
 #import "ALSettingsViewController.h"
+#import "ALSettingsTableViewCell.h"
 
 @interface ALSettingsViewController () {
     CGFloat _speed;
@@ -35,6 +36,7 @@
     [_slider release];
     [_switchView release];
     [_scrollView release];
+    [_creditView release];
     [super dealloc];
 }
 
@@ -44,6 +46,7 @@
     [self setSlider:nil];
     [self setSwitchView:nil];
     [self setScrollView:nil];
+    [self setCreditView:nil];
     [super viewDidUnload];
 }
 
@@ -52,7 +55,7 @@
     self.slider.value = _speed;
     self.speedLabel.text = [NSString stringWithFormat:@"%.2fs", self.slider.value];
     self.switchView.on = !_navigationBarHidden;
-    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, CGRectGetMaxY(self.tableView.frame) - 64.0f);
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, CGRectGetMaxY(self.creditView.frame) + 20.0f);
 }
 
 - (IBAction)toggleNavigationBar:(UISwitch *)sender {
@@ -86,7 +89,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell * cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    ALSettingsTableViewCell * cell = [ALSettingsTableViewCell newCell];
     
     NSString * text = nil;
     switch (indexPath.row) {
@@ -103,11 +106,17 @@
             text = @"ADTransitionBottomToTop";
             break;
     }
-    cell.textLabel.text = text;
-
+    cell.orientationLabel.text = text;
+    cell.checkImageView.hidden = _orientation != indexPath.row;
     if (_orientation == indexPath.row) {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        cell.checkImageView.hidden = NO;
+        cell.orientationLabel.textColor = [UIColor colorWithRed:0.000 green:0.498 blue:0.918 alpha:1.0f];
+    } else {
+        cell.checkImageView.hidden = YES;
+        cell.orientationLabel.textColor = [UIColor colorWithRed:0.133 green:0.118 blue:0.149 alpha:1.0f];
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     return cell;
 }
 
@@ -117,7 +126,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     _orientation = indexPath.row;
-    [tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableView reloadData];
 }
 
 @end
