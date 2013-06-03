@@ -7,10 +7,18 @@
 //
 
 #import "ALTransitionTestViewController.h"
+#import "ALTableViewCell.h"
 
 @interface ALTransitionTestViewController (Private)
 - (void)_retrieveSettings;
 - (void)_defaultsSettings;
+- (void)_setupBarButtonItems;
+@end
+
+@interface ALTransitionTestViewController () {
+    UIColor * _cellColor;
+}
+
 @end
 
 @implementation ALTransitionTestViewController
@@ -31,27 +39,27 @@
     self.title = [NSString stringWithFormat:@"Index: %d", self.index];
     
     UIColor * color = nil;
-    int imageIndex = arc4random() % 5;
-    switch (imageIndex) {
+    switch (_index % 4) {
         case 0: // Green
-            color = [UIColor colorWithRed:0.335 green:0.802 blue:0.313 alpha:1.000];
+            color = [UIColor colorWithRed:0.196 green:0.651 blue:0.573 alpha:1.000];
             break;
-        case 1: // Yellow
-            color = [UIColor colorWithRed:240.0f / 255.0f green:193.0f / 255.0f blue:93.0f / 255.0f alpha:1.0f];
+        case 1: // Orange
+            color = [UIColor colorWithRed:1.000 green:0.569 blue:0.349 alpha:1.000];
             break;
         case 2: // Red
-            color = [UIColor colorWithRed:0.890 green:0.323 blue:0.302 alpha:1.000];
+            color = [UIColor colorWithRed:0.949 green:0.427 blue:0.427 alpha:1.000];
             break;
         case 3: // Blue
-            color = [UIColor colorWithRed:102.0f / 255.0f green:192.0f / 255.0f blue:210.0f / 255.0f alpha:1.0f];
-            break;
-        case 4: // Pink
-            color = [UIColor colorWithRed:255.0f / 255.0f green:140.0f / 255.0f blue:185.0f / 255.0f alpha:1.0f];
+            color = [UIColor colorWithRed:0.322 green:0.639 blue:0.800 alpha:1.000];
             break;
         default:
             break;
     }
-    self.tableView.backgroundColor = color;
+    [_cellColor release];
+    _cellColor = [color retain];
+    self.tableView.backgroundColor = [UIColor whiteColor];
+    
+    [self _setupBarButtonItems];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -62,16 +70,19 @@
 
 - (void)viewDidUnload {
     [self setSettingsButton:nil];
+    [self setBackButton:nil];
     [super viewDidUnload];
     [_durationLabel release], _durationLabel = nil;
     [_indexLabel release], _indexLabel = nil;       
 }
 
 - (void)dealloc {
+    [_cellColor release], _cellColor = nil;
     [_durationLabel release], _durationLabel = nil;
     [_indexLabel release], _indexLabel = nil;
     [_tableView release];
     [_settingsButton release];
+    [_backButton release];
     [super dealloc];   
 }
 
@@ -102,12 +113,50 @@
     return nil;
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    cell.textLabel.backgroundColor = [UIColor clearColor];
+    cell.backgroundView.backgroundColor = _cellColor;
+    cell.backgroundView.alpha = (indexPath.row % 2 == 0) ? 0.5 : 1.0f;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView * headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 23.0f)];
+    headerView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    
+    UIImageView * imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ALTableViewHeaderBackground"]];
+    imageView.frame = headerView.frame;
+    imageView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    [headerView addSubview:imageView];
+    [imageView release];
+    
+    UILabel * label = [[UILabel alloc] initWithFrame:headerView.frame];
+    label.backgroundColor = [UIColor clearColor];
+    label.textColor = [UIColor colorWithWhite:0.925 alpha:1.000];
+    label.textAlignment = UITextAlignmentCenter;
+    label.font = [UIFont boldSystemFontOfSize:12.0f];
+    label.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    [headerView addSubview:label];
+    [label release];
+    switch (section) {
+        case 0:
+            label.text = @"ADDualTransition";
+        case 1:
+            label.text = @"ADTransformTransition";
+    }
+    
+    return [headerView autorelease];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString * sCellIdentifier = @"CellIdentifier";
-    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:sCellIdentifier];
+    ALTableViewCell * cell = (ALTableViewCell *)[tableView dequeueReusableCellWithIdentifier:sCellIdentifier];
     if (!cell) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:sCellIdentifier] autorelease];
+        cell = [[[ALTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:sCellIdentifier] autorelease];
     }
+    
+    UIView * backgroundView = [[UIView alloc] initWithFrame:cell.frame];
+    cell.backgroundView = backgroundView;
+    [backgroundView release];
     
     NSString * text = nil;
     switch (indexPath.section) {
@@ -373,6 +422,10 @@
     [settingsViewController release];
 }
 
+- (IBAction)back:(id)sender {
+    [self.transitionController popViewController];
+}
+
 #pragma mark -
 #pragma mark ALSettingsDelegate methods
 
@@ -388,7 +441,10 @@
     NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
     _duration = [[defaults objectForKey:AL_SPEED_KEY] floatValue];
     _orientation = [[defaults objectForKey:AL_ORIENTATION_KEY] intValue];
-    [self.transitionController setNavigationBarHidden:[[defaults objectForKey:AL_NAVIGATION_BAR_HIDDEN_KEY] boolValue]];
+    BOOL navigationBarHidden = [[defaults objectForKey:AL_NAVIGATION_BAR_HIDDEN_KEY] boolValue];
+    [self.transitionController setNavigationBarHidden:navigationBarHidden];
+    self.backButton.hidden = !navigationBarHidden;
+    self.settingsButton.hidden = !navigationBarHidden;
 }
 
 - (void)_defaultsSettings {
@@ -397,6 +453,27 @@
     [defaults setValue:@NO forKey:AL_NAVIGATION_BAR_HIDDEN_KEY];
     [defaults setValue:@(ADTransitionRightToLeft) forKey:AL_ORIENTATION_KEY];
     [defaults synchronize];
+}
+
+- (void)_setupBarButtonItems {
+    UIButton * backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    backButton.frame = CGRectMake(0, 0, 34.0f, 34.0f);
+    [backButton setImage:[UIImage imageNamed:@"ALBackButtonOff"] forState:UIControlStateNormal];
+    [backButton setImage:[UIImage imageNamed:@"ALBackButtonOn"] forState:UIControlStateHighlighted];
+    [backButton addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem * backButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+    self.navigationItem.leftBarButtonItem = backButtonItem;
+    self.navigationItem.backBarButtonItem = nil;
+    [backButtonItem release];
+    
+    UIButton * settingsButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    settingsButton.frame = CGRectMake(0, 0, 34.0f, 34.0f);
+    [settingsButton setImage:[UIImage imageNamed:@"ALSettingsButtonOff"] forState:UIControlStateNormal];
+    [settingsButton setImage:[UIImage imageNamed:@"ALSettingsButtonOn"] forState:UIControlStateHighlighted];
+    [settingsButton addTarget:self action:@selector(showSettings:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem * settingsButtonItem = [[UIBarButtonItem alloc] initWithCustomView:settingsButton];
+    self.navigationItem.rightBarButtonItem = settingsButtonItem;
+    [settingsButtonItem release];
 }
 
 @end

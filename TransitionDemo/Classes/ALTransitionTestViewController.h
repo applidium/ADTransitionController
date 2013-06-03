@@ -21,6 +21,7 @@
 }
 
 @property (retain, nonatomic) IBOutlet UIButton * settingsButton;
+@property (retain, nonatomic) IBOutlet UIButton * backButton;
 @property (retain, nonatomic) IBOutlet UITableView * tableView;
 @property (nonatomic) NSInteger index;
 
@@ -42,4 +43,5 @@
 - (IBAction)flip:(id)sender;
 - (IBAction)focus:(id)sender;
 - (IBAction)showSettings:(id)sender;
+- (IBAction)back:(id)sender;
 @end

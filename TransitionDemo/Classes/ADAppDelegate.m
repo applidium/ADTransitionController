@@ -27,6 +27,8 @@
     self.window.rootViewController = transitionController;
     [transitionController release];
     
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"ALNavigationBarBackground"] forBarMetrics:UIBarMetricsDefault];
+    
     self.window.backgroundColor = [UIColor blackColor];
     [self.window makeKeyAndVisible];
     return YES;
