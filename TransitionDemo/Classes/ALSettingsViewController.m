@@ -88,7 +88,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ALSettingsTableViewCell * cell = [ALSettingsTableViewCell newCell];
+    ALSettingsTableViewCell * cell = [[ALSettingsTableViewCell newCell] autorelease];
     
     NSString * text = nil;
     switch (indexPath.row) {
