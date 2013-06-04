@@ -65,6 +65,8 @@
 		498F0CAC175CD63600EFBC6F /* ALSettingsTableViewBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 498F0CAA175CD63600EFBC6F /* ALSettingsTableViewBackground@2x.png */; };
 		498F0CAF175CD93200EFBC6F /* ALCredits.png in Resources */ = {isa = PBXBuildFile; fileRef = 498F0CAD175CD93200EFBC6F /* ALCredits.png */; };
 		498F0CB0175CD93200EFBC6F /* ALCredits@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 498F0CAE175CD93200EFBC6F /* ALCredits@2x.png */; };
+		49A63772175E3DA5006B3187 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 49A63770175E3DA5006B3187 /* Icon.png */; };
+		49A63773175E3DA5006B3187 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49A63771175E3DA5006B3187 /* Icon@2x.png */; };
 		49F4C38D1757987E0083DE48 /* ALSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F4C38B1757987C0083DE48 /* ALSettingsViewController.m */; };
 		49F4C390175798A50083DE48 /* ALSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49F4C38F175798A50083DE48 /* ALSettingsViewController.xib */; };
 /* End PBXBuildFile section */
@@ -155,6 +157,8 @@
 		498F0CAA175CD63600EFBC6F /* ALSettingsTableViewBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ALSettingsTableViewBackground@2x.png"; sourceTree = "<group>"; };
 		498F0CAD175CD93200EFBC6F /* ALCredits.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ALCredits.png; sourceTree = "<group>"; };
 		498F0CAE175CD93200EFBC6F /* ALCredits@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ALCredits@2x.png"; sourceTree = "<group>"; };
+		49A63770175E3DA5006B3187 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		49A63771175E3DA5006B3187 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		49F4C38A1757987B0083DE48 /* ALSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ALSettingsViewController.h; path = Classes/ALSettingsViewController.h; sourceTree = SOURCE_ROOT; };
 		49F4C38B1757987C0083DE48 /* ALSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ALSettingsViewController.m; path = Classes/ALSettingsViewController.m; sourceTree = SOURCE_ROOT; };
 		49F4C38F175798A50083DE48 /* ALSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALSettingsViewController.xib; sourceTree = "<group>"; };
@@ -303,6 +307,8 @@
 				498C547E1753B4DE00438969 /* Default-568h@2x.png */,
 				498C547F1753B4DE00438969 /* Default.png */,
 				498C54801753B4DE00438969 /* Default@2x.png */,
+				49A63770175E3DA5006B3187 /* Icon.png */,
+				49A63771175E3DA5006B3187 /* Icon@2x.png */,
 				498F0CB1175CDC0100EFBC6F /* Assets */,
 			);
 			path = Resources;
@@ -441,6 +447,8 @@
 				498F0CAC175CD63600EFBC6F /* ALSettingsTableViewBackground@2x.png in Resources */,
 				498F0CAF175CD93200EFBC6F /* ALCredits.png in Resources */,
 				498F0CB0175CD93200EFBC6F /* ALCredits@2x.png in Resources */,
+				49A63772175E3DA5006B3187 /* Icon.png in Resources */,
+				49A63773175E3DA5006B3187 /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
