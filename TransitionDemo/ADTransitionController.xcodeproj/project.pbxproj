@@ -7,6 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		490A860E175DED910085D3D8 /* ADBackFadeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 490A85E5175DED910085D3D8 /* ADBackFadeTransition.m */; };
+		490A860F175DED910085D3D8 /* ADCarrouselTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 490A85E7175DED910085D3D8 /* ADCarrouselTransition.m */; };
+		490A8610175DED910085D3D8 /* ADCrossTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 490A85E9175DED910085D3D8 /* ADCrossTransition.m */; };
+		490A8611175DED910085D3D8 /* ADCubeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 490A85EB175DED910085D3D8 /* ADCubeTransition.m */; };
+		490A8612175DED910085D3D8 /* ADDualTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 490A85ED175DED910085D3D8 /* ADDualTransition.m */; };
+		490A8613175DED910085D3D8 /* ADFadeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 490A85EF175DED910085D3D8 /* ADFadeTransition.m */; };
+		490A8614175DED910085D3D8 /* ADFlipTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 490A85F1175DED910085D3D8 /* ADFlipTransition.m */; };
+		490A8615175DED910085D3D8 /* ADFoldTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 490A85F3175DED910085D3D8 /* ADFoldTransition.m */; };
+		490A8616175DED910085D3D8 /* ADGhostTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 490A85F5175DED910085D3D8 /* ADGhostTransition.m */; };
+		490A8617175DED910085D3D8 /* ADGlueTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 490A85F7175DED910085D3D8 /* ADGlueTransition.m */; };
+		490A8618175DED910085D3D8 /* ADPushRotateTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 490A85F9175DED910085D3D8 /* ADPushRotateTransition.m */; };
+		490A8619175DED910085D3D8 /* ADScaleTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 490A85FB175DED910085D3D8 /* ADScaleTransition.m */; };
+		490A861A175DED910085D3D8 /* ADSlideTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 490A85FD175DED910085D3D8 /* ADSlideTransition.m */; };
+		490A861B175DED910085D3D8 /* ADSwapTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 490A85FF175DED910085D3D8 /* ADSwapTransition.m */; };
+		490A861C175DED910085D3D8 /* ADSwipeFadeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 490A8601175DED910085D3D8 /* ADSwipeFadeTransition.m */; };
+		490A861D175DED910085D3D8 /* ADSwipeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 490A8603175DED910085D3D8 /* ADSwipeTransition.m */; };
+		490A861E175DED910085D3D8 /* ADTransformTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 490A8605175DED910085D3D8 /* ADTransformTransition.m */; };
+		490A861F175DED910085D3D8 /* ADTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 490A8607175DED910085D3D8 /* ADTransition.m */; };
+		490A8620175DED910085D3D8 /* ADTransitionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 490A8609175DED910085D3D8 /* ADTransitionController.m */; };
+		490A8621175DED910085D3D8 /* ADZoomTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 490A860B175DED910085D3D8 /* ADZoomTransition.m */; };
+		490A8622175DED910085D3D8 /* UIViewController+ADTransitionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 490A860D175DED910085D3D8 /* UIViewController+ADTransitionController.m */; };
 		498C544E1753B21900438969 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 498C544D1753B21900438969 /* UIKit.framework */; };
 		498C54501753B21900438969 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 498C544F1753B21900438969 /* Foundation.framework */; };
 		498C54521753B21900438969 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 498C54511753B21900438969 /* CoreGraphics.framework */; };
@@ -15,29 +36,9 @@
 		498C54811753B4DE00438969 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 498C547E1753B4DE00438969 /* Default-568h@2x.png */; };
 		498C54821753B4DE00438969 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 498C547F1753B4DE00438969 /* Default.png */; };
 		498C54831753B4DE00438969 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 498C54801753B4DE00438969 /* Default@2x.png */; };
-		498C54A21753B56E00438969 /* ADBackFadeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54851753B56E00438969 /* ADBackFadeTransition.m */; };
-		498C54A31753B56E00438969 /* ADCarrouselTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54871753B56E00438969 /* ADCarrouselTransition.m */; };
-		498C54A41753B56E00438969 /* ADCrossTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54891753B56E00438969 /* ADCrossTransition.m */; };
-		498C54A51753B56E00438969 /* ADCubeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C548B1753B56E00438969 /* ADCubeTransition.m */; };
-		498C54A61753B56E00438969 /* ADDualTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C548D1753B56E00438969 /* ADDualTransition.m */; };
-		498C54A71753B56E00438969 /* ADFadeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C548F1753B56E00438969 /* ADFadeTransition.m */; };
-		498C54A81753B56E00438969 /* ADFlipTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54911753B56E00438969 /* ADFlipTransition.m */; };
-		498C54A91753B56E00438969 /* ADGhostTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54931753B56E00438969 /* ADGhostTransition.m */; };
-		498C54AA1753B56E00438969 /* ADSwapTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54951753B56E00438969 /* ADSwapTransition.m */; };
-		498C54AB1753B56E00438969 /* ADSwipeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54971753B56E00438969 /* ADSwipeTransition.m */; };
-		498C54AC1753B56E00438969 /* ADTransformTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54991753B56E00438969 /* ADTransformTransition.m */; };
-		498C54AD1753B56E00438969 /* ADTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C549B1753B56E00438969 /* ADTransition.m */; };
-		498C54AE1753B56E00438969 /* ADTransitionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C549D1753B56E00438969 /* ADTransitionController.m */; };
-		498C54AF1753B56E00438969 /* ADZoomTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C549F1753B56E00438969 /* ADZoomTransition.m */; };
-		498C54B01753B56E00438969 /* UIViewController+ADTransitionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54A11753B56E00438969 /* UIViewController+ADTransitionController.m */; };
 		498C54B31753B59600438969 /* ALTransitionTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54B21753B59600438969 /* ALTransitionTestViewController.m */; };
 		498C54B51753B5B500438969 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 498C54B41753B5B500438969 /* QuartzCore.framework */; };
 		498C54C01753BC9D00438969 /* ALTransitionTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 498C54BB1753BC9D00438969 /* ALTransitionTestViewController.xib */; };
-		498C54EF17550EFF00438969 /* ADSwipeFadeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54EE17550EFE00438969 /* ADSwipeFadeTransition.m */; };
-		498C54F21755119F00438969 /* ADScaleTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54F11755119E00438969 /* ADScaleTransition.m */; };
-		498C54F81756497E00438969 /* ADGlueTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54F71756497D00438969 /* ADGlueTransition.m */; };
-		498C54FB17565C6900438969 /* ADPushRotateTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54FA17565C6800438969 /* ADPushRotateTransition.m */; };
-		498C54FE1756601E00438969 /* ADFoldTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54FD1756601D00438969 /* ADFoldTransition.m */; };
 		498F0C6C175CC14800EFBC6F /* ALTableViewHeaderBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 498F0C6A175CC14800EFBC6F /* ALTableViewHeaderBackground.png */; };
 		498F0C6D175CC14800EFBC6F /* ALTableViewHeaderBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 498F0C6B175CC14800EFBC6F /* ALTableViewHeaderBackground@2x.png */; };
 		498F0C76175CC50D00EFBC6F /* ALBackButtonOff.png in Resources */ = {isa = PBXBuildFile; fileRef = 498F0C72175CC50D00EFBC6F /* ALBackButtonOff.png */; };
@@ -64,12 +65,53 @@
 		498F0CAC175CD63600EFBC6F /* ALSettingsTableViewBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 498F0CAA175CD63600EFBC6F /* ALSettingsTableViewBackground@2x.png */; };
 		498F0CAF175CD93200EFBC6F /* ALCredits.png in Resources */ = {isa = PBXBuildFile; fileRef = 498F0CAD175CD93200EFBC6F /* ALCredits.png */; };
 		498F0CB0175CD93200EFBC6F /* ALCredits@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 498F0CAE175CD93200EFBC6F /* ALCredits@2x.png */; };
-		49F4C389175776A40083DE48 /* ADSlideTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F4C388175776A40083DE48 /* ADSlideTransition.m */; };
 		49F4C38D1757987E0083DE48 /* ALSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F4C38B1757987C0083DE48 /* ALSettingsViewController.m */; };
 		49F4C390175798A50083DE48 /* ALSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49F4C38F175798A50083DE48 /* ALSettingsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		490A85E4175DED910085D3D8 /* ADBackFadeTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADBackFadeTransition.h; sourceTree = "<group>"; };
+		490A85E5175DED910085D3D8 /* ADBackFadeTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADBackFadeTransition.m; sourceTree = "<group>"; };
+		490A85E6175DED910085D3D8 /* ADCarrouselTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCarrouselTransition.h; sourceTree = "<group>"; };
+		490A85E7175DED910085D3D8 /* ADCarrouselTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCarrouselTransition.m; sourceTree = "<group>"; };
+		490A85E8175DED910085D3D8 /* ADCrossTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCrossTransition.h; sourceTree = "<group>"; };
+		490A85E9175DED910085D3D8 /* ADCrossTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCrossTransition.m; sourceTree = "<group>"; };
+		490A85EA175DED910085D3D8 /* ADCubeTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCubeTransition.h; sourceTree = "<group>"; };
+		490A85EB175DED910085D3D8 /* ADCubeTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCubeTransition.m; sourceTree = "<group>"; };
+		490A85EC175DED910085D3D8 /* ADDualTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADDualTransition.h; sourceTree = "<group>"; };
+		490A85ED175DED910085D3D8 /* ADDualTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADDualTransition.m; sourceTree = "<group>"; };
+		490A85EE175DED910085D3D8 /* ADFadeTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADFadeTransition.h; sourceTree = "<group>"; };
+		490A85EF175DED910085D3D8 /* ADFadeTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADFadeTransition.m; sourceTree = "<group>"; };
+		490A85F0175DED910085D3D8 /* ADFlipTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADFlipTransition.h; sourceTree = "<group>"; };
+		490A85F1175DED910085D3D8 /* ADFlipTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADFlipTransition.m; sourceTree = "<group>"; };
+		490A85F2175DED910085D3D8 /* ADFoldTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADFoldTransition.h; sourceTree = "<group>"; };
+		490A85F3175DED910085D3D8 /* ADFoldTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADFoldTransition.m; sourceTree = "<group>"; };
+		490A85F4175DED910085D3D8 /* ADGhostTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADGhostTransition.h; sourceTree = "<group>"; };
+		490A85F5175DED910085D3D8 /* ADGhostTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADGhostTransition.m; sourceTree = "<group>"; };
+		490A85F6175DED910085D3D8 /* ADGlueTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADGlueTransition.h; sourceTree = "<group>"; };
+		490A85F7175DED910085D3D8 /* ADGlueTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADGlueTransition.m; sourceTree = "<group>"; };
+		490A85F8175DED910085D3D8 /* ADPushRotateTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADPushRotateTransition.h; sourceTree = "<group>"; };
+		490A85F9175DED910085D3D8 /* ADPushRotateTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADPushRotateTransition.m; sourceTree = "<group>"; };
+		490A85FA175DED910085D3D8 /* ADScaleTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADScaleTransition.h; sourceTree = "<group>"; };
+		490A85FB175DED910085D3D8 /* ADScaleTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADScaleTransition.m; sourceTree = "<group>"; };
+		490A85FC175DED910085D3D8 /* ADSlideTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADSlideTransition.h; sourceTree = "<group>"; };
+		490A85FD175DED910085D3D8 /* ADSlideTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADSlideTransition.m; sourceTree = "<group>"; };
+		490A85FE175DED910085D3D8 /* ADSwapTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADSwapTransition.h; sourceTree = "<group>"; };
+		490A85FF175DED910085D3D8 /* ADSwapTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADSwapTransition.m; sourceTree = "<group>"; };
+		490A8600175DED910085D3D8 /* ADSwipeFadeTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADSwipeFadeTransition.h; sourceTree = "<group>"; };
+		490A8601175DED910085D3D8 /* ADSwipeFadeTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADSwipeFadeTransition.m; sourceTree = "<group>"; };
+		490A8602175DED910085D3D8 /* ADSwipeTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADSwipeTransition.h; sourceTree = "<group>"; };
+		490A8603175DED910085D3D8 /* ADSwipeTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADSwipeTransition.m; sourceTree = "<group>"; };
+		490A8604175DED910085D3D8 /* ADTransformTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTransformTransition.h; sourceTree = "<group>"; };
+		490A8605175DED910085D3D8 /* ADTransformTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTransformTransition.m; sourceTree = "<group>"; };
+		490A8606175DED910085D3D8 /* ADTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTransition.h; sourceTree = "<group>"; };
+		490A8607175DED910085D3D8 /* ADTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTransition.m; sourceTree = "<group>"; };
+		490A8608175DED910085D3D8 /* ADTransitionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTransitionController.h; sourceTree = "<group>"; };
+		490A8609175DED910085D3D8 /* ADTransitionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTransitionController.m; sourceTree = "<group>"; };
+		490A860A175DED910085D3D8 /* ADZoomTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADZoomTransition.h; sourceTree = "<group>"; };
+		490A860B175DED910085D3D8 /* ADZoomTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADZoomTransition.m; sourceTree = "<group>"; };
+		490A860C175DED910085D3D8 /* UIViewController+ADTransitionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ADTransitionController.h"; sourceTree = "<group>"; };
+		490A860D175DED910085D3D8 /* UIViewController+ADTransitionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ADTransitionController.m"; sourceTree = "<group>"; };
 		498C544A1753B21900438969 /* ADTransitionController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADTransitionController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		498C544D1753B21900438969 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		498C544F1753B21900438969 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -82,50 +124,10 @@
 		498C547E1753B4DE00438969 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		498C547F1753B4DE00438969 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		498C54801753B4DE00438969 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		498C54841753B56E00438969 /* ADBackFadeTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADBackFadeTransition.h; path = Classes/ADBackFadeTransition.h; sourceTree = SOURCE_ROOT; };
-		498C54851753B56E00438969 /* ADBackFadeTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADBackFadeTransition.m; path = Classes/ADBackFadeTransition.m; sourceTree = SOURCE_ROOT; };
-		498C54861753B56E00438969 /* ADCarrouselTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADCarrouselTransition.h; path = Classes/ADCarrouselTransition.h; sourceTree = SOURCE_ROOT; };
-		498C54871753B56E00438969 /* ADCarrouselTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADCarrouselTransition.m; path = Classes/ADCarrouselTransition.m; sourceTree = SOURCE_ROOT; };
-		498C54881753B56E00438969 /* ADCrossTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADCrossTransition.h; path = Classes/ADCrossTransition.h; sourceTree = SOURCE_ROOT; };
-		498C54891753B56E00438969 /* ADCrossTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADCrossTransition.m; path = Classes/ADCrossTransition.m; sourceTree = SOURCE_ROOT; };
-		498C548A1753B56E00438969 /* ADCubeTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADCubeTransition.h; path = Classes/ADCubeTransition.h; sourceTree = SOURCE_ROOT; };
-		498C548B1753B56E00438969 /* ADCubeTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADCubeTransition.m; path = Classes/ADCubeTransition.m; sourceTree = SOURCE_ROOT; };
-		498C548C1753B56E00438969 /* ADDualTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADDualTransition.h; path = Classes/ADDualTransition.h; sourceTree = SOURCE_ROOT; };
-		498C548D1753B56E00438969 /* ADDualTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADDualTransition.m; path = Classes/ADDualTransition.m; sourceTree = SOURCE_ROOT; };
-		498C548E1753B56E00438969 /* ADFadeTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADFadeTransition.h; path = Classes/ADFadeTransition.h; sourceTree = SOURCE_ROOT; };
-		498C548F1753B56E00438969 /* ADFadeTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADFadeTransition.m; path = Classes/ADFadeTransition.m; sourceTree = SOURCE_ROOT; };
-		498C54901753B56E00438969 /* ADFlipTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADFlipTransition.h; path = Classes/ADFlipTransition.h; sourceTree = SOURCE_ROOT; };
-		498C54911753B56E00438969 /* ADFlipTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADFlipTransition.m; path = Classes/ADFlipTransition.m; sourceTree = SOURCE_ROOT; };
-		498C54921753B56E00438969 /* ADGhostTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADGhostTransition.h; path = Classes/ADGhostTransition.h; sourceTree = SOURCE_ROOT; };
-		498C54931753B56E00438969 /* ADGhostTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADGhostTransition.m; path = Classes/ADGhostTransition.m; sourceTree = SOURCE_ROOT; };
-		498C54941753B56E00438969 /* ADSwapTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADSwapTransition.h; path = Classes/ADSwapTransition.h; sourceTree = SOURCE_ROOT; };
-		498C54951753B56E00438969 /* ADSwapTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADSwapTransition.m; path = Classes/ADSwapTransition.m; sourceTree = SOURCE_ROOT; };
-		498C54961753B56E00438969 /* ADSwipeTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADSwipeTransition.h; path = Classes/ADSwipeTransition.h; sourceTree = SOURCE_ROOT; };
-		498C54971753B56E00438969 /* ADSwipeTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADSwipeTransition.m; path = Classes/ADSwipeTransition.m; sourceTree = SOURCE_ROOT; };
-		498C54981753B56E00438969 /* ADTransformTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADTransformTransition.h; path = Classes/ADTransformTransition.h; sourceTree = SOURCE_ROOT; };
-		498C54991753B56E00438969 /* ADTransformTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADTransformTransition.m; path = Classes/ADTransformTransition.m; sourceTree = SOURCE_ROOT; };
-		498C549A1753B56E00438969 /* ADTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADTransition.h; path = Classes/ADTransition.h; sourceTree = SOURCE_ROOT; };
-		498C549B1753B56E00438969 /* ADTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADTransition.m; path = Classes/ADTransition.m; sourceTree = SOURCE_ROOT; };
-		498C549C1753B56E00438969 /* ADTransitionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADTransitionController.h; path = Classes/ADTransitionController.h; sourceTree = SOURCE_ROOT; };
-		498C549D1753B56E00438969 /* ADTransitionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADTransitionController.m; path = Classes/ADTransitionController.m; sourceTree = SOURCE_ROOT; };
-		498C549E1753B56E00438969 /* ADZoomTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADZoomTransition.h; path = Classes/ADZoomTransition.h; sourceTree = SOURCE_ROOT; };
-		498C549F1753B56E00438969 /* ADZoomTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADZoomTransition.m; path = Classes/ADZoomTransition.m; sourceTree = SOURCE_ROOT; };
-		498C54A01753B56E00438969 /* UIViewController+ADTransitionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+ADTransitionController.h"; path = "Classes/UIViewController+ADTransitionController.h"; sourceTree = SOURCE_ROOT; };
-		498C54A11753B56E00438969 /* UIViewController+ADTransitionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+ADTransitionController.m"; path = "Classes/UIViewController+ADTransitionController.m"; sourceTree = SOURCE_ROOT; };
 		498C54B11753B59600438969 /* ALTransitionTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ALTransitionTestViewController.h; path = Classes/ALTransitionTestViewController.h; sourceTree = SOURCE_ROOT; };
 		498C54B21753B59600438969 /* ALTransitionTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ALTransitionTestViewController.m; path = Classes/ALTransitionTestViewController.m; sourceTree = SOURCE_ROOT; };
 		498C54B41753B5B500438969 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		498C54BB1753BC9D00438969 /* ALTransitionTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALTransitionTestViewController.xib; sourceTree = "<group>"; };
-		498C54ED17550EFE00438969 /* ADSwipeFadeTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADSwipeFadeTransition.h; path = Classes/ADSwipeFadeTransition.h; sourceTree = SOURCE_ROOT; };
-		498C54EE17550EFE00438969 /* ADSwipeFadeTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADSwipeFadeTransition.m; path = Classes/ADSwipeFadeTransition.m; sourceTree = SOURCE_ROOT; };
-		498C54F01755119D00438969 /* ADScaleTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADScaleTransition.h; path = Classes/ADScaleTransition.h; sourceTree = SOURCE_ROOT; };
-		498C54F11755119E00438969 /* ADScaleTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADScaleTransition.m; path = Classes/ADScaleTransition.m; sourceTree = SOURCE_ROOT; };
-		498C54F61756497D00438969 /* ADGlueTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADGlueTransition.h; path = Classes/ADGlueTransition.h; sourceTree = SOURCE_ROOT; };
-		498C54F71756497D00438969 /* ADGlueTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADGlueTransition.m; path = Classes/ADGlueTransition.m; sourceTree = SOURCE_ROOT; };
-		498C54F917565C6700438969 /* ADPushRotateTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADPushRotateTransition.h; path = Classes/ADPushRotateTransition.h; sourceTree = SOURCE_ROOT; };
-		498C54FA17565C6800438969 /* ADPushRotateTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADPushRotateTransition.m; path = Classes/ADPushRotateTransition.m; sourceTree = SOURCE_ROOT; };
-		498C54FC1756601C00438969 /* ADFoldTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADFoldTransition.h; path = Classes/ADFoldTransition.h; sourceTree = SOURCE_ROOT; };
-		498C54FD1756601D00438969 /* ADFoldTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADFoldTransition.m; path = Classes/ADFoldTransition.m; sourceTree = SOURCE_ROOT; };
 		498F0C6A175CC14800EFBC6F /* ALTableViewHeaderBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ALTableViewHeaderBackground.png; sourceTree = "<group>"; };
 		498F0C6B175CC14800EFBC6F /* ALTableViewHeaderBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ALTableViewHeaderBackground@2x.png"; sourceTree = "<group>"; };
 		498F0C72175CC50D00EFBC6F /* ALBackButtonOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ALBackButtonOff.png; sourceTree = "<group>"; };
@@ -153,8 +155,6 @@
 		498F0CAA175CD63600EFBC6F /* ALSettingsTableViewBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ALSettingsTableViewBackground@2x.png"; sourceTree = "<group>"; };
 		498F0CAD175CD93200EFBC6F /* ALCredits.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ALCredits.png; sourceTree = "<group>"; };
 		498F0CAE175CD93200EFBC6F /* ALCredits@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ALCredits@2x.png"; sourceTree = "<group>"; };
-		49F4C387175776A30083DE48 /* ADSlideTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADSlideTransition.h; path = Classes/ADSlideTransition.h; sourceTree = SOURCE_ROOT; };
-		49F4C388175776A40083DE48 /* ADSlideTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADSlideTransition.m; path = Classes/ADSlideTransition.m; sourceTree = SOURCE_ROOT; };
 		49F4C38A1757987B0083DE48 /* ALSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ALSettingsViewController.h; path = Classes/ALSettingsViewController.h; sourceTree = SOURCE_ROOT; };
 		49F4C38B1757987C0083DE48 /* ALSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ALSettingsViewController.m; path = Classes/ALSettingsViewController.m; sourceTree = SOURCE_ROOT; };
 		49F4C38F175798A50083DE48 /* ALSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALSettingsViewController.xib; sourceTree = "<group>"; };
@@ -175,6 +175,64 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		490A85E3175DED910085D3D8 /* ADTransitionController */ = {
+			isa = PBXGroup;
+			children = (
+				490A8608175DED910085D3D8 /* ADTransitionController.h */,
+				490A8609175DED910085D3D8 /* ADTransitionController.m */,
+				490A8606175DED910085D3D8 /* ADTransition.h */,
+				490A8607175DED910085D3D8 /* ADTransition.m */,
+				490A85EC175DED910085D3D8 /* ADDualTransition.h */,
+				490A85ED175DED910085D3D8 /* ADDualTransition.m */,
+				490A8604175DED910085D3D8 /* ADTransformTransition.h */,
+				490A8605175DED910085D3D8 /* ADTransformTransition.m */,
+				490A860C175DED910085D3D8 /* UIViewController+ADTransitionController.h */,
+				490A860D175DED910085D3D8 /* UIViewController+ADTransitionController.m */,
+				490A8623175DEDD80085D3D8 /* Templates */,
+			);
+			name = ADTransitionController;
+			path = ../ADTransitionController;
+			sourceTree = SOURCE_ROOT;
+		};
+		490A8623175DEDD80085D3D8 /* Templates */ = {
+			isa = PBXGroup;
+			children = (
+				490A85E4175DED910085D3D8 /* ADBackFadeTransition.h */,
+				490A85E5175DED910085D3D8 /* ADBackFadeTransition.m */,
+				490A85E6175DED910085D3D8 /* ADCarrouselTransition.h */,
+				490A85E7175DED910085D3D8 /* ADCarrouselTransition.m */,
+				490A85E8175DED910085D3D8 /* ADCrossTransition.h */,
+				490A85E9175DED910085D3D8 /* ADCrossTransition.m */,
+				490A85EA175DED910085D3D8 /* ADCubeTransition.h */,
+				490A85EB175DED910085D3D8 /* ADCubeTransition.m */,
+				490A85EE175DED910085D3D8 /* ADFadeTransition.h */,
+				490A85EF175DED910085D3D8 /* ADFadeTransition.m */,
+				490A85F0175DED910085D3D8 /* ADFlipTransition.h */,
+				490A85F1175DED910085D3D8 /* ADFlipTransition.m */,
+				490A85F2175DED910085D3D8 /* ADFoldTransition.h */,
+				490A85F3175DED910085D3D8 /* ADFoldTransition.m */,
+				490A85F4175DED910085D3D8 /* ADGhostTransition.h */,
+				490A85F5175DED910085D3D8 /* ADGhostTransition.m */,
+				490A85F6175DED910085D3D8 /* ADGlueTransition.h */,
+				490A85F7175DED910085D3D8 /* ADGlueTransition.m */,
+				490A85F8175DED910085D3D8 /* ADPushRotateTransition.h */,
+				490A85F9175DED910085D3D8 /* ADPushRotateTransition.m */,
+				490A85FA175DED910085D3D8 /* ADScaleTransition.h */,
+				490A85FB175DED910085D3D8 /* ADScaleTransition.m */,
+				490A85FC175DED910085D3D8 /* ADSlideTransition.h */,
+				490A85FD175DED910085D3D8 /* ADSlideTransition.m */,
+				490A85FE175DED910085D3D8 /* ADSwapTransition.h */,
+				490A85FF175DED910085D3D8 /* ADSwapTransition.m */,
+				490A8600175DED910085D3D8 /* ADSwipeFadeTransition.h */,
+				490A8601175DED910085D3D8 /* ADSwipeFadeTransition.m */,
+				490A8602175DED910085D3D8 /* ADSwipeTransition.h */,
+				490A8603175DED910085D3D8 /* ADSwipeTransition.m */,
+				490A860A175DED910085D3D8 /* ADZoomTransition.h */,
+				490A860B175DED910085D3D8 /* ADZoomTransition.m */,
+			);
+			name = Templates;
+			sourceTree = "<group>";
+		};
 		498C54411753B21900438969 = {
 			isa = PBXGroup;
 			children = (
@@ -231,7 +289,7 @@
 				498C546B1753B2E200438969 /* ADAppDelegate.m */,
 				498F0CB2175CDC2E00EFBC6F /* Controllers */,
 				498F0CB3175CDC3B00EFBC6F /* Views */,
-				498F0CB4175CDC5900EFBC6F /* ADTransitionController */,
+				490A85E3175DED910085D3D8 /* ADTransitionController */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -249,45 +307,6 @@
 			);
 			path = Resources;
 			sourceTree = SOURCE_ROOT;
-		};
-		498C54B61753B80700438969 /* Templates */ = {
-			isa = PBXGroup;
-			children = (
-				498C54861753B56E00438969 /* ADCarrouselTransition.h */,
-				498C54871753B56E00438969 /* ADCarrouselTransition.m */,
-				498C548A1753B56E00438969 /* ADCubeTransition.h */,
-				498C548B1753B56E00438969 /* ADCubeTransition.m */,
-				498C54881753B56E00438969 /* ADCrossTransition.h */,
-				498C54891753B56E00438969 /* ADCrossTransition.m */,
-				498C54901753B56E00438969 /* ADFlipTransition.h */,
-				498C54911753B56E00438969 /* ADFlipTransition.m */,
-				498C54941753B56E00438969 /* ADSwapTransition.h */,
-				498C54951753B56E00438969 /* ADSwapTransition.m */,
-				498C548E1753B56E00438969 /* ADFadeTransition.h */,
-				498C548F1753B56E00438969 /* ADFadeTransition.m */,
-				498C54841753B56E00438969 /* ADBackFadeTransition.h */,
-				498C54851753B56E00438969 /* ADBackFadeTransition.m */,
-				498C54921753B56E00438969 /* ADGhostTransition.h */,
-				498C54931753B56E00438969 /* ADGhostTransition.m */,
-				498C549E1753B56E00438969 /* ADZoomTransition.h */,
-				498C549F1753B56E00438969 /* ADZoomTransition.m */,
-				498C54961753B56E00438969 /* ADSwipeTransition.h */,
-				498C54971753B56E00438969 /* ADSwipeTransition.m */,
-				498C54ED17550EFE00438969 /* ADSwipeFadeTransition.h */,
-				498C54EE17550EFE00438969 /* ADSwipeFadeTransition.m */,
-				498C54F01755119D00438969 /* ADScaleTransition.h */,
-				498C54F11755119E00438969 /* ADScaleTransition.m */,
-				498C54F61756497D00438969 /* ADGlueTransition.h */,
-				498C54F71756497D00438969 /* ADGlueTransition.m */,
-				498C54F917565C6700438969 /* ADPushRotateTransition.h */,
-				498C54FA17565C6800438969 /* ADPushRotateTransition.m */,
-				498C54FC1756601C00438969 /* ADFoldTransition.h */,
-				498C54FD1756601D00438969 /* ADFoldTransition.m */,
-				49F4C387175776A30083DE48 /* ADSlideTransition.h */,
-				49F4C388175776A40083DE48 /* ADSlideTransition.m */,
-			);
-			name = Templates;
-			sourceTree = "<group>";
 		};
 		498F0CB1175CDC0100EFBC6F /* Assets */ = {
 			isa = PBXGroup;
@@ -338,24 +357,6 @@
 				498F0CA7175CD46F00EFBC6F /* ALSettingsTableViewCell.m */,
 			);
 			name = Views;
-			sourceTree = "<group>";
-		};
-		498F0CB4175CDC5900EFBC6F /* ADTransitionController */ = {
-			isa = PBXGroup;
-			children = (
-				498C549C1753B56E00438969 /* ADTransitionController.h */,
-				498C549D1753B56E00438969 /* ADTransitionController.m */,
-				498C54A01753B56E00438969 /* UIViewController+ADTransitionController.h */,
-				498C54A11753B56E00438969 /* UIViewController+ADTransitionController.m */,
-				498C549A1753B56E00438969 /* ADTransition.h */,
-				498C549B1753B56E00438969 /* ADTransition.m */,
-				498C548C1753B56E00438969 /* ADDualTransition.h */,
-				498C548D1753B56E00438969 /* ADDualTransition.m */,
-				498C54981753B56E00438969 /* ADTransformTransition.h */,
-				498C54991753B56E00438969 /* ADTransformTransition.m */,
-				498C54B61753B80700438969 /* Templates */,
-			);
-			name = ADTransitionController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -452,30 +453,30 @@
 			files = (
 				498C546C1753B2E200438969 /* ADAppDelegate.m in Sources */,
 				498C54751753B46800438969 /* main.m in Sources */,
-				498C54A21753B56E00438969 /* ADBackFadeTransition.m in Sources */,
-				498C54A31753B56E00438969 /* ADCarrouselTransition.m in Sources */,
-				498C54A41753B56E00438969 /* ADCrossTransition.m in Sources */,
-				498C54A51753B56E00438969 /* ADCubeTransition.m in Sources */,
-				498C54A61753B56E00438969 /* ADDualTransition.m in Sources */,
-				498C54A71753B56E00438969 /* ADFadeTransition.m in Sources */,
-				498C54A81753B56E00438969 /* ADFlipTransition.m in Sources */,
-				498C54A91753B56E00438969 /* ADGhostTransition.m in Sources */,
-				498C54AA1753B56E00438969 /* ADSwapTransition.m in Sources */,
-				498C54AB1753B56E00438969 /* ADSwipeTransition.m in Sources */,
-				498C54AC1753B56E00438969 /* ADTransformTransition.m in Sources */,
-				498C54AD1753B56E00438969 /* ADTransition.m in Sources */,
-				498C54AE1753B56E00438969 /* ADTransitionController.m in Sources */,
-				498C54AF1753B56E00438969 /* ADZoomTransition.m in Sources */,
-				498C54B01753B56E00438969 /* UIViewController+ADTransitionController.m in Sources */,
 				498C54B31753B59600438969 /* ALTransitionTestViewController.m in Sources */,
-				498C54EF17550EFF00438969 /* ADSwipeFadeTransition.m in Sources */,
-				498C54F21755119F00438969 /* ADScaleTransition.m in Sources */,
-				498C54F81756497E00438969 /* ADGlueTransition.m in Sources */,
-				498C54FB17565C6900438969 /* ADPushRotateTransition.m in Sources */,
-				498C54FE1756601E00438969 /* ADFoldTransition.m in Sources */,
-				49F4C389175776A40083DE48 /* ADSlideTransition.m in Sources */,
 				49F4C38D1757987E0083DE48 /* ALSettingsViewController.m in Sources */,
 				498F0CA8175CD46F00EFBC6F /* ALSettingsTableViewCell.m in Sources */,
+				490A860E175DED910085D3D8 /* ADBackFadeTransition.m in Sources */,
+				490A860F175DED910085D3D8 /* ADCarrouselTransition.m in Sources */,
+				490A8610175DED910085D3D8 /* ADCrossTransition.m in Sources */,
+				490A8611175DED910085D3D8 /* ADCubeTransition.m in Sources */,
+				490A8612175DED910085D3D8 /* ADDualTransition.m in Sources */,
+				490A8613175DED910085D3D8 /* ADFadeTransition.m in Sources */,
+				490A8614175DED910085D3D8 /* ADFlipTransition.m in Sources */,
+				490A8615175DED910085D3D8 /* ADFoldTransition.m in Sources */,
+				490A8616175DED910085D3D8 /* ADGhostTransition.m in Sources */,
+				490A8617175DED910085D3D8 /* ADGlueTransition.m in Sources */,
+				490A8618175DED910085D3D8 /* ADPushRotateTransition.m in Sources */,
+				490A8619175DED910085D3D8 /* ADScaleTransition.m in Sources */,
+				490A861A175DED910085D3D8 /* ADSlideTransition.m in Sources */,
+				490A861B175DED910085D3D8 /* ADSwapTransition.m in Sources */,
+				490A861C175DED910085D3D8 /* ADSwipeFadeTransition.m in Sources */,
+				490A861D175DED910085D3D8 /* ADSwipeTransition.m in Sources */,
+				490A861E175DED910085D3D8 /* ADTransformTransition.m in Sources */,
+				490A861F175DED910085D3D8 /* ADTransition.m in Sources */,
+				490A8620175DED910085D3D8 /* ADTransitionController.m in Sources */,
+				490A8621175DED910085D3D8 /* ADZoomTransition.m in Sources */,
+				490A8622175DED910085D3D8 /* UIViewController+ADTransitionController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
