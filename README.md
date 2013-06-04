@@ -1,6 +1,6 @@
 # ADTransitionController - custom navigation controller
 
-ADTransitionController is drop-in replacement of UINavigationController with custom transition animations.
+ADTransitionController is drop-in replacement for UINavigationController with custom transition animations.
 
 ## How to use
 1. Add the content of the ADTransitionController folder to your iOS project
