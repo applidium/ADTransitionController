@@ -31,7 +31,7 @@
 		498C544E1753B21900438969 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 498C544D1753B21900438969 /* UIKit.framework */; };
 		498C54501753B21900438969 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 498C544F1753B21900438969 /* Foundation.framework */; };
 		498C54521753B21900438969 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 498C54511753B21900438969 /* CoreGraphics.framework */; };
-		498C546C1753B2E200438969 /* ADAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C546B1753B2E200438969 /* ADAppDelegate.m */; };
+		498C546C1753B2E200438969 /* ALAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C546B1753B2E200438969 /* ALAppDelegate.m */; };
 		498C54751753B46800438969 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C54741753B46800438969 /* main.m */; };
 		498C54811753B4DE00438969 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 498C547E1753B4DE00438969 /* Default-568h@2x.png */; };
 		498C54821753B4DE00438969 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 498C547F1753B4DE00438969 /* Default.png */; };
@@ -118,8 +118,8 @@
 		498C54511753B21900438969 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		498C54551753B21900438969 /* ADTransitionController-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ADTransitionController-Info.plist"; sourceTree = "<group>"; };
 		498C545B1753B21900438969 /* ADTransitionController-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ADTransitionController-Prefix.pch"; sourceTree = "<group>"; };
-		498C546A1753B2E200438969 /* ADAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADAppDelegate.h; path = Classes/ADAppDelegate.h; sourceTree = SOURCE_ROOT; };
-		498C546B1753B2E200438969 /* ADAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADAppDelegate.m; path = Classes/ADAppDelegate.m; sourceTree = SOURCE_ROOT; };
+		498C546A1753B2E200438969 /* ALAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ALAppDelegate.h; path = Classes/ALAppDelegate.h; sourceTree = SOURCE_ROOT; };
+		498C546B1753B2E200438969 /* ALAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ALAppDelegate.m; path = Classes/ALAppDelegate.m; sourceTree = SOURCE_ROOT; };
 		498C54741753B46800438969 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = SOURCE_ROOT; };
 		498C547E1753B4DE00438969 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		498C547F1753B4DE00438969 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -285,8 +285,8 @@
 		498C54761753B48A00438969 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				498C546A1753B2E200438969 /* ADAppDelegate.h */,
-				498C546B1753B2E200438969 /* ADAppDelegate.m */,
+				498C546A1753B2E200438969 /* ALAppDelegate.h */,
+				498C546B1753B2E200438969 /* ALAppDelegate.m */,
 				498F0CB2175CDC2E00EFBC6F /* Controllers */,
 				498F0CB3175CDC3B00EFBC6F /* Views */,
 				490A85E3175DED910085D3D8 /* ADTransitionController */,
@@ -451,7 +451,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				498C546C1753B2E200438969 /* ADAppDelegate.m in Sources */,
+				498C546C1753B2E200438969 /* ALAppDelegate.m in Sources */,
 				498C54751753B46800438969 /* main.m in Sources */,
 				498C54B31753B59600438969 /* ALTransitionTestViewController.m in Sources */,
 				49F4C38D1757987E0083DE48 /* ALSettingsViewController.m in Sources */,

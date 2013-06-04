@@ -6,11 +6,11 @@
 //  Copyright (c) 2013 Applidium. All rights reserved.
 //
 
-#import "ADAppDelegate.h"
+#import "ALAppDelegate.h"
 #import "ADTransitionController.h"
 #import "ALTransitionTestViewController.h"
 
-@implementation ADAppDelegate
+@implementation ALAppDelegate
 
 - (void)dealloc {
     [_window release];
