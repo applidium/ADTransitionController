@@ -15,3 +15,5 @@ of ADTransitionController along its history.
 * Pierre Felgines
 	- Improve ADTransitionController API to match UINavigationController API
 	- Implementation of some transitions : ADSwipeFadeTransition, ADScaleTransition, ADGlueTransition, ADPushRotateTransition, ADFoldTransition, ADSlideTransition
+* Angélique Calmon
+	- UI design
