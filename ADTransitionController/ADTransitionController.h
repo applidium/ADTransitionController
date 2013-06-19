@@ -28,9 +28,6 @@
 #import "ADFoldTransition.h"
 #import "ADSlideTransition.h"
 
-NSUInteger DeviceSystemMajorVersion();
-#define AD_IOS_PRIOR_7 (DeviceSystemMajorVersion() < 7)
-
 // Our container view must be backed by a CATransformLayer
 @interface ADTransitionView : UIView
 @end
