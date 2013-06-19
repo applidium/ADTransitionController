@@ -25,6 +25,7 @@
         _speed = [[defaults objectForKey:AL_SPEED_KEY] floatValue];
         _orientation = [[defaults objectForKey:AL_ORIENTATION_KEY] intValue];
         _navigationBarHidden = [[defaults objectForKey:AL_NAVIGATION_BAR_HIDDEN_KEY] boolValue];
+        self.title = @"Settings";
     }
     return self;
 }
@@ -55,6 +56,10 @@
     self.speedLabel.text = [NSString stringWithFormat:@"%.2fs", self.slider.value];
     self.switchView.on = !_navigationBarHidden;
     self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, CGRectGetMaxY(self.creditView.frame) + 20.0f);
+    
+    UIBarButtonItem * doneButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done:)];
+    self.navigationItem.rightBarButtonItem = doneButtonItem;
+    [doneButtonItem release];
 }
 
 - (IBAction)toggleNavigationBar:(UISwitch *)sender {

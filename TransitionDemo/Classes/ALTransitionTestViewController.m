@@ -407,12 +407,14 @@
 - (IBAction)showSettings:(id)sender {
     ALSettingsViewController * settingsViewController = [[ALSettingsViewController alloc] init];
     settingsViewController.delegate = self;
+    UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:settingsViewController];
     if ([self respondsToSelector:@selector(presentViewController:animated:completion:)]) {
-        [self presentViewController:settingsViewController animated:YES completion:nil];
+        [self presentViewController:navigationController animated:YES completion:nil];
     } else {
-        [self presentModalViewController:settingsViewController animated:YES];
+        [self presentModalViewController:navigationController animated:YES];
     }
     [settingsViewController release];
+    [navigationController release];
 }
 
 - (IBAction)back:(id)sender {
