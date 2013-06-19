@@ -127,6 +127,7 @@
         cell.orientationLabel.textColor = [UIColor colorWithRed:0.133 green:0.118 blue:0.149 alpha:1.0f];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.backgroundColor = [UIColor clearColor];
     
     return cell;
 }
