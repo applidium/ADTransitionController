@@ -10,6 +10,15 @@
 #import <QuartzCore/CoreAnimation.h>
 #import <objc/runtime.h>
 
+NSUInteger DeviceSystemMajorVersion() {
+    static NSUInteger _deviceSystemMajorVersion = -1;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _deviceSystemMajorVersion = [[[[[UIDevice currentDevice] systemVersion] componentsSeparatedByString:@"."] objectAtIndex:0] intValue];
+    });
+    return _deviceSystemMajorVersion;
+}
+
 @implementation CATransformLayer (MyExtension)
 -(void)setOpaque:(BOOL)opaque { return; } // Avoid warning at start "changing property opaque in transform-only layer, will have no effect"
 @end
@@ -70,7 +79,8 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
 }
 
 - (void)loadView {
-    UIView * view = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 100.0f, 100.0f)];
+    CGFloat yPosition = AD_IOS_PRIOR_7 ? 0 : 20.0f;
+    UIView * view = [[UIView alloc] initWithFrame:CGRectMake(0.0f, yPosition, 100.0f, 100.0f)];
     view.autoresizesSubviews = YES;
     view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     self.view = view;
@@ -84,13 +94,13 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
     
     // Create and add navigation bar to the view
     CGFloat navigationBarHeight = AD_NAVIGATION_BAR_HEIGHT;
-    _navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, navigationBarHeight)];
+    _navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, yPosition, self.view.bounds.size.width, navigationBarHeight)];
     _navigationBar.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
     _navigationBar.delegate = self;
     [self.view addSubview:_navigationBar];
     
     // Create and add the container view that will hold the controller views
-    _containerView = [[ADTransitionView alloc] initWithFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y + navigationBarHeight, self.view.frame.size.width, self.view.frame.size.height - navigationBarHeight)];
+    _containerView = [[ADTransitionView alloc] initWithFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y + navigationBarHeight, self.view.frame.size.width, self.view.frame.size.height - navigationBarHeight - yPosition)];
     _containerView.autoresizesSubviews = YES;
     _containerView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:_containerView];

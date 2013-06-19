@@ -57,14 +57,7 @@
     self.switchView.on = !_navigationBarHidden;
     self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, CGRectGetMaxY(self.creditView.frame) + 20.0f);
     
-    // Set up done button
-    UIButton * doneButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    doneButton.frame = CGRectMake(0, 0, 60.0f, 33.0f);
-    [doneButton setBackgroundImage:[[UIImage imageNamed:@"ALDoneButtonOff"] stretchableImageWithLeftCapWidth:10.0f topCapHeight:10.0f] forState:UIControlStateNormal];
-    [doneButton setBackgroundImage:[[UIImage imageNamed:@"ALDoneButtonOn"] stretchableImageWithLeftCapWidth:10.0f topCapHeight:10.0f] forState:UIControlStateHighlighted];
-    [doneButton setTitle:@"Done" forState:UIControlStateNormal];
-    [doneButton addTarget:self action:@selector(done:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem * doneButtonItem = [[UIBarButtonItem alloc] initWithCustomView:doneButton];
+    UIBarButtonItem * doneButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done:)];
     self.navigationItem.rightBarButtonItem = doneButtonItem;
     [doneButtonItem release];
 }
