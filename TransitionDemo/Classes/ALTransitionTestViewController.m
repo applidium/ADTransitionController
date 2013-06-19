@@ -438,7 +438,7 @@
     _orientation = [[defaults objectForKey:AL_ORIENTATION_KEY] intValue];
     BOOL navigationBarHidden = [[defaults objectForKey:AL_NAVIGATION_BAR_HIDDEN_KEY] boolValue];
     [self.transitionController setNavigationBarHidden:navigationBarHidden];
-    self.backButton.hidden = !navigationBarHidden;
+    self.backButton.hidden = !navigationBarHidden || self.index == 0;
     self.settingsButton.hidden = !navigationBarHidden;
 }
 
@@ -451,15 +451,17 @@
 }
 
 - (void)_setupBarButtonItems {
-    UIButton * backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    backButton.frame = CGRectMake(0, 0, 34.0f, 34.0f);
-    [backButton setImage:[UIImage imageNamed:@"ALBackButtonOff"] forState:UIControlStateNormal];
-    [backButton setImage:[UIImage imageNamed:@"ALBackButtonOn"] forState:UIControlStateHighlighted];
-    [backButton addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem * backButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
-    self.navigationItem.leftBarButtonItem = backButtonItem;
-    self.navigationItem.backBarButtonItem = nil;
-    [backButtonItem release];
+    if (self.index > 0) {
+        UIButton * backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        backButton.frame = CGRectMake(0, 0, 34.0f, 34.0f);
+        [backButton setImage:[UIImage imageNamed:@"ALBackButtonOff"] forState:UIControlStateNormal];
+        [backButton setImage:[UIImage imageNamed:@"ALBackButtonOn"] forState:UIControlStateHighlighted];
+        [backButton addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem * backButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+        self.navigationItem.backBarButtonItem = nil;
+        self.navigationItem.leftBarButtonItem = backButtonItem;
+        [backButtonItem release];
+    }
     
     UIButton * settingsButton = [UIButton buttonWithType:UIButtonTypeCustom];
     settingsButton.frame = CGRectMake(0, 0, 34.0f, 34.0f);
