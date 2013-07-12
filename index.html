@@ -1,0 +1,47 @@
+---
+layout: default
+title: Applidium Open Source
+github: ADOSSTemplate
+subtitle: Drop-in replacement for UINavigationController with custom transition animations.
+---
+{% capture using_template %}{% include using.md %}{% endcapture %}
+{% capture license_template %}{% include license.md %}{% endcapture %}
+<div id="content" class="centered">
+  <div id="header">
+    <a class="logo" href="http://applidium.com"><img alt="logo" src="images/applidium_logo.png" width="51" height="24"></a>
+    <h1 class="title"><a href="/">{{ site.name }}</a></h1>
+    <ul class="section_links">
+      {% unless using_template == empty %}
+      <li><a href="#using">Using</a></li>
+      {% endunless %}
+      {% unless license_template == empty %}
+      <li><a href="#license">License</a></li>
+      {% endunless %}
+      <li><a href="#download">Download</a></li>
+    </ul>
+  </div>
+  <div id="container">
+    <div id="home">
+      <div id="intro">
+        <div id="subtitle">{{ page.subtitle }}</div>
+        <div class="button">
+          <a href="https://github.com/applidium/{{ page.github }}/archive/master.zip" class="downloadButton">Download Now!</a>
+        </div>
+        <div class="button">
+          <a href="https://github.com/applidium/{{ page.github }}" class="githubButton">GitHub repository</a>
+        </div>
+      </div>
+      {% unless using_template == empty %}
+      <h2 id="using" class="section_title">Using</h2>
+      <div class="section">
+        {{ using_template | markdownify }}
+      </div>
+      {% endunless %}
+      {% unless license_template == empty %}
+      <h2 id="license" class="section_title">License</h2>
+      <div class="section">
+       {{ license_template | markdownify }}
+     </div>
+     {% endunless %}
+   </div>
+ </div>
