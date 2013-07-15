@@ -94,8 +94,10 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
 }
 
-#subtitle {
+.subtitle {
   font: 30px CenturyGothic;
+  text-align: right;
+  margin: 70px 0;
 }
 
 #footer {
@@ -112,16 +114,25 @@ h1, h2, h3, h4, h5, h6 {
 .section {
   font-size: 14px;
   line-height: 1.6;
-  font-weight: 100;
 }
 
 .section_title {
   font-size: 30px;
 }
 
-.button {
-    width: 200px;
-    margin: auto;
+#intro {
+  overflow: auto;
+  margin: 0px 0px 70px 0px;
+}
+
+.buttons {
+  margin: auto 0px;
+  text-align: center;
+}
+
+.buttons > li {
+  display: inline;
+  margin: 0px 8px;
 }
 
 .downloadButton {
@@ -194,4 +205,45 @@ h1, h2, h3, h4, h5, h6 {
     background:linear-gradient(to bottom, #1e62d0 5%, #286fe0 100%);
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e62d0', endColorstr='#286fe0',GradientType=0);
     background-color:#1e62d0;
+}
+
+#media {
+  width: 50%;
+  float: right;
+}
+
+.iphoneWrapper {
+  width: 309px;
+  height: 641px;
+  margin: 40px 0px 40px 100px;
+  position: relative;
+}
+
+iframe {
+  width: 257px;
+  height: 455px;
+  position: absolute;
+  top: 95px;
+  left: 26px;
+}
+
+.iphone {
+  position:absolute;
+  top: 0;
+  left: 0;
+}
+
+.license {
+  padding: 10px;
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+}
+
+.download {
+  font-size: 20px;
+  text-align: center;
+  width: 60%;
+  margin:auto;
+  margin-bottom: 40px;
 }

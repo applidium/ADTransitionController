@@ -30,7 +30,6 @@
 
 .section h2 {
   font-size: 24px;
-  border-bottom: 1px solid #cccccc;
   color: black; }
 
 .section h3 {
@@ -96,7 +95,6 @@ table {
   padding: 0; }
   table tr {
     border-top: 1px solid #cccccc;
-    background-color: white;
     margin: 0;
     padding: 0; }
     table tr:nth-child(2n) {
