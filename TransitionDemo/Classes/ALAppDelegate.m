@@ -29,7 +29,6 @@
     
     // Setup appearance
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"ALNavigationBarBackground"] forBarMetrics:UIBarMetricsDefault];
-    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UIBarButtonItem appearance] setBackgroundImage:[[UIImage imageNamed:@"ALDoneButtonOff"] stretchableImageWithLeftCapWidth:10.0f topCapHeight:10.0f] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     [[UIBarButtonItem appearance] setBackgroundImage:[[UIImage imageNamed:@"ALDoneButtonOn"] stretchableImageWithLeftCapWidth:10.0f topCapHeight:10.0f] forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
     

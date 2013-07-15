@@ -94,16 +94,6 @@
     return 0;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    switch (section) {
-        case 0:
-            return @"ADDualTransition";
-        case 1:
-            return @"ADTransformTransition";
-    }
-    return nil;
-}
-
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     cell.textLabel.backgroundColor = [UIColor clearColor];
     cell.backgroundView.backgroundColor = _cellColor;
@@ -131,8 +121,10 @@
     switch (section) {
         case 0:
             label.text = @"ADDualTransition";
+            break;
         case 1:
             label.text = @"ADTransformTransition";
+            break;
     }
     
     return [headerView autorelease];
