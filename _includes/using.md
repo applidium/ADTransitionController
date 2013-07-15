@@ -41,7 +41,7 @@ When a `UIViewController` is pushed onto the stack of view controllers, the prop
 
 ## ADTransition subclasses
 
-For now, the built-in transitions available are the following. Try out [our demo application](https://github.com/applidium/ADTransitionController/archive/master.zip) to see it in action! 
+For now, the built-in transitions available are the following. Try out [our demo application](https://github.com/applidium/ADTransitionController/archive/master.zip) to see them in action! 
 
 `ADCarrouselTransition`, `ADCubeTransition`, `ADCrossTransition`, `ADFlipTransition`, `ADSwapTransition`, `ADFadeTransition`, `ADBackFadeTransition`, `ADGhostTransition`, `ADZoomTransition`, `ADSwipeTransition`, `ADSwipeFadeTransition`, `ADScaleTransition`, `ADGlueTransition`, `ADPushRotateTransition`, `ADFoldTransition`, `ADSlideTransition`.
 
@@ -56,7 +56,7 @@ The point of `ADTransitionController` is to be able to customize the animations 
 ```objective-c
 - (void)pushViewController:(UIViewController *)viewController withTransition:(ADTransition *)transition;
 - (UIViewController *)popViewControllerWithTransition:(ADTransition *)transition;
-- (NSArray *)popToViewController:(UIViewController *)viewController withTransition:(ADTransition *)transition ;
+- (NSArray *)popToViewController:(UIViewController *)viewController withTransition:(ADTransition *)transition;
 - (NSArray *)popToRootViewControllerWithTransition:(ADTransition *)transition;
 ```
 
