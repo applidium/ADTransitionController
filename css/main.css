@@ -64,6 +64,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "CenturyGothic";
   margin: 10px 0px;
   overflow: auto;
+  border-bottom: 1px solid #D3D3D3;
 }
 
 .section_links {
@@ -75,7 +76,7 @@ h1, h2, h3, h4, h5, h6 {
 .section_links li {
   display: inline;
   list-style-type: none;
-  margin: 0px 10px 0px 0px;
+  margin: 0px 20px 0px 0px;
 }
 
 .section_links a {
@@ -114,10 +115,13 @@ h1, h2, h3, h4, h5, h6 {
 .section {
   font-size: 14px;
   line-height: 1.6;
+  margin-bottom: 40px;
 }
 
 .section_title {
-  font-size: 30px;
+  border-bottom: 1px solid #D3D3D3;
+  padding-bottom: 5px;
+  font: 30px CenturyGothic;
 }
 
 #intro {
@@ -210,6 +214,7 @@ h1, h2, h3, h4, h5, h6 {
 #media {
   width: 45%;
   float: right;
+  background-color: #F3F3F3;
 }
 
 .iphoneWrapper {
@@ -238,6 +243,7 @@ iframe {
   background-color: #f8f8f8;
   border: 1px solid #cccccc;
   border-radius: 3px;
+  margin: 20px 0;
 }
 
 .download {

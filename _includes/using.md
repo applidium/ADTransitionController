@@ -1,6 +1,6 @@
 ## Quickstart
 1. Add the content of the `ADTransitionController` folder to your iOS project
-2. Link against the `QuartzCore Framework` if you don't already
+2. Link against the `QuartzCore` Framework if you don't already
 3. Import `ADTransitionController.h` and use it like you would use a UINavigationController
 4. Navigate through your controllers by calling `pushViewController:withTransition:` and `popViewController`
 
@@ -39,9 +39,9 @@ To pop a viewController from the stack, just use the `popViewController method.
 ### Note
 When a `UIViewController` is pushed onto the stack of view controllers, the property `transitionController` becomes available to the controller (see example above: `self.transitionController`). This way, an `ADTransitionController` can be used like a `UINavigationController`.
 
-## ADTransitions
+## ADTransition subclasses
 
-For now, the built-in transitions available are the following: 
+For now, the built-in transitions available are the following. Try out [our demo application](https://github.com/applidium/ADTransitionController/archive/master.zip) to see it in action! 
 
 `ADCarrouselTransition`, `ADCubeTransition`, `ADCrossTransition`, `ADFlipTransition`, `ADSwapTransition`, `ADFadeTransition`, `ADBackFadeTransition`, `ADGhostTransition`, `ADZoomTransition`, `ADSwipeTransition`, `ADSwipeFadeTransition`, `ADScaleTransition`, `ADGlueTransition`, `ADPushRotateTransition`, `ADFoldTransition`, `ADSlideTransition`.
 
@@ -51,7 +51,7 @@ The `ADTransitionController` API is fully inspired by the `UINavigationControlle
 
 ### Methods
 
-The point of `ADTransitionController` is to be able to customize the animations for a transition between two `UIViewController` instances. These are the methods we added to let you take advantage of the built-in transitions: 
+The point of `ADTransitionController` is to be able to customize the animations for a transition between two `UIViewController` instances. Here are the methods we added to let you take advantage of the built-in transitions: 
 
 ```objective-c
 - (void)pushViewController:(UIViewController *)viewController withTransition:(ADTransition *)transition;
@@ -137,12 +137,13 @@ Instance of `ADTransformTransition` have three importants properties:
 
 The `inLayerTransform` is the `CATransform3D` that will be applied to the layer of the viewController that is going to be presented during the transition.
 The `outLayerTransform` is the `CATransform3D` that will be applied to the layer of the viewController that is going to be dismissed during the transition.
-The `animation` is the `CAAnimation` that will be applied to the content layer of the ADTransitionController (i.e. the parent layer of the two viewController layers above).
+The `animation` is the `CAAnimation` that will be applied to the content layer of the ADTransitionController (i.e. the parent layer of the two former viewController layers).
 
 ## Future Work
 
 There are a couple of improvements that could be done. Feel free to send us pull requests if you want to contribute!
 
 - Add new custom transitions
-- Add support for non plane transitions (Fold transtion for instance)
+- Add support for non plane transitions (Fold transition for instance)
+- iOS 7 APIs support (planned!)
 - More?

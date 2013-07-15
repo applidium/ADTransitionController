@@ -1,1 +1,1 @@
-Enhance right away your transitions in your iOS apps downloading the code or take the time to help us improve it on Github.
+Start to use ADTransitionController and take advantage of the animated transitions.

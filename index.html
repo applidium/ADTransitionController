@@ -40,34 +40,34 @@ subtitle: Drop-in replacement for UINavigationController with custom transition 
             <a href="https://github.com/applidium/{{ page.github }}/archive/master.zip" class="downloadButton">Download Now!</a>
           </li>
           <li>
-            <a href="https://github.com/applidium/{{ page.github }}" class="githubButton">GitHub repository</a>
+            <a href="https://github.com/applidium/{{ page.github }}" class="githubButton">GitHub Repository</a>
           </li>
         </ul>
       </div>
       {% unless using_template == empty %}
-      <h2 id="how_to_use" class="section_title">How to use</h2>
+      <h1 id="how_to_use" class="section_title">How to use</h1>
       <div class="section">
         {{ using_template | markdownify }}
       </div>
       {% endunless %}
 
       {% unless download_template == empty %}
-      <h2 id="download" class="section_title">Download</h2>
+      <h1 id="download" class="section_title">Download</h1>
       <div class="section">
-        <div class="download">{{ download_template | markdownify }}</div>
+        <div class="subtitle download">{{ download_template | markdownify }}</div>
         <ul class="buttons">
           <li>
             <a href="https://github.com/applidium/{{ page.github }}/archive/master.zip" class="downloadButton">Download Now!</a>
           </li>
           <li>
-            <a href="https://github.com/applidium/{{ page.github }}" class="githubButton">GitHub repository</a>
+            <a href="https://github.com/applidium/{{ page.github }}" class="githubButton">GitHub Repository</a>
           </li>
         </ul>
       </div>
       {% endunless %}
 
       {% unless license_template == empty %}
-      <h2 id="license" class="section_title">License</h2>
+      <h1 id="license" class="section_title">License</h1>
       <div class="section license">
        {{ license_template | markdownify }}
      </div>
