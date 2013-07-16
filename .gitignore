@@ -5,3 +5,5 @@
 **/*.xcodeproj/project.xcworkspace/
 **/*.xcodeproj/xcuserdata/
 build
+_site/
+.DS_Store
