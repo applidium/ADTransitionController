@@ -97,7 +97,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .subtitle {
   font: 30px CenturyGothic;
-  text-align: center;
+  text-align: right;
   margin: 70px 0;
 }
 
@@ -247,8 +247,6 @@ iframe {
 }
 
 .download {
-  font-size: 24px;
-  text-align: center;
-  width: 70%;
+  font: 24px CenturyGothic;
   margin: 40px auto;
 }
