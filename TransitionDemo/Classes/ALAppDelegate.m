@@ -34,7 +34,7 @@
     
     // Remove status bar
     [UIApplication sharedApplication].statusBarHidden = YES;
-    
+
     self.window.backgroundColor = [UIColor blackColor];
     [self.window makeKeyAndVisible];
     return YES;
