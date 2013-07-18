@@ -2,13 +2,22 @@
 
 ADTransitionController is drop-in replacement for UINavigationController with custom transition animations.
 
-## Quickstart
+## Installation
+
+### Basic
 1. Add the content of the `ADTransitionController` folder to your iOS project
 2. Link against the `QuartzCore` Framework if you don't already
-3. Import `ADTransitionController.h` and use it like you would use a UINavigationController
-4. Navigate through your controllers by calling `pushViewController:withTransition:` and `popViewController`
+3. Import `ADTransitionController.h` in your project
+
+### CocoaPods
+
+1. Add `pod 'ADTransitionController'` to your `Podfile`
+2. In your terminal run `$ pod install` and open your workspace `$ open yourApp.xcworkspace`
+3. Import `<ADTransitionController.h>` in your project
 
 ## Example
+
+Your project is now ready to take advantage of `ADTransitionController`. Here is an example of how to use it.
  
 Instantiate an `ADTransitionController` like a `UINavigationController`:
 
