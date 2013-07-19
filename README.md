@@ -15,6 +15,11 @@ ADTransitionController is drop-in replacement for UINavigationController with cu
 2. In your terminal run `$ pod install` and open your workspace `$ open yourApp.xcworkspace`
 3. Import `<ADTransitionController.h>` in your project
 
+### ARC
+
+If you are working on an ARC project, use the `-fno-objc-arc` flag in *Build Phases > Compile Sources*.
+![Compilation Flag For ARC](http://i.imgur.com/ns6c2gz.png)
+
 ## Example
 
 Your project is now ready to take advantage of `ADTransitionController`. Here is an example of how to use it.
