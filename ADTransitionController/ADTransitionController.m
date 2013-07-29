@@ -27,6 +27,8 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
 
 @interface ADTransitionController (Private)
 - (void)_initialize;
+- (void)_setupLayers:(NSArray *)layers;
+- (void)_teardownLayers:(NSArray *)layers;
 - (void)_transitionfromView:(UIView *)viewOut toView:(UIView *)viewIn withTransition:(ADTransition *)transition;
 @end
 
@@ -431,9 +433,28 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
     }
 }
 
+- (void)_setupLayers:(NSArray *)layers {
+    for (CALayer * layer in layers) {
+        layer.shouldRasterize = YES;
+        layer.rasterizationScale = [UIScreen mainScreen].scale;
+    }
+}
+
+- (void)_teardownLayers:(NSArray *)layers {
+    for (CALayer * layer in layers) {
+        layer.shouldRasterize = NO;
+    }
+}
+
 - (void)_transitionfromView:(UIView *)viewOut toView:(UIView *)viewIn withTransition:(ADTransition *)transition {
     viewIn.layer.doubleSided = NO;
     viewOut.layer.doubleSided = NO;
+
+    [self _setupLayers:@[viewIn.layer, viewOut.layer]];
+    [CATransaction setCompletionBlock:^{
+        [self _teardownLayers:@[viewIn.layer, viewOut.layer]];
+    }];
+
     if ([transition isKindOfClass:[ADTransformTransition class]]) { // ADTransformTransition
         ADTransformTransition * transformTransition = (ADTransformTransition *)transition;
         viewIn.layer.transform = transformTransition.inLayerTransform;
