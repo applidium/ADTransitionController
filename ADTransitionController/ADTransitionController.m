@@ -72,11 +72,9 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
 }
 
 - (void)loadView {
-    UIView * view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100.0f, 100.0f)];
-    view.autoresizesSubviews = YES;
-    view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    self.view = view;
-    [view release];
+    [super loadView];
+    self.view.autoresizesSubviews = YES;
+    self.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     
     // Setting the perspective
     float zDistance = AD_Z_DISTANCE;
