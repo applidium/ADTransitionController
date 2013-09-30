@@ -59,6 +59,15 @@
             break;
     }
     inSwipeAnimation.duration = duration;
+
+    CABasicAnimation * inPositionAnimation = [CABasicAnimation animationWithKeyPath:@"zPosition"];
+    inPositionAnimation.fromValue = [NSNumber numberWithDouble:-0.001f];
+    inPositionAnimation.toValue = [NSNumber numberWithDouble:-0.001f];
+    inPositionAnimation.duration = duration;
+
+    CAAnimationGroup * inAnimation = [CAAnimationGroup animation];
+    inAnimation.animations = @[inSwipeAnimation, inPositionAnimation];
+    inAnimation.duration = duration;
     
     CABasicAnimation * outAnchorPointAnimation = [CABasicAnimation animationWithKeyPath:@"anchorPoint"];
     outAnchorPointAnimation.fromValue = [NSValue valueWithCGPoint:anchorPoint];
@@ -77,7 +86,7 @@
     
     outAnimation.duration = duration;
     
-    self = [super initWithInAnimation:inSwipeAnimation andOutAnimation:outAnimation];
+    self = [super initWithInAnimation:inAnimation andOutAnimation:outAnimation];
     return self;
 }
 

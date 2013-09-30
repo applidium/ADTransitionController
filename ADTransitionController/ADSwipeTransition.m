@@ -49,11 +49,28 @@
             NSAssert(FALSE, @"Unhandled ADTransitionOrientation");
             break;
     }
-    
     inSwipeAnimation.duration = duration;
     outSwipeAnimation.duration = duration;
+
+    CABasicAnimation * inPositionAnimation = [CABasicAnimation animationWithKeyPath:@"zPosition"];
+    inPositionAnimation.fromValue = [NSNumber numberWithDouble:-0.001f];
+    inPositionAnimation.toValue = [NSNumber numberWithDouble:-0.001f];
+    inPositionAnimation.duration = duration;
+
+    CAAnimationGroup * inAnimation = [CAAnimationGroup animation];
+    inAnimation.animations = @[inSwipeAnimation, inPositionAnimation];
+    inAnimation.duration = duration;
+
+    CABasicAnimation * outPositionAnimation = [CABasicAnimation animationWithKeyPath:@"zPosition"];
+    outPositionAnimation.fromValue = [NSNumber numberWithDouble:-0.001f];
+    outPositionAnimation.toValue = [NSNumber numberWithDouble:-0.001f];
+    outPositionAnimation.duration = duration;
+
+    CAAnimationGroup * outAnimation = [CAAnimationGroup animation];
+    outAnimation.animations = @[outSwipeAnimation, outPositionAnimation];
+    outAnimation.duration = duration;
     
-    self = [super initWithInAnimation:inSwipeAnimation andOutAnimation:outSwipeAnimation];
+    self = [super initWithInAnimation:inAnimation andOutAnimation:outAnimation];
     return self;
 }
 
