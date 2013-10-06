@@ -22,7 +22,9 @@
 
 NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssociationKey";
 
-#define AD_NAVIGATION_BAR_HEIGHT 44.0f
+#define AD_NAVIGATION_BAR_HEIGHT_PORTRAIT 44.0f
+#define AD_NAVIGATION_BAR_HEIGHT_LANDSCAPE 44.0f
+#define AD_TOOLBAR_BAR_HEIGHT 44.0f
 #define AD_Z_DISTANCE 1000.0f
 
 @interface ADTransitionController (Private)
@@ -43,6 +45,7 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
 @synthesize visibleViewController = _visibleViewController;
 @synthesize delegate = _delegate;
 @synthesize navigationBar = _navigationBar;
+@synthesize toolbar = _toolbar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -68,6 +71,7 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
     [_transitions release], _transitions = nil;
     [_viewControllers release], _viewControllers = nil;
     [_navigationBar release], _navigationBar = nil;
+    [_toolbar release], _toolbar = nil;
     [super dealloc];
 }
 
@@ -85,14 +89,21 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
     self.view.layer.sublayerTransform = sublayerTransform;
     
     // Create and add navigation bar to the view
-    CGFloat navigationBarHeight = AD_NAVIGATION_BAR_HEIGHT;
+    CGFloat navigationBarHeight = AD_NAVIGATION_BAR_HEIGHT_PORTRAIT;
     _navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, navigationBarHeight)];
     _navigationBar.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
     _navigationBar.delegate = self;
     [self.view addSubview:_navigationBar];
     
+    // Create and add toolbar to the view
+    CGFloat toolBarHeight = AD_TOOLBAR_BAR_HEIGHT;
+    _toolbar= [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, toolBarHeight)];
+    _toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+    _toolbar.delegate = self;
+    [self.view addSubview:_toolbar];
+    
     // Create and add the container view that will hold the controller views
-    _containerView = [[ADTransitionView alloc] initWithFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y + navigationBarHeight, self.view.frame.size.width, self.view.frame.size.height - navigationBarHeight)];
+    _containerView = [[ADTransitionView alloc] initWithFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y + navigationBarHeight, self.view.frame.size.width, self.view.frame.size.height - navigationBarHeight - toolBarHeight)];
     _containerView.autoresizesSubviews = YES;
     _containerView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:_containerView];
@@ -183,7 +194,6 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
     }
     
     BOOL animated = transition ? YES : NO;
-    
     
     UIView * viewIn = viewController.view;
     [self addChildViewController:viewController];
@@ -474,6 +484,38 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
         NSAssert(FALSE, @"Unhandled ADTransition subclass!");
     }
 }
+
+
+#pragma mark -
+#pragma mark UIToolBar
+
+- (void)setToolbarHidden:(BOOL)hidden animated:(BOOL)animated {
+    
+    if (animated) {
+        [UIView beginAnimations:nil context:NULL];
+    }
+    CGFloat toolBarHeight = _toolbar.frame.size.height;
+    if ([self isToolbarHidden] && !hidden) {
+        _toolbar.alpha = 1.0f;
+        _containerView.frame = CGRectMake(_containerView.frame.origin.x, _containerView.frame.origin.y , _containerView.frame.size.width, _containerView.frame.size.height - toolBarHeight);
+    } else if (![self isToolbarHidden] && hidden) {
+        _toolbar.alpha = 0.0f;
+        _containerView.frame = CGRectMake(_containerView.frame.origin.x, _containerView.frame.origin.y, _containerView.frame.size.width, _containerView.frame.size.height + toolBarHeight);
+    }
+    if (animated) {
+        [UIView commitAnimations];
+    }
+
+}
+
+- (void)setToolbarHidden:(BOOL)hidden {
+    [self setToolbarHidden:hidden animated:NO];
+}
+
+- (BOOL)isToolbarHidden {
+    return _toolbar.alpha < 0.5f;
+}
+
 
 @end
 
