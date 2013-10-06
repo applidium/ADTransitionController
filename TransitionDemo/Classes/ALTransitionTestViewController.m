@@ -53,7 +53,27 @@
     }
     [_cellColor release];
     _cellColor = [color retain];
-    
+    _tableView.backgroundColor = [UIColor clearColor];
+    self.transitionController.navigationBar.translucent = YES;
+    self.transitionController.toolbar.hidden = NO;
+    self.transitionController.toolbar.translucent = YES;
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)
+    {
+        self.edgesForExtendedLayout = UIRectEdgeAll;
+        self.automaticallyAdjustsScrollViewInsets = YES;
+        self.extendedLayoutIncludesOpaqueBars= YES;
+    }
+    NSArray* toolbarItems = [NSArray arrayWithObjects:
+                             [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                                           target:self
+                                                                           action:nil],
+                             [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch
+                                                                           target:self
+                                                                           action:nil],
+                             nil];
+    [toolbarItems makeObjectsPerformSelector:@selector(release)];
+    self.toolbarItems = toolbarItems;
+    self.transitionController.toolbarHidden = NO;
     [self _setupBarButtonItems];
 }
 
@@ -400,6 +420,7 @@
     ALSettingsViewController * settingsViewController = [[ALSettingsViewController alloc] init];
     settingsViewController.delegate = self;
     UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:settingsViewController];
+    
     if ([self respondsToSelector:@selector(presentViewController:animated:completion:)]) {
         [self presentViewController:navigationController animated:YES completion:nil];
     } else {
@@ -430,6 +451,7 @@
     _orientation = [[defaults objectForKey:AL_ORIENTATION_KEY] intValue];
     BOOL navigationBarHidden = [[defaults objectForKey:AL_NAVIGATION_BAR_HIDDEN_KEY] boolValue];
     [self.transitionController setNavigationBarHidden:navigationBarHidden];
+    [self.transitionController navigationBar].translucent = YES;
     self.backButton.hidden = !navigationBarHidden || self.index == 0;
     self.settingsButton.hidden = !navigationBarHidden;
 }
