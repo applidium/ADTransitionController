@@ -129,6 +129,14 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
     }
 }
 
+- (void)viewWillLayoutSubviews {
+    CGFloat previousNavigationBarHeight = self.navigationBar.frame.size.height;
+    [self.navigationBar sizeToFit];
+    CGFloat navigationBarHeight = self.navigationBar.frame.size.height;
+    CGFloat heightDifference = navigationBarHeight - previousNavigationBarHeight;
+    _containerView.frame = CGRectMake(_containerView.frame.origin.x, _containerView.frame.origin.y + heightDifference, _containerView.frame.size.width, _containerView.frame.size.height - heightDifference);
+}
+
 #pragma mark -
 #pragma mark Appearance
 
