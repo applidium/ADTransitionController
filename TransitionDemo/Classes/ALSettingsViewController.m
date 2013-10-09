@@ -59,6 +59,26 @@
     
     UIBarButtonItem * doneButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done:)];
     self.navigationItem.rightBarButtonItem = doneButtonItem;
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)
+    {
+        self.edgesForExtendedLayout = UIRectEdgeAll;
+        self.automaticallyAdjustsScrollViewInsets = YES;
+        self.extendedLayoutIncludesOpaqueBars= YES;
+    }
+    self.navigationController.navigationBar.translucent = YES;
+    NSArray* toolbarItems = [NSArray arrayWithObjects:
+                             [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                                           target:self
+                                                                           action:nil],
+                             [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch
+                                                                           target:self
+                                                                           action:nil],
+                             nil];
+    [toolbarItems makeObjectsPerformSelector:@selector(release)];
+    self.toolbarItems = toolbarItems;
+    self.navigationController.toolbarHidden = NO;
+    self.navigationController.toolbar.tintColor = [UIColor colorWithRed:0.169 green:0.373 blue:0.192 alpha:0.9];
+    self.navigationController.toolbar.translucent = YES;
     [doneButtonItem release];
 }
 
