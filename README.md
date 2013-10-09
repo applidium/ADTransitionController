@@ -103,7 +103,7 @@ Like a `UINavigationController`, an `ADTransitionController` informs its delegat
 
 ## Going Further
 
-If you want to totally take control of the `ADTranstionController` API, feel free to create your own transitions and animations!
+If you want to totally take control of the `ADTransitionController` API, feel free to create your own transitions and animations!
 All you need to do is to subclass `ADDualTransition` or `ADTransformTransition` and implement a `init` method.
 
 The simplest example of a custom transition is the `ADFadeTransition` class. The effect is simple: the inViewController fades in. For this the inViewController changes its opacity from 0 to 1 and the outViewController from 1 to 0.
