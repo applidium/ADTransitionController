@@ -87,7 +87,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     switch (section) {
         case 0: //ADDualTransition
-            return 13;
+            return 14;
         case 1: //ADTransformTransition
             return 3;
     }
@@ -184,6 +184,9 @@
                 case 12:
                     text = @"Swipe";
                     break;
+                case 13:
+                    text = @"Push";
+                    break;
             }
             break;
         case 1: //ADTransformTransition
@@ -252,6 +255,9 @@
                     break;
                 case 12: // Swipe
                     [self swipe:nil];
+                    break;
+                case 13: // Push
+                    [self push:nil];
                     break;
             }
             break;
@@ -393,6 +399,14 @@
     ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:@"ALTransitionTestViewController" bundle:nil index:self.index+1];
     [self.transitionController pushViewController:viewController withTransition:transition];
     [transition release];
+    [viewController release];
+}
+
+- (IBAction)push:(id)sender {
+    ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:@"ALTransitionTestViewController" bundle:nil index:self.index+1];
+    ADTransition * animation = [[ADIOS7Transition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
+    [self.transitionController pushViewController:viewController withTransition:animation];
+    [animation release];
     [viewController release];
 }
 

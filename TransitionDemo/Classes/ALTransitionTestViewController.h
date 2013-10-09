@@ -38,6 +38,7 @@
 - (IBAction)swap:(id)sender;
 - (IBAction)flip:(id)sender;
 - (IBAction)focus:(id)sender;
+- (IBAction)push:(id)sender;
 - (IBAction)showSettings:(id)sender;
 - (IBAction)back:(id)sender;
 @end
