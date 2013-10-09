@@ -70,6 +70,8 @@
 		49F4C38D1757987E0083DE48 /* ALSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F4C38B1757987C0083DE48 /* ALSettingsViewController.m */; };
 		49F4C390175798A50083DE48 /* ALSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49F4C38F175798A50083DE48 /* ALSettingsViewController.xib */; };
 		6FB67DBB18055F81009F27B1 /* ADModernPushTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FB67DBA18055F81009F27B1 /* ADModernPushTransition.m */; };
+		6FB67DBE18058562009F27B1 /* ADTransitioningDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FB67DBD18058562009F27B1 /* ADTransitioningDelegate.m */; };
+		6FB67DC118059126009F27B1 /* ADNavigationControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FB67DC018059126009F27B1 /* ADNavigationControllerDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -165,6 +167,10 @@
 		49F4C38F175798A50083DE48 /* ALSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALSettingsViewController.xib; sourceTree = "<group>"; };
 		6FB67DB918055F81009F27B1 /* ADModernPushTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADModernPushTransition.h; sourceTree = "<group>"; };
 		6FB67DBA18055F81009F27B1 /* ADModernPushTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADModernPushTransition.m; sourceTree = "<group>"; };
+		6FB67DBC18058562009F27B1 /* ADTransitioningDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTransitioningDelegate.h; sourceTree = "<group>"; };
+		6FB67DBD18058562009F27B1 /* ADTransitioningDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTransitioningDelegate.m; sourceTree = "<group>"; };
+		6FB67DBF18059126009F27B1 /* ADNavigationControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNavigationControllerDelegate.h; sourceTree = "<group>"; };
+		6FB67DC018059126009F27B1 /* ADNavigationControllerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNavigationControllerDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +202,10 @@
 				490A860C175DED910085D3D8 /* UIViewController+ADTransitionController.h */,
 				490A860D175DED910085D3D8 /* UIViewController+ADTransitionController.m */,
 				490A8623175DEDD80085D3D8 /* Templates */,
+				6FB67DBC18058562009F27B1 /* ADTransitioningDelegate.h */,
+				6FB67DBD18058562009F27B1 /* ADTransitioningDelegate.m */,
+				6FB67DBF18059126009F27B1 /* ADNavigationControllerDelegate.h */,
+				6FB67DC018059126009F27B1 /* ADNavigationControllerDelegate.m */,
 			);
 			name = ADTransitionController;
 			path = ../ADTransitionController;
@@ -479,8 +489,10 @@
 				490A8615175DED910085D3D8 /* ADFoldTransition.m in Sources */,
 				490A8616175DED910085D3D8 /* ADGhostTransition.m in Sources */,
 				490A8617175DED910085D3D8 /* ADGlueTransition.m in Sources */,
+				6FB67DC118059126009F27B1 /* ADNavigationControllerDelegate.m in Sources */,
 				490A8618175DED910085D3D8 /* ADPushRotateTransition.m in Sources */,
 				6FB67DBB18055F81009F27B1 /* ADModernPushTransition.m in Sources */,
+				6FB67DBE18058562009F27B1 /* ADTransitioningDelegate.m in Sources */,
 				490A8619175DED910085D3D8 /* ADScaleTransition.m in Sources */,
 				490A861A175DED910085D3D8 /* ADSlideTransition.m in Sources */,
 				490A861B175DED910085D3D8 /* ADSwapTransition.m in Sources */,

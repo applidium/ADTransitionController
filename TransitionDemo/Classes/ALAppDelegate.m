@@ -7,8 +7,8 @@
 //
 
 #import "ALAppDelegate.h"
-#import "ADTransitionController.h"
 #import "ALTransitionTestViewController.h"
+#import "ADNavigationControllerDelegate.h"
 
 @implementation ALAppDelegate
 
@@ -22,8 +22,11 @@
 
     // Setup transitionController
     ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:nil bundle:nil index:0];
-    ADTransitionController * transitionController = [[ADTransitionController alloc] initWithRootViewController:viewController];
+    UINavigationController * transitionController = [[UINavigationController alloc] initWithRootViewController:viewController];
     [viewController release];
+    ADNavigationControllerDelegate * navigationDelegate = [[ADNavigationControllerDelegate alloc] init];
+    transitionController.delegate = navigationDelegate;
+    // TODO navigationDelegate is leaking
     self.window.rootViewController = transitionController;
     [transitionController release];
 

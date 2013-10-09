@@ -7,6 +7,8 @@
 //
 
 #import "ALTransitionTestViewController.h"
+#import "ADTransitioningDelegate.h"
+#import "ADTransitionController.h"
 
 @interface ALTransitionTestViewController (Private)
 - (void)_retrieveSettings;
@@ -27,6 +29,12 @@
     if (![[NSUserDefaults standardUserDefaults] objectForKey:AL_SPEED_KEY]) {
         [self _defaultsSettings];
     }
+    [self _retrieveSettings];
+    ADTransition * transition = [[ADSlideTransition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
+    ADTransitioningDelegate * transitioningDelegate = [[ADTransitioningDelegate alloc] initWithTransition:transition];
+    [transition release];
+    self.transitioningDelegate = transitioningDelegate;
+    // TODO transitioningDelegate is leaking
     return self;
 }
 
@@ -284,6 +292,13 @@
     [self.transitionController popViewController];
 }
 
+- (IBAction)slide:(id)sender {
+    ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:@"ALTransitionTestViewController" bundle:nil index:self.index+1];
+    ADTransition * animation = [[ADSlideTransition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
+    [self.navigationController pushViewController:viewController animated:YES];
+    [animation release];
+    [viewController release];
+}
 - (IBAction)fade:(id)sender {
     ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:@"ALTransitionTestViewController" bundle:nil index:self.index+1];
     ADTransition * animation = [[ADFadeTransition alloc] initWithDuration:_duration];
@@ -362,13 +377,6 @@
     [animation release];
     [viewController release];
 }
-- (IBAction)slide:(id)sender {
-    ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:@"ALTransitionTestViewController" bundle:nil index:self.index+1];
-    ADTransition * animation = [[ADSlideTransition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
-    [self.transitionController pushViewController:viewController withTransition:animation];
-    [animation release];
-    [viewController release];
-}
 - (IBAction)fold:(id)sender {
     ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:@"ALTransitionTestViewController" bundle:nil index:self.index+1];
     ADTransition * animation = [[ADFoldTransition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
@@ -424,7 +432,7 @@
 }
 
 - (IBAction)back:(id)sender {
-    [self.transitionController popViewController];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark -
