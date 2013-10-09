@@ -46,7 +46,7 @@
         cubeRotation.duration = duration;
         
         CAKeyframeAnimation * zTranslationAnimation = [CAKeyframeAnimation animationWithKeyPath:@"zPosition"];
-        zTranslationAnimation.values = @[[NSNumber numberWithFloat:0.0f], [NSNumber numberWithFloat:-36.0f], [NSNumber numberWithFloat:0.0f]];
+        zTranslationAnimation.values = @[@0.0f, @-36.0f, @0.0f];
         
         zTranslationAnimation.timingFunctions = [self getCircleApproximationTimingFunctions];
         zTranslationAnimation.duration = duration;

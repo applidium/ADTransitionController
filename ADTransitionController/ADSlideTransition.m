@@ -56,14 +56,14 @@
                                              [NSValue valueWithCATransform3D:CATransform3DIdentity]];
     
     CAKeyframeAnimation * inKeyFrameOpacityAnimation = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
-    inKeyFrameOpacityAnimation.values = @[[NSNumber numberWithFloat:0],
-                                          [NSNumber numberWithFloat:0],
-                                          [NSNumber numberWithFloat:0.5f],
-                                          [NSNumber numberWithFloat:1.0f]];
+    inKeyFrameOpacityAnimation.values = @[@0.0f,
+                                          @0.0f,
+                                          @0.5f,
+                                          @1.0f];
     
     CABasicAnimation * inZPositionAnimation = [CABasicAnimation animationWithKeyPath:@"zPosition"];
-    inZPositionAnimation.fromValue = [NSNumber numberWithDouble:-0.001f];
-    inZPositionAnimation.toValue = [NSNumber numberWithDouble:-0.001f];
+    inZPositionAnimation.fromValue = @-0.001;
+    inZPositionAnimation.toValue = @-0.001;
     
     CAAnimationGroup * inAnimation = [CAAnimationGroup animation];
     inAnimation.animations = @[inKeyFrameTransformAnimation, inKeyFrameOpacityAnimation, inZPositionAnimation];
@@ -79,14 +79,14 @@
                                              [NSValue valueWithCATransform3D:outTranslationTransform]];
     
     CAKeyframeAnimation * outKeyFrameOpacityAnimation = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
-    outKeyFrameOpacityAnimation.values = @[[NSNumber numberWithFloat:1.0f],
-                                          [NSNumber numberWithFloat:0.5f],
-                                          [NSNumber numberWithFloat:0],
-                                          [NSNumber numberWithFloat:0]];
+    outKeyFrameOpacityAnimation.values = @[@1.0f,
+                                          @0.5f,
+                                          @0.0f,
+                                          @0.0f];
     
     CABasicAnimation * outZPositionAnimation = [CABasicAnimation animationWithKeyPath:@"zPosition"];
-    outZPositionAnimation.fromValue = [NSNumber numberWithDouble:-0.001f];
-    outZPositionAnimation.toValue = [NSNumber numberWithDouble:-0.001f];
+    outZPositionAnimation.fromValue = @-0.001;
+    outZPositionAnimation.toValue = @-0.001;
 
     CAAnimationGroup * outAnimation = [CAAnimationGroup animation];
     outAnimation.animations = @[outKeyFrameTransformAnimation, outKeyFrameOpacityAnimation, outZPositionAnimation];

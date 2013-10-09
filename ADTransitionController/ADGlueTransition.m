@@ -62,8 +62,8 @@
     inSwipeAnimation.duration = duration;
 
     CABasicAnimation * inPositionAnimation = [CABasicAnimation animationWithKeyPath:@"zPosition"];
-    inPositionAnimation.fromValue = [NSNumber numberWithDouble:-0.001f];
-    inPositionAnimation.toValue = [NSNumber numberWithDouble:-0.001f];
+    inPositionAnimation.fromValue = @-0.001;
+    inPositionAnimation.toValue = @-0.001;
     inPositionAnimation.duration = duration;
 
     CAAnimationGroup * inAnimation = [CAAnimationGroup animation];
@@ -81,7 +81,7 @@
     outTransformKeyFrameAnimation.timingFunctions = [self getCircleApproximationTimingFunctions];
     
     CAKeyframeAnimation * outOpacityKeyFrameAnimation = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
-    outOpacityKeyFrameAnimation.values = @[[NSNumber numberWithFloat:1.0f], [NSNumber numberWithFloat:1.0f], [NSNumber numberWithFloat:0.0f]];
+    outOpacityKeyFrameAnimation.values = @[@1.0f, @1.0f, @0.0f];
     
     CAAnimationGroup * outAnimation = [CAAnimationGroup animation];
     [outAnimation setAnimations:@[outOpacityKeyFrameAnimation, outTransformKeyFrameAnimation, outAnchorPointAnimation]];

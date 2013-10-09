@@ -234,7 +234,7 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
     BOOL animated = transition ? YES : NO;
     [_transitions removeLastObject];
     
-    UIViewController * inViewController = [_viewControllers objectAtIndex:([_viewControllers count] - 2)];
+    UIViewController * inViewController = _viewControllers[([_viewControllers count] - 2)];
     [inViewController beginAppearanceTransition:YES animated:animated];
     if ([self.delegate respondsToSelector:@selector(transitionController:willShowViewController:animated:)]) {
         [self.delegate transitionController:self willShowViewController:inViewController animated:animated];
@@ -335,7 +335,7 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
 - (void)pushTransitionDidFinish:(ADTransition *)transition {
     BOOL animated = transition ? YES : NO;
     if ([_viewControllers count] >= 2) {
-        UIViewController * outViewController = [_viewControllers objectAtIndex:([_viewControllers count] - 2)];
+        UIViewController * outViewController = _viewControllers[([_viewControllers count] - 2)];
         [outViewController.view removeFromSuperview];
         [outViewController endAppearanceTransition];
     }

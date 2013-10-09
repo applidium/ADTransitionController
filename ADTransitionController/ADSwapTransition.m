@@ -16,8 +16,8 @@
     CGFloat viewHeight = sourceRect.size.height;
     
     CABasicAnimation * inZPosition = [CABasicAnimation animationWithKeyPath:@"zPosition"];
-    inZPosition.fromValue = [NSNumber numberWithFloat: -2000.0f];
-    inZPosition.toValue = [NSNumber numberWithFloat:0.0f];
+    inZPosition.fromValue = @-2000.0f;
+    inZPosition.toValue = @0.0f;
     
     CATransform3D rightTransform = CATransform3DMakeTranslation(viewWidth * 0.6f, 0.0f, 0.0f);
     rightTransform = CATransform3DRotate(rightTransform,- M_PI / 5.0f, 0.0f, 1.0f, 0.0f);
@@ -62,8 +62,8 @@
     }
     
     CABasicAnimation * outZPosition = [CABasicAnimation animationWithKeyPath:@"zPosition"];
-    outZPosition.fromValue = [NSNumber numberWithFloat: 0.0f];
-    outZPosition.toValue = [NSNumber numberWithFloat:-2000.0f];
+    outZPosition.fromValue = @0.0f;
+    outZPosition.toValue = @-2000.0f;
     
     inPosition.timingFunctions = [self getCircleApproximationTimingFunctions];
     outPosition.timingFunctions = [self getCircleApproximationTimingFunctions];

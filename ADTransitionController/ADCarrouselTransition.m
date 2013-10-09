@@ -53,7 +53,7 @@
         carrouselRotation.duration = duration;
         
         CAKeyframeAnimation * zTranslationAnimation = [CAKeyframeAnimation animationWithKeyPath:@"zPosition"];
-        zTranslationAnimation.values = @[[NSNumber numberWithFloat:0.0f], [NSNumber numberWithFloat:zPositionMax], [NSNumber numberWithFloat:0.0f]];
+        zTranslationAnimation.values = @[@0.0f, @(zPositionMax), @0.0f];
         zTranslationAnimation.timingFunctions = [self getCircleApproximationTimingFunctions];
         zTranslationAnimation.duration = duration;
         

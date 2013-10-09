@@ -26,8 +26,8 @@ CGPoint ADRectCenter(CGRect rect) {
     zoomAnimation.duration = duration;
 
     CABasicAnimation * outAnimation = [CABasicAnimation animationWithKeyPath:@"zPosition"];
-    outAnimation.fromValue = [NSNumber numberWithDouble:-0.001f];
-    outAnimation.toValue = [NSNumber numberWithDouble:-0.001f];
+    outAnimation.fromValue = @-0.001;
+    outAnimation.toValue = @-0.001;
     outAnimation.duration = duration;
 
     self = [super initWithInAnimation:zoomAnimation andOutAnimation:outAnimation];

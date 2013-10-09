@@ -46,12 +46,12 @@
     inSwipeAnimation.duration = duration;
 
     CABasicAnimation * outOpacityAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
-    outOpacityAnimation.fromValue = [NSNumber numberWithFloat:1.0f];
-    outOpacityAnimation.toValue = [NSNumber numberWithFloat:0.5f];
+    outOpacityAnimation.fromValue = @1.0f;
+    outOpacityAnimation.toValue = @0.5f;
 
     CABasicAnimation * outPositionAnimation = [CABasicAnimation animationWithKeyPath:@"zPosition"];
-    outPositionAnimation.fromValue = [NSNumber numberWithDouble:-0.001f];
-    outPositionAnimation.toValue = [NSNumber numberWithDouble:-0.001f];
+    outPositionAnimation.fromValue = @-0.001;
+    outPositionAnimation.toValue = @-0.001;
     outPositionAnimation.duration = duration;
 
     CAAnimationGroup * outAnimation = [CAAnimationGroup animation];

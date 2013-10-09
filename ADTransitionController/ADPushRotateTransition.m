@@ -61,8 +61,8 @@
     inSwipeAnimation.duration = duration;
 
     CABasicAnimation * inPositionAnimation = [CABasicAnimation animationWithKeyPath:@"zPosition"];
-    inPositionAnimation.fromValue = [NSNumber numberWithDouble:-0.001f];
-    inPositionAnimation.toValue = [NSNumber numberWithDouble:-0.001f];
+    inPositionAnimation.fromValue = @-0.001;
+    inPositionAnimation.toValue = @-0.001;
     inPositionAnimation.duration = duration;
 
     CAAnimationGroup * inAnimation = [CAAnimationGroup animation];
@@ -78,8 +78,8 @@
     outRotationAnimation.toValue = [NSValue valueWithCATransform3D:rotation];
     
     CABasicAnimation * outOpacityAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
-    outOpacityAnimation.fromValue = [NSNumber numberWithFloat:1.0f];
-    outOpacityAnimation.toValue = [NSNumber numberWithFloat:0.0f];
+    outOpacityAnimation.fromValue = @1.0f;
+    outOpacityAnimation.toValue = @0.0f;
     
     CAAnimationGroup * outAnimation = [CAAnimationGroup animation];
     [outAnimation setAnimations:@[outOpacityAnimation, outRotationAnimation, outAnchorPointAnimation]];

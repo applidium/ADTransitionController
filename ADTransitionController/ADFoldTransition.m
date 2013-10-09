@@ -85,12 +85,12 @@
     outRotationAnimation.toValue = [NSValue valueWithCATransform3D:outRotation];
     
     CABasicAnimation * inOpacityAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
-    inOpacityAnimation.fromValue = [NSNumber numberWithFloat:0];
-    inOpacityAnimation.toValue = [NSNumber numberWithFloat:1.0f];
+    inOpacityAnimation.fromValue = @0.0f;
+    inOpacityAnimation.toValue = @1.0f;
     
     CABasicAnimation * outOpacityAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
-    outOpacityAnimation.fromValue = [NSNumber numberWithFloat:1.0f];
-    outOpacityAnimation.toValue = [NSNumber numberWithFloat:0];
+    outOpacityAnimation.fromValue = @1.0f;
+    outOpacityAnimation.toValue = @0.0f;
     
     CAAnimationGroup * inAnimation = [CAAnimationGroup animation];
     [inAnimation setAnimations:@[inOpacityAnimation, inRotationAnimation, inAnchorPointAnimation]];

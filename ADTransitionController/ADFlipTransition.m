@@ -23,28 +23,28 @@
     switch (orientation) {
         case ADTransitionRightToLeft:
         {
-            zTranslationAnimation.values = @[[NSNumber numberWithFloat:0.0f], [NSNumber numberWithFloat:-viewWidth * 0.5f], [NSNumber numberWithFloat:0.0f]];
+            zTranslationAnimation.values = @[@0.0f, @(-viewWidth * 0.5f), @0.0f];
             inPivotTransform = CATransform3DRotate(inPivotTransform, M_PI - 0.001, 0.0f, 1.0f, 0.0f);
             outPivotTransform = CATransform3DRotate(outPivotTransform, -M_PI + 0.001, 0.0f, 1.0f, 0.0f);
         }
             break;
         case ADTransitionLeftToRight:
         {
-            zTranslationAnimation.values = @[[NSNumber numberWithFloat:0.0f], [NSNumber numberWithFloat:-viewWidth * 0.5f], [NSNumber numberWithFloat:0.0f]];
+            zTranslationAnimation.values = @[@0.0f, @(-viewWidth * 0.5f), @0.0f];
             inPivotTransform = CATransform3DRotate(inPivotTransform, M_PI + 0.001, 0.0f, 1.0f, 0.0f);
             outPivotTransform = CATransform3DRotate(outPivotTransform, - M_PI - 0.001, 0.0f, 1.0f, 0.0f);
         }
             break;
         case ADTransitionBottomToTop:
         {
-            zTranslationAnimation.values = @[[NSNumber numberWithFloat:0.0f], [NSNumber numberWithFloat:-viewHeight * 0.5f], [NSNumber numberWithFloat:0.0f]];
+            zTranslationAnimation.values = @[@0.0f, @(-viewHeight * 0.5f), @0.0f];
             inPivotTransform = CATransform3DRotate(inPivotTransform, M_PI + 0.001, 1.0f, .0f, 0.0f);
             outPivotTransform = CATransform3DRotate(outPivotTransform, - M_PI - 0.001, 1.0f, 0.0f, 0.0f);
         }
             break;
         case ADTransitionTopToBottom:
         {
-            zTranslationAnimation.values = @[[NSNumber numberWithFloat:0.0f], [NSNumber numberWithFloat:-viewHeight * 0.5f], [NSNumber numberWithFloat:0.0f]];
+            zTranslationAnimation.values = @[@0.0f, @(-viewHeight * 0.5f), @0.0f];
             inPivotTransform = CATransform3DRotate(inPivotTransform, M_PI - 0.001, 1.0f, .0f, 0.0f);
             outPivotTransform = CATransform3DRotate(outPivotTransform, - M_PI + 0.001, 1.0f, 0.0f, 0.0f);
         }

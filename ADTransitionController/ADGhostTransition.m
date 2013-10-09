@@ -12,8 +12,8 @@
 
 - (id)initWithDuration:(CFTimeInterval)duration {    
     CABasicAnimation * inFadeAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
-    inFadeAnimation.fromValue = [NSNumber numberWithFloat:0.0f];
-    inFadeAnimation.toValue = [NSNumber numberWithFloat:1.0f];
+    inFadeAnimation.fromValue = @0.0f;
+    inFadeAnimation.toValue = @1.0f;
     
     CABasicAnimation * inScaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform"];
     inScaleAnimation.fromValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(2.0f, 2.0f, 2.0f)];
@@ -24,8 +24,8 @@
     inAnimation.duration = duration;
     
     CABasicAnimation * outFadeAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
-    outFadeAnimation.fromValue = [NSNumber numberWithFloat:1.0f];
-    outFadeAnimation.toValue = [NSNumber numberWithFloat:0.0f];
+    outFadeAnimation.fromValue = @1.0f;
+    outFadeAnimation.toValue = @0.0f;
     
     CABasicAnimation * outScaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform"];
     outScaleAnimation.fromValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
