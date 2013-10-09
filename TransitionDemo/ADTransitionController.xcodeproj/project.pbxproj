@@ -69,7 +69,7 @@
 		49A63773175E3DA5006B3187 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49A63771175E3DA5006B3187 /* Icon@2x.png */; };
 		49F4C38D1757987E0083DE48 /* ALSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F4C38B1757987C0083DE48 /* ALSettingsViewController.m */; };
 		49F4C390175798A50083DE48 /* ALSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49F4C38F175798A50083DE48 /* ALSettingsViewController.xib */; };
-		6FB67DBB18055F81009F27B1 /* ADIOS7Transition.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FB67DBA18055F81009F27B1 /* ADIOS7Transition.m */; };
+		6FB67DBB18055F81009F27B1 /* ADModernPushTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FB67DBA18055F81009F27B1 /* ADModernPushTransition.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -163,8 +163,8 @@
 		49F4C38A1757987B0083DE48 /* ALSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ALSettingsViewController.h; path = Classes/ALSettingsViewController.h; sourceTree = SOURCE_ROOT; };
 		49F4C38B1757987C0083DE48 /* ALSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ALSettingsViewController.m; path = Classes/ALSettingsViewController.m; sourceTree = SOURCE_ROOT; };
 		49F4C38F175798A50083DE48 /* ALSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALSettingsViewController.xib; sourceTree = "<group>"; };
-		6FB67DB918055F81009F27B1 /* ADIOS7Transition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADIOS7Transition.h; sourceTree = "<group>"; };
-		6FB67DBA18055F81009F27B1 /* ADIOS7Transition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADIOS7Transition.m; sourceTree = "<group>"; };
+		6FB67DB918055F81009F27B1 /* ADModernPushTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADModernPushTransition.h; sourceTree = "<group>"; };
+		6FB67DBA18055F81009F27B1 /* ADModernPushTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADModernPushTransition.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,8 +222,8 @@
 				490A85F5175DED910085D3D8 /* ADGhostTransition.m */,
 				490A85F6175DED910085D3D8 /* ADGlueTransition.h */,
 				490A85F7175DED910085D3D8 /* ADGlueTransition.m */,
-				6FB67DB918055F81009F27B1 /* ADIOS7Transition.h */,
-				6FB67DBA18055F81009F27B1 /* ADIOS7Transition.m */,
+				6FB67DB918055F81009F27B1 /* ADModernPushTransition.h */,
+				6FB67DBA18055F81009F27B1 /* ADModernPushTransition.m */,
 				490A85F8175DED910085D3D8 /* ADPushRotateTransition.h */,
 				490A85F9175DED910085D3D8 /* ADPushRotateTransition.m */,
 				490A85FA175DED910085D3D8 /* ADScaleTransition.h */,
@@ -480,7 +480,7 @@
 				490A8616175DED910085D3D8 /* ADGhostTransition.m in Sources */,
 				490A8617175DED910085D3D8 /* ADGlueTransition.m in Sources */,
 				490A8618175DED910085D3D8 /* ADPushRotateTransition.m in Sources */,
-				6FB67DBB18055F81009F27B1 /* ADIOS7Transition.m in Sources */,
+				6FB67DBB18055F81009F27B1 /* ADModernPushTransition.m in Sources */,
 				490A8619175DED910085D3D8 /* ADScaleTransition.m in Sources */,
 				490A861A175DED910085D3D8 /* ADSlideTransition.m in Sources */,
 				490A861B175DED910085D3D8 /* ADSwapTransition.m in Sources */,

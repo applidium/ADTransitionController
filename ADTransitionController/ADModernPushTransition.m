@@ -1,14 +1,14 @@
 //
-//  ADIOS7Transition.m
-//  Titanium
+//  ADModernPushTransition.m
+//  AppLibrary
 //
 //  Created by Martin Guillon on 23/09/13.
 //
 //
 
-#import "ADIOS7Transition.h"
+#import "ADModernPushTransition.h"
 
-@implementation ADIOS7Transition
+@implementation ADModernPushTransition
 
 - (id)initWithDuration:(CFTimeInterval)duration orientation:(ADTransitionOrientation)orientation sourceRect:(CGRect)sourceRect {
 

@@ -404,7 +404,7 @@
 
 - (IBAction)push:(id)sender {
     ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:@"ALTransitionTestViewController" bundle:nil index:self.index+1];
-    ADTransition * animation = [[ADIOS7Transition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
+    ADTransition * animation = [[ADModernPushTransition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
     [self.transitionController pushViewController:viewController withTransition:animation];
     [animation release];
     [viewController release];
