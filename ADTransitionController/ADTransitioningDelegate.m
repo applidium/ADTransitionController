@@ -70,18 +70,15 @@
     if (self.transition.type == ADTransitionTypeNull) {
         self.transition.type = ADTransitionTypePush;
     }
-    UIView * fromView = nil;
-    UIView * toView = nil;
+    UIView * fromView = fromViewController.view;
+    UIView * toView = toViewController.view;
+
     ADTransition * transition = nil;
     switch (self.transition.type) {
         case ADTransitionTypePush:
-            fromView = fromViewController.view;
-            toView = toViewController.view;
             transition = self.transition;
             break;
         case ADTransitionTypePop:
-            fromView = toViewController.view;
-            toView = fromViewController.view;
             transition = self.transition.reverseTransition;
         default:
             break;
