@@ -72,6 +72,7 @@
 		6FB67DBB18055F81009F27B1 /* ADModernPushTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FB67DBA18055F81009F27B1 /* ADModernPushTransition.m */; };
 		6FB67DBE18058562009F27B1 /* ADTransitioningDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FB67DBD18058562009F27B1 /* ADTransitioningDelegate.m */; };
 		6FB67DC118059126009F27B1 /* ADNavigationControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FB67DC018059126009F27B1 /* ADNavigationControllerDelegate.m */; };
+		6FB67DC41806B3FF009F27B1 /* ADTransitioningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FB67DC31806B3FF009F27B1 /* ADTransitioningViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -171,6 +172,8 @@
 		6FB67DBD18058562009F27B1 /* ADTransitioningDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTransitioningDelegate.m; sourceTree = "<group>"; };
 		6FB67DBF18059126009F27B1 /* ADNavigationControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNavigationControllerDelegate.h; sourceTree = "<group>"; };
 		6FB67DC018059126009F27B1 /* ADNavigationControllerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNavigationControllerDelegate.m; sourceTree = "<group>"; };
+		6FB67DC21806B3FF009F27B1 /* ADTransitioningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTransitioningViewController.h; sourceTree = "<group>"; };
+		6FB67DC31806B3FF009F27B1 /* ADTransitioningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTransitioningViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +209,8 @@
 				6FB67DBD18058562009F27B1 /* ADTransitioningDelegate.m */,
 				6FB67DBF18059126009F27B1 /* ADNavigationControllerDelegate.h */,
 				6FB67DC018059126009F27B1 /* ADNavigationControllerDelegate.m */,
+				6FB67DC21806B3FF009F27B1 /* ADTransitioningViewController.h */,
+				6FB67DC31806B3FF009F27B1 /* ADTransitioningViewController.m */,
 			);
 			name = ADTransitionController;
 			path = ../ADTransitionController;
@@ -503,6 +508,7 @@
 				490A8620175DED910085D3D8 /* ADTransitionController.m in Sources */,
 				490A8621175DED910085D3D8 /* ADZoomTransition.m in Sources */,
 				490A8622175DED910085D3D8 /* UIViewController+ADTransitionController.m in Sources */,
+				6FB67DC41806B3FF009F27B1 /* ADTransitioningViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

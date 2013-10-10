@@ -9,11 +9,13 @@
 #import "ALTransitionTestViewController.h"
 #import "ADTransitioningDelegate.h"
 #import "ADTransitionController.h"
+#import "ADTransitioningDelegate.h"
 
 @interface ALTransitionTestViewController (Private)
 - (void)_retrieveSettings;
 - (void)_defaultsSettings;
 - (void)_setupBarButtonItems;
+- (void)_pushViewControllerWithTransition:(ADTransition *)transition;
 @end
 
 @interface ALTransitionTestViewController () {
@@ -30,11 +32,6 @@
         [self _defaultsSettings];
     }
     [self _retrieveSettings];
-    ADTransition * transition = [[ADSlideTransition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
-    ADTransitioningDelegate * transitioningDelegate = [[ADTransitioningDelegate alloc] initWithTransition:transition];
-    [transition release];
-    self.transitioningDelegate = transitioningDelegate;
-    // TODO transitioningDelegate is leaking
     return self;
 }
 
@@ -293,11 +290,9 @@
 }
 
 - (IBAction)slide:(id)sender {
-    ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:@"ALTransitionTestViewController" bundle:nil index:self.index+1];
     ADTransition * animation = [[ADSlideTransition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
-    [self.navigationController pushViewController:viewController animated:YES];
+    [self _pushViewControllerWithTransition:animation];
     [animation release];
-    [viewController release];
 }
 - (IBAction)fade:(id)sender {
     ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:@"ALTransitionTestViewController" bundle:nil index:self.index+1];
@@ -487,4 +482,10 @@
     [settingsButtonItem release];
 }
 
+- (void)_pushViewControllerWithTransition:(ADTransition *)transition {
+    ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:@"ALTransitionTestViewController" bundle:nil index:self.index+1];
+    viewController.transition = transition;
+    [self.navigationController pushViewController:viewController animated:YES];
+    [viewController release];
+}
 @end

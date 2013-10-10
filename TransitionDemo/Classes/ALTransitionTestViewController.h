@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "ADTransitionController.h"
 #import "ALSettingsViewController.h"
+#import "ADTransitioningViewController.h"
 
-@interface ALTransitionTestViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ALSettingsDelegate> {
+@interface ALTransitionTestViewController : ADTransitioningViewController <UITableViewDataSource, UITableViewDelegate, ALSettingsDelegate> {
     NSInteger _index;
     CGFloat _duration;
     ADTransitionOrientation _orientation;
