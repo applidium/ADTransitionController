@@ -38,7 +38,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = [NSString stringWithFormat:@"Index: %d", self.index];
-    
+
     UIColor * color = nil;
     switch (_index % 4) {
         case 0: // Green
@@ -58,7 +58,7 @@
     }
     [_cellColor release];
     _cellColor = [color retain];
-    
+
     [self _setupBarButtonItems];
 }
 
@@ -79,7 +79,7 @@
     [_tableView release];
     [_settingsButton release];
     [_backButton release];
-    [super dealloc];   
+    [super dealloc];
 }
 
 #pragma mark -
@@ -108,13 +108,13 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView * headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 23.0f)];
     headerView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    
+
     UIImageView * imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ALTableViewHeaderBackground"]];
     imageView.frame = headerView.frame;
     imageView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [headerView addSubview:imageView];
     [imageView release];
-    
+
     UILabel * label = [[UILabel alloc] initWithFrame:headerView.frame];
     label.backgroundColor = [UIColor clearColor];
     label.textColor = [UIColor colorWithWhite:0.925 alpha:1.000];
@@ -131,7 +131,7 @@
             label.text = @"ADTransformTransition";
             break;
     }
-    
+
     return [headerView autorelease];
 }
 
@@ -141,11 +141,11 @@
     if (!cell) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:sCellIdentifier] autorelease];
     }
-    
+
     UIView * backgroundView = [[UIView alloc] initWithFrame:cell.frame];
     cell.backgroundView = backgroundView;
     [backgroundView release];
-    
+
     NSString * text = nil;
     switch (indexPath.section) {
         case 0: //ADDualTransition
@@ -211,7 +211,7 @@
     cell.textLabel.text = text;
     cell.textLabel.textAlignment = UITextAlignmentCenter;
     cell.textLabel.textColor = [UIColor colorWithWhite:0.925f alpha:1.0f];
-    
+
     return cell;
 }
 
@@ -438,7 +438,7 @@
         self.navigationItem.leftBarButtonItem = backButtonItem;
         [backButtonItem release];
     }
-    
+
     UIButton * settingsButton = [UIButton buttonWithType:UIButtonTypeCustom];
     settingsButton.frame = CGRectMake(0, 0, 34.0f, 34.0f);
     [settingsButton setImage:[UIImage imageNamed:@"ALSettingsButtonOff"] forState:UIControlStateNormal];
