@@ -295,122 +295,89 @@
     [animation release];
 }
 - (IBAction)fade:(id)sender {
-    ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:@"ALTransitionTestViewController" bundle:nil index:self.index+1];
     ADTransition * animation = [[ADFadeTransition alloc] initWithDuration:_duration];
-    [self.transitionController pushViewController:viewController withTransition:animation];
+    [self _pushViewControllerWithTransition:animation];
     [animation release];
-    [viewController release];
 }
 
 - (IBAction)backFade:(id)sender {
-    ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:@"ALTransitionTestViewController" bundle:nil index:self.index+1];
     ADTransition * animation = [[ADBackFadeTransition alloc] initWithDuration:_duration];
-    [self.transitionController pushViewController:viewController withTransition:animation];
+    [self _pushViewControllerWithTransition:animation];
     [animation release];
-    [viewController release];
 }
 - (IBAction)ghost:(id)sender {
-    ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:@"ALTransitionTestViewController" bundle:nil index:self.index+1];
     ADTransition * animation = [[ADGhostTransition alloc] initWithDuration:_duration];
-    [self.transitionController pushViewController:viewController withTransition:animation];
+    [self _pushViewControllerWithTransition:animation];
     [animation release];
-    [viewController release];
 }
 - (IBAction)cube:(id)sender {
-    ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:@"ALTransitionTestViewController" bundle:nil index:self.index+1];
     ADTransition * animation = [[ADCubeTransition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
-    [self.transitionController pushViewController:viewController withTransition:animation];
+    [self _pushViewControllerWithTransition:animation];
     [animation release];
-    [viewController release];
 }
 - (IBAction)carrousel:(id)sender {
-    ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:@"ALTransitionTestViewController" bundle:nil index:self.index+1];
     ADTransition * animation = [[ADCarrouselTransition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
-    [self.transitionController pushViewController:viewController withTransition:animation];
+    [self _pushViewControllerWithTransition:animation];
     [animation release];
-    [viewController release];
 }
 - (IBAction)cross:(id)sender {
-    ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:@"ALTransitionTestViewController" bundle:nil index:self.index+1];
     ADTransition * animation = [[ADCrossTransition alloc] initWithDuration:_duration];
-    [self.transitionController pushViewController:viewController withTransition:animation];
+    [self _pushViewControllerWithTransition:animation];
     [animation release];
-    [viewController release];
 }
 - (IBAction)swipe:(id)sender {
-    ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:@"ALTransitionTestViewController" bundle:nil index:self.index+1];
     ADTransition * animation = [[ADSwipeTransition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
-    [self.transitionController pushViewController:viewController withTransition:animation];
+    [self _pushViewControllerWithTransition:animation];
     [animation release];
-    [viewController release];
 }
 - (IBAction)swipeFade:(id)sender {
-    ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:@"ALTransitionTestViewController" bundle:nil index:self.index+1];
     ADTransition * animation = [[ADSwipeFadeTransition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
-    [self.transitionController pushViewController:viewController withTransition:animation];
+    [self _pushViewControllerWithTransition:animation];
     [animation release];
-    [viewController release];
 }
 - (IBAction)scale:(id)sender {
-    ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:@"ALTransitionTestViewController" bundle:nil index:self.index+1];
     ADTransition * animation = [[ADScaleTransition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
-    [self.transitionController pushViewController:viewController withTransition:animation];
+    [self _pushViewControllerWithTransition:animation];
     [animation release];
-    [viewController release];
 }
 - (IBAction)glue:(id)sender {
-    ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:@"ALTransitionTestViewController" bundle:nil index:self.index+1];
     ADTransition * animation = [[ADGlueTransition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
-    [self.transitionController pushViewController:viewController withTransition:animation];
+    [self _pushViewControllerWithTransition:animation];
     [animation release];
-    [viewController release];
 }
 - (IBAction)pushRotate:(id)sender {
-    ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:@"ALTransitionTestViewController" bundle:nil index:self.index+1];
     ADTransition * animation = [[ADPushRotateTransition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
-    [self.transitionController pushViewController:viewController withTransition:animation];
+    [self _pushViewControllerWithTransition:animation];
     [animation release];
-    [viewController release];
 }
 - (IBAction)fold:(id)sender {
-    ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:@"ALTransitionTestViewController" bundle:nil index:self.index+1];
     ADTransition * animation = [[ADFoldTransition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
-    [self.transitionController pushViewController:viewController withTransition:animation];
+    [self _pushViewControllerWithTransition:animation];
     [animation release];
-    [viewController release];
 }
 - (IBAction)swap:(id)sender {
-    ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:@"ALTransitionTestViewController" bundle:nil index:self.index+1];
     ADTransition * animation = [[ADSwapTransition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
-    [self.transitionController pushViewController:viewController withTransition:animation];
+    [self _pushViewControllerWithTransition:animation];
     [animation release];
-    [viewController release];
 }
 - (IBAction)flip:(id)sender {
-    ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:@"ALTransitionTestViewController" bundle:nil index:self.index+1];
     ADDualTransition * animation = [[ADFlipTransition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
-    
-    [self.transitionController pushViewController:viewController withTransition:animation];
+    [self _pushViewControllerWithTransition:animation];
     [animation release];
-    [viewController release];
 }
 
 - (IBAction)focus:(id)sender {
     CGRect sourceRect = [sender frame];
     sourceRect.origin.y = sourceRect.origin.y - self.tableView.contentOffset.y;
-    ADTransition * transition = [[ADZoomTransition alloc] initWithSourceRect:sourceRect andTargetRect:self.view.frame forDuration:_duration];
-    ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:@"ALTransitionTestViewController" bundle:nil index:self.index+1];
-    [self.transitionController pushViewController:viewController withTransition:transition];
-    [transition release];
-    [viewController release];
+    ADTransition * animation = [[ADZoomTransition alloc] initWithSourceRect:sourceRect andTargetRect:self.view.frame forDuration:_duration];
+    [self _pushViewControllerWithTransition:animation];
+    [animation release];
 }
 
 - (IBAction)push:(id)sender {
-    ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:@"ALTransitionTestViewController" bundle:nil index:self.index+1];
     ADTransition * animation = [[ADModernPushTransition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
-    [self.transitionController pushViewController:viewController withTransition:animation];
+    [self _pushViewControllerWithTransition:animation];
     [animation release];
-    [viewController release];
 }
 
 - (IBAction)showSettings:(id)sender {
