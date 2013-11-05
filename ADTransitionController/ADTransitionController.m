@@ -130,6 +130,8 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
 }
 
 - (void)viewWillLayoutSubviews {
+    if (_isContainerViewTransitioning)
+        return;
     CGFloat previousNavigationBarHeight = self.navigationBar.frame.size.height;
     [self.navigationBar sizeToFit];
     CGFloat navigationBarHeight = self.navigationBar.frame.size.height;
