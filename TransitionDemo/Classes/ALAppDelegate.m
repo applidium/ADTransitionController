@@ -40,6 +40,8 @@
                                                    UITextAttributeFont : [UIFont systemFontOfSize:14.0]};
     [[UIBarButtonItem appearance] setTitleTextAttributes:barButtonItemTextAttributes forState:UIControlStateNormal];
 
+    [[UIToolbar appearance] setBackgroundImage:[[UIImage imageNamed:@"ALNavigationBarBackground"] stretchableImageWithLeftCapWidth:1.0f topCapHeight:1.0f] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
+
     // Remove status bar
     [UIApplication sharedApplication].statusBarHidden = YES;
 

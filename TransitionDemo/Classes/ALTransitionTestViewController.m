@@ -12,6 +12,7 @@
 - (void)_retrieveSettings;
 - (void)_defaultsSettings;
 - (void)_setupBarButtonItems;
+- (void)_share:(id)sender;
 @end
 
 @interface ALTransitionTestViewController () {
@@ -443,7 +444,9 @@
     _duration = [[defaults objectForKey:AL_SPEED_KEY] floatValue];
     _orientation = [[defaults objectForKey:AL_ORIENTATION_KEY] intValue];
     BOOL navigationBarHidden = [[defaults objectForKey:AL_NAVIGATION_BAR_HIDDEN_KEY] boolValue];
+    BOOL toolbarHidden = [[defaults objectForKey:AL_TOOLBAR_HIDDEN_KEY] boolValue];
     [self.transitionController setNavigationBarHidden:navigationBarHidden];
+    [self.transitionController setToolbarHidden:toolbarHidden];
     self.backButton.hidden = !navigationBarHidden || self.index == 0;
     self.settingsButton.hidden = !navigationBarHidden;
 }
@@ -452,6 +455,7 @@
     NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
     [defaults setValue:@(0.5f) forKey:AL_SPEED_KEY];
     [defaults setValue:@NO forKey:AL_NAVIGATION_BAR_HIDDEN_KEY];
+    [defaults setValue:@YES forKey:AL_TOOLBAR_HIDDEN_KEY];
     [defaults setValue:@(ADTransitionRightToLeft) forKey:AL_ORIENTATION_KEY];
     [defaults synchronize];
 }
@@ -477,6 +481,16 @@
     UIBarButtonItem * settingsButtonItem = [[UIBarButtonItem alloc] initWithCustomView:settingsButton];
     self.navigationItem.rightBarButtonItem = settingsButtonItem;
     [settingsButtonItem release];
+
+    UIBarButtonItem * shareButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(_share:)];
+    self.toolbarItems = @[shareButtonItem];
+    [shareButtonItem release];
+}
+
+- (void)_share:(id)sender {
+    NSString * text = @"I use ADTransitionController by @applidium http://applidium.github.io/";
+    UIActivityViewController * activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[text] applicationActivities:nil];
+    [self presentViewController:activityViewController animated:YES completion:nil];
 }
 
 @end
