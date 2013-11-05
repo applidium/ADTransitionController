@@ -9,6 +9,8 @@
 #import "ADTransitioningDelegate.h"
 #import "ADTransitionController.h"
 
+#define AD_Z_DISTANCE 1000.0f
+
 @interface ADTransitioningDelegate () {
     id<UIViewControllerContextTransitioning> _currentTransitioningContext;
 }
@@ -18,6 +20,7 @@
 @interface ADTransitioningDelegate (Private)
 - (void)_setupLayers:(NSArray *)layers;
 - (void)_teardownLayers:(NSArray *)layers;
+- (void)_completeTransition;
 - (void)_transitionInContainerView:(UIView *)containerView fromView:(UIView *)viewOut toView:(UIView *)viewIn withTransition:(ADTransition *)transition;
 @end
 
@@ -40,12 +43,11 @@
 
 #pragma mark - ADTransitionDelegate
 - (void)pushTransitionDidFinish:(ADTransition *)transition {
-    [_currentTransitioningContext completeTransition:YES];
-    [_currentTransitioningContext release], _currentTransitioningContext = nil;
+    [self _completeTransition];
 }
+
 - (void)popTransitionDidFinish:(ADTransition *)transition {
-    [_currentTransitioningContext completeTransition:YES];
-    [_currentTransitioningContext release], _currentTransitioningContext = nil;
+    [self _completeTransition];
 }
 
 #pragma mark - UIViewControllerTransitioningDelegate
@@ -64,14 +66,26 @@
     [_currentTransitioningContext release], _currentTransitioningContext = [transitionContext retain];
     UIViewController * fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     UIViewController * toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    UIView * containerView = transitionContext.containerView;
-    [containerView addSubview:fromViewController.view];
-    [containerView addSubview:toViewController.view];
+
     if (self.transition.type == ADTransitionTypeNull) {
         self.transition.type = ADTransitionTypePush;
     }
+
+    UIView * containerView = transitionContext.containerView;
     UIView * fromView = fromViewController.view;
     UIView * toView = toViewController.view;
+
+    CATransform3D sublayerTransform = CATransform3DIdentity;
+    sublayerTransform.m34 = 1.0 / -AD_Z_DISTANCE;
+    containerView.layer.sublayerTransform = sublayerTransform;
+
+    UIView * wrapperView = [[ADTransitionView alloc] initWithFrame:containerView.bounds];
+    wrapperView.autoresizesSubviews = YES;
+    wrapperView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    [wrapperView addSubview:fromView];
+    [wrapperView addSubview:toView];
+    [containerView addSubview:wrapperView];
+    [wrapperView release];
 
     ADTransition * transition = nil;
     switch (self.transition.type) {
@@ -80,10 +94,12 @@
             break;
         case ADTransitionTypePop:
             transition = self.transition.reverseTransition;
+            transition.type = ADTransitionTypePop;
         default:
             break;
     }
-    [self _transitionInContainerView:containerView fromView:fromView toView:toView withTransition:transition];
+    transition.delegate = self;
+    [self _transitionInContainerView:wrapperView fromView:fromView toView:toView withTransition:transition];
 }
 
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext {
@@ -99,6 +115,10 @@
     [self _setupLayers:@[viewIn.layer, viewOut.layer]];
     [CATransaction setCompletionBlock:^{
         [self _teardownLayers:@[viewIn.layer, viewOut.layer]];
+        viewIn.layer.transform = CATransform3DIdentity;
+        viewOut.layer.transform = CATransform3DIdentity;
+        containerView.layer.transform = CATransform3DIdentity;
+        containerView.layer.sublayerTransform = CATransform3DIdentity;
     }];
 
     if ([transition isKindOfClass:[ADTransformTransition class]]) { // ADTransformTransition
@@ -132,6 +152,15 @@
     for (CALayer * layer in layers) {
         layer.shouldRasterize = NO;
     }
+}
+
+- (void)_completeTransition {
+    UIView * containerView = _currentTransitioningContext.containerView;
+    CATransform3D sublayerTransform = CATransform3DIdentity;
+    containerView.layer.sublayerTransform = sublayerTransform;
+
+    [_currentTransitioningContext completeTransition:YES];
+    [_currentTransitioningContext release], _currentTransitioningContext = nil;
 }
 
 @end
