@@ -2,6 +2,7 @@
 
 Bugfixes:
  - Fix sawtooths during animations
+ - Add toolbar support
 
 ## 1.0.0 (16 July 2013)
 
