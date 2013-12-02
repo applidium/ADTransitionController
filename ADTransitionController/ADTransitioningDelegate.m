@@ -117,8 +117,11 @@
         [self _teardownLayers:@[viewIn.layer, viewOut.layer]];
         viewIn.layer.transform = CATransform3DIdentity;
         viewOut.layer.transform = CATransform3DIdentity;
-        containerView.layer.transform = CATransform3DIdentity;
-        containerView.layer.sublayerTransform = CATransform3DIdentity;
+        UIView * contextView = [_currentTransitioningContext containerView];
+        [viewOut removeFromSuperview];
+        [contextView addSubview:viewOut];
+        [viewIn removeFromSuperview];
+        [contextView addSubview:viewIn];
     }];
 
     if ([transition isKindOfClass:[ADTransformTransition class]]) { // ADTransformTransition
