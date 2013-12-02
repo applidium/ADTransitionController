@@ -48,7 +48,17 @@
     ADTransformTransition * reversedTransition = [[ADTransformTransition alloc] initWithAnimation:_animation inLayerTransform:_outLayerTransform outLayerTransform:_inLayerTransform];;
     reversedTransition.delegate = self.delegate; // Pointer assignment
     reversedTransition.animation.speed = - 1.0 * reversedTransition.animation.speed;
+    reversedTransition.type = ADTransitionTypeNull;
+    if (self.type == ADTransitionTypePush) {
+        reversedTransition.type = ADTransitionTypePop;
+    } else if (self.type == ADTransitionTypePop) {
+        reversedTransition.type = ADTransitionTypePush;
+    }
     return [reversedTransition autorelease];
+}
+
+- (NSTimeInterval)duration {
+    return self.animation.duration;
 }
 
 @end

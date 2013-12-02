@@ -43,6 +43,7 @@ typedef enum {
 
 @property (nonatomic, assign) id <ADTransitionDelegate> delegate;
 @property (nonatomic, assign) ADTransitionType type;
+@property (nonatomic, readonly) NSTimeInterval duration; // abstract
 
 + (ADTransition *)nullTransition;
 - (ADTransition *)reverseTransition;

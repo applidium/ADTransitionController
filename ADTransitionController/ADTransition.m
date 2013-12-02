@@ -40,6 +40,11 @@ NSString * ADTransitionAnimationOutValue = @"ADTransitionAnimationOutValue";
     return @[firstQuarterCircleApproximationFuction, secondQuarterCircleApproximationFuction];
 }
 
+- (NSTimeInterval)duration {
+    NSAssert(FALSE, @"This abstract method must be implemented!");
+    return 0.0;
+}
+
 #pragma mark -
 #pragma mark CAAnimationDelegate
 - (void)animationDidStop:(CAAnimation *)animation finished:(BOOL)flag {    
