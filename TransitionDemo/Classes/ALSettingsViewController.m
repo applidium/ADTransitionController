@@ -88,11 +88,7 @@
     [defaults setValue:@(_toolbarHidden) forKey:AL_TOOLBAR_HIDDEN_KEY];
     [defaults synchronize];
     [self.delegate settingsViewControllerDidUpdateSettings:self];
-    if ([self respondsToSelector:@selector(dismissViewControllerAnimated:completion:)]) {
-        [self dismissViewControllerAnimated:YES completion:nil];
-    } else {
-        [self dismissModalViewControllerAnimated:YES];
-    }
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - 

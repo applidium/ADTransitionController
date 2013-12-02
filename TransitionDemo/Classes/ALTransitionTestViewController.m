@@ -119,7 +119,7 @@
     UILabel * label = [[UILabel alloc] initWithFrame:headerView.frame];
     label.backgroundColor = [UIColor clearColor];
     label.textColor = [UIColor colorWithWhite:0.925 alpha:1.000];
-    label.textAlignment = UITextAlignmentCenter;
+    label.textAlignment = NSTextAlignmentCenter;
     label.font = [UIFont boldSystemFontOfSize:12.0f];
     label.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [headerView addSubview:label];
@@ -210,7 +210,7 @@
             break;
     }
     cell.textLabel.text = text;
-    cell.textLabel.textAlignment = UITextAlignmentCenter;
+    cell.textLabel.textAlignment = NSTextAlignmentCenter;
     cell.textLabel.textColor = [UIColor colorWithWhite:0.925f alpha:1.0f];
     
     return cell;
@@ -390,11 +390,7 @@
     ALSettingsViewController * settingsViewController = [[ALSettingsViewController alloc] init];
     settingsViewController.delegate = self;
     UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:settingsViewController];
-    if ([self respondsToSelector:@selector(presentViewController:animated:completion:)]) {
-        [self presentViewController:navigationController animated:YES completion:nil];
-    } else {
-        [self presentModalViewController:navigationController animated:YES];
-    }
+    [self presentViewController:navigationController animated:YES completion:nil];
     [settingsViewController release];
     [navigationController release];
 }
