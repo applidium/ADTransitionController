@@ -299,13 +299,11 @@
     [self _pushViewControllerWithTransition:animation];
     [animation release];
 }
-
 - (IBAction)fade:(id)sender {
     ADTransition * animation = [[ADFadeTransition alloc] initWithDuration:_duration];
     [self _pushViewControllerWithTransition:animation];
     [animation release];
 }
-
 - (IBAction)backFade:(id)sender {
     ADTransition * animation = [[ADBackFadeTransition alloc] initWithDuration:_duration];
     [self _pushViewControllerWithTransition:animation];
@@ -371,7 +369,6 @@
     [self _pushViewControllerWithTransition:animation];
     [animation release];
 }
-
 - (IBAction)focus:(id)sender {
     CGRect sourceRect = [sender frame];
     sourceRect.origin.y = sourceRect.origin.y - self.tableView.contentOffset.y;
@@ -379,7 +376,6 @@
     [self _pushViewControllerWithTransition:animation];
     [animation release];
 }
-
 - (IBAction)push:(id)sender {
     ADTransition * animation = [[ADModernPushTransition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
     [self _pushViewControllerWithTransition:animation];
@@ -401,7 +397,6 @@
     } else {
         [self.transitionController popViewController];
     }
-
 }
 
 #pragma mark -
