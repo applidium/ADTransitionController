@@ -9,10 +9,18 @@
 #import "ALAppDelegate.h"
 #import "ADTransitionController.h"
 #import "ALTransitionTestViewController.h"
+#import "ADNavigationControllerDelegate.h"
+
+@interface ALAppDelegate () {
+    ADNavigationControllerDelegate * _navigationDelegate;
+}
+
+@end
 
 @implementation ALAppDelegate
 
 - (void)dealloc {
+    [_navigationDelegate release];
     [_window release];
     [super dealloc];
 }
@@ -22,7 +30,14 @@
 
     // Setup transitionController
     ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:nil bundle:nil index:0];
-    ADTransitionController * transitionController = [[ADTransitionController alloc] initWithRootViewController:viewController];
+    UIViewController * transitionController = nil;
+    if (AD_SYSTEM_VERSION_GREATER_THAN_7) {
+        transitionController = [[UINavigationController alloc] initWithRootViewController:viewController];
+        [_navigationDelegate release], _navigationDelegate = [[ADNavigationControllerDelegate alloc] init];
+        ((UINavigationController *)transitionController).delegate = _navigationDelegate;
+    } else {
+        transitionController = [[ADTransitionController alloc] initWithRootViewController:viewController];
+    }
     [viewController release];
     self.window.rootViewController = transitionController;
     [transitionController release];

@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "ADTransitionController.h"
 #import "ALSettingsViewController.h"
+#import "ADTransitioningViewController.h"
 
-@interface ALTransitionTestViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ALSettingsDelegate> {
+#define AD_SYSTEM_VERSION_GREATER_THAN_7 ([[[UIDevice currentDevice] systemVersion] compare:@"7" options:NSNumericSearch] == NSOrderedDescending)
+
+@interface ALTransitionTestViewController : ADTransitioningViewController <UITableViewDataSource, UITableViewDelegate, ALSettingsDelegate> {
     NSInteger _index;
     CGFloat _duration;
     ADTransitionOrientation _orientation;
