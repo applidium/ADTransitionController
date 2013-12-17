@@ -79,7 +79,10 @@
     sublayerTransform.m34 = 1.0 / -AD_Z_DISTANCE;
     containerView.layer.sublayerTransform = sublayerTransform;
 
-    UIView * wrapperView = [[ADTransitionView alloc] initWithFrame:containerView.bounds];
+    UIView * wrapperView = [[ADTransitionView alloc] initWithFrame:fromView.frame];
+    fromView.frame = fromView.bounds;
+    toView.frame = toView.bounds;
+
     wrapperView.autoresizesSubviews = YES;
     wrapperView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [wrapperView addSubview:fromView];
@@ -117,11 +120,14 @@
         [self _teardownLayers:@[viewIn.layer, viewOut.layer]];
         viewIn.layer.transform = CATransform3DIdentity;
         viewOut.layer.transform = CATransform3DIdentity;
+        containerView.layer.transform = CATransform3DIdentity;
+
         UIView * contextView = [_currentTransitioningContext containerView];
-        [viewOut removeFromSuperview];
+        viewOut.frame = containerView.frame;
         [contextView addSubview:viewOut];
-        [viewIn removeFromSuperview];
+        viewIn.frame = containerView.frame;
         [contextView addSubview:viewIn];
+        [containerView removeFromSuperview];
     }];
 
     if ([transition isKindOfClass:[ADTransformTransition class]]) { // ADTransformTransition
