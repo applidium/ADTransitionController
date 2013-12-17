@@ -28,6 +28,9 @@
 #import "ADFoldTransition.h"
 #import "ADSlideTransition.h"
 #import "ADModernPushTransition.h"
+#import "ADTransitioningDelegate.h"
+#import "ADNavigationControllerDelegate.h"
+#import "ADTransitioningViewController.h"
 
 // Our container view must be backed by a CATransformLayer
 @interface ADTransitionView : UIView

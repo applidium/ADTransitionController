@@ -7,6 +7,7 @@
 //
 
 #import "ADTransitioningViewController.h"
+#import "ADTransitioningDelegate.h"
 
 @interface ADTransitioningViewController () {
     ADTransitioningDelegate * _customTransitioningDelegate;

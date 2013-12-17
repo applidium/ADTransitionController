@@ -7,7 +7,7 @@ ADTransitionController is drop-in replacement for UINavigationController with cu
 ### Basic
 1. Add the content of the `ADTransitionController` folder to your iOS project
 2. Link against the `QuartzCore` Framework if you don't already
-3. Import `ADTransitioningViewController.h` (or `ADTransitionController.h` if you are on iOS6) in your project
+3. Import `ADTransitionController.h` in your project
 
 ### CocoaPods
 

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ADTransitioningDelegate.h"
+#import "ADTransition.h"
 
 @interface ADTransitioningViewController : UIViewController
 @property (nonatomic, retain) ADTransition * transition;

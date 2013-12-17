@@ -7,6 +7,7 @@
 //
 
 #import "ADTransitioningDelegate.h"
+#import "ADTransitionController.h"
 
 #define AD_Z_DISTANCE 1000.0f
 
