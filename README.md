@@ -23,6 +23,35 @@ If you are working on an ARC project, use the `-fno-objc-arc` flag in *Build Pha
 ## Example
 
 Your project is now ready to take advantage of `ADTransitionController`. Here is an example of how to use it.
+
+### iOS7
+
+The simplest way to use custom animations in iOS7 is to create a `UINavigationViewController` like in any other project and to make your view controllers inherit from `ADTransitioningViewController`. The `ADTransitioningViewController` class provides a property `transition` you should use to animate the push and pop actions.
+Then, just create your transition and push your new view controller on the stack.
+
+```
+UIViewController * newViewController = [[UIViewController alloc] init];
+ADTransition * transition = [[ADCubeTransition alloc] initWithDuration:0.25f orientation:ADTransitionRightToLeft sourceRect:self.view.frame];
+self.transition = transition;
+[self.navigationController pushViewController:newViewController animated:YES];
+[transition release];
+[newViewController release];
+```
+
+If your view controller can't inherit from `ADTransitioningViewController`, you can use directly an `ADTransitioningDelegate` to control the transition.
+It's just one more line of code.
+
+```
+UIViewController * newViewController = [[UIViewController alloc] init];
+ADTransition * transition = [[ADCubeTransition alloc] initWithDuration:0.25f orientation:ADTransitionRightToLeft sourceRect:self.view.frame];
+ADTransitioningDelegate * transitioningDelegate = [[ADTransitioningDelegate alloc] initWithTransition:transition];
+self.transitioningDelegate = transitioningDelegate;
+[self.navigationController pushViewController:newViewController animated:YES];
+[transition release];
+[newViewController release];
+```
+
+### Before iOS7
  
 Instantiate an `ADTransitionController` like a `UINavigationController`:
 
@@ -46,7 +75,7 @@ To push a viewController on the stack, instantiate an `ADTransition` and use the
 }
 ```
 
-To pop a viewController from the stack, just use the `popViewController method.
+To pop a viewController from the stack, just use the `popViewController` method.
 
 ```objective-c
 - (IBAction)pop:(id)sender {
@@ -163,5 +192,4 @@ There are a couple of improvements that could be done. Feel free to send us pull
 
 - Add new custom transitions
 - Add support for non plane transitions (Fold transition for instance)
-- iOS 7 APIs support (planned!)
 - More?
