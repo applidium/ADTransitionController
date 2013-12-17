@@ -1,6 +1,9 @@
-# ADTransitionController - custom navigation controller
+# ADTransitionController - 3D transitions for your apps
 
-ADTransitionController is drop-in replacement for UINavigationController with custom transition animations.
+ADTransitionController brings all the power of the Core Animation framework to your apps with nice pre-defined transitions.
+
+* For apps supporting iOS 7 and beyond, we have a very generic API that uses the new `UIViewControllerTransitioningDelegate` protocol, making it usable for any transition (navigation, modal, tab bar).
+* If you also need to support iOS 6, we give you a drop-in replacement for UINavigationController that adds support for our transitions.
 
 ## Installation
 
@@ -22,19 +25,22 @@ If you are working on an ARC project, use the `-fno-objc-arc` flag in *Build Pha
 
 ## Example
 
-Your project is now ready to take advantage of `ADTransitionController`. Here are two examples of how to use it. One if you plan to develop for iOS7 only, the other one if you want to support both iOS7 and iOS6.
+Your project is now ready to take advantage of `ADTransitionController`. Here are two examples of how to use it. One if you plan to develop for iOS 7 and later, the other one if you want to support iOS 6 too.
 
-Our last API designed for iOS7 is so simple you don't even have to change your architecture. Just drag and drop our files in XCode, import the correct headers, make some minor adjustements to your code and that's it. You are ready to go.
-If you want to support prior versions of iOS, we also provide an easy way to do so. You just need to replace your `UINavigationController` by our `ADTransitionController`.
+### iOS 7 and later
 
-Let's see exactly how it works.
+We're making use of the new `UIViewControllerTransitioningDelegate` protocol. The API provided by Apple is quite complex, but we made it very simple to use.
 
-### iOS7
+#### In short:
+1. Set the delegate of your navigation controller to the one that we give you.
+2. Make your view controller inherit from `ADTransitioningViewController` (if this is not an option for you, see below).
+3. Set the `transition` property of your view controller to your favorite transition.
 
-The simplest way to use custom animations in iOS7 is to create a `UINavigationViewController` like in any other project and to make your view controllers inherit from `ADTransitioningViewController`. The `ADTransitioningViewController` class provides a property `transition` you should use to animate the push and pop actions.
+#### In details:
 
-First of all, create your `UINavigationController` and set its delegate with a `ADNavigationControllerDelegate` object. This setup enables the use of custom animations.
-```
+First of all, create your `UINavigationController` and set its delegate to a `ADNavigationControllerDelegate` instance. 
+
+```objective-c
 #import "ADNavigationControllerDelegate.h"
 ...
 UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
@@ -45,7 +51,7 @@ self.window.rootViewController = navigationController;
 ```
 
 Then create your new controller (that inherits from `ADTransitioningViewController`), set its transition and push it onto the stack. In this example, this will animate the transition with a cube effect.
-```
+```objective-c
 UIViewController * newViewController = [[UIViewController alloc] init];
 ADTransition * transition = [[ADCubeTransition alloc] initWithDuration:0.25f orientation:ADTransitionRightToLeft sourceRect:self.view.frame];
 newViewController.transition = transition;
@@ -55,9 +61,8 @@ newViewController.transition = transition;
 ```
 
 If your view controller can't inherit from `ADTransitioningViewController`, you can use directly an `ADTransitioningDelegate` object to control the transition.
-It's just one more line of code.
 
-```
+```objective-c
 UIViewController * newViewController = [[UIViewController alloc] init];
 ADTransition * transition = [[ADCubeTransition alloc] initWithDuration:0.25f orientation:ADTransitionRightToLeft sourceRect:self.view.frame];
 ADTransitioningDelegate * transitioningDelegate = [[ADTransitioningDelegate alloc] initWithTransition:transition];
@@ -67,26 +72,21 @@ newViewController.transitioningDelegate = transitioningDelegate;
 [newViewController release];
 ```
 
-You may wonder what is really going on under the hood ? In fact we use the latest API provided by Apple to create custom animations for `UINavigationController`. This API is kinda difficult to put into place so that's why we chose to make things as simple as we could to help you use our animations. 
+#### Under the hood
 
 To create a custom animation, Apple provides different protocols we have implemented for you : `UIViewControllerTransitioningDelegate`, `UIViewControllerAnimatedTransitioning`, `UIViewControllerContextTransitioning`. That way, you shouldn't bother to dig into these APIs. 
 
-As we have just seen it, in pratice, what you only have to do on iOS7 is to create a `UINavigationController`, and a `ADTransition`.
-
-Then you have two options : 
-- you make your viewControllers inherit from `ADTransitioningViewController`, which provides a property `transition` you will have to set to customize the animation of the push/pop.
-- you can't make you viewControllers inherit from `ADTransitioningViewController` so you need to set the `transitioningDelegate` property of `UIViewController` with a `ADTransitioningDelegate` object.
-
-In either way, you never worry about what's going on behind the scene. Just create you transition and push you new viewController onto the stack.
+As we have just seen it, in practice, what you only have to do on iOS7 is to create a `UINavigationController`, and a `ADTransition`.
 
 To sum up, we provide three different classes you may want to use : 
-- `ADNavigationControllerDelegate` : used when you setup your navigation controller to perform custom animations
-- `ADTransitioningViewController` : used for your view controllers to control their transitions
-- `ADTransitioningDelegate` : used only if you can't inherit from `ADTransitioningViewController` and need to specify the transitioning delegate for the view controller
 
-### Before iOS7
+* `ADNavigationControllerDelegate` : used when you setup your navigation controller to perform custom animations
+* `ADTransitioningViewController` : used for your view controllers to control their transitions
+* `ADTransitioningDelegate` : used only if you can't inherit from `ADTransitioningViewController` and need to specify the transitioning delegate for the view controller
+
+### iOS 6 and later
  
-If you need to support prior versions of iOS7, there is also an easy way to do. You just have not to use a `UINavigationControler` but an `ADTransitionController` instead that behaves similarly. 
+If you need to support earlier versions of iOS, this is possible. Just use `ADTransitionController` instead of `UINavigationController`.
 
 Instantiate an `ADTransitionController` like a `UINavigationController`:
 
@@ -118,7 +118,7 @@ To pop a viewController from the stack, just use the `popViewController` method.
 }
 ```
 
-### Note
+#### Note
 When a `UIViewController` is pushed onto the stack of view controllers, the property `transitionController` becomes available to the controller (see example above: `self.transitionController`). This way, an `ADTransitionController` can be used like a `UINavigationController`.
 
 ## ADTransition subclasses
