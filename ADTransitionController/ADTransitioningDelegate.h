@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ADTransition.h"
+#import "ADTransitionController.h"
 
 @interface ADTransitioningDelegate : NSObject <UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning, ADTransitionDelegate>
 @property (nonatomic, retain) ADTransition * transition;

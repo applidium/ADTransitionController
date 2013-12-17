@@ -8,8 +8,6 @@
 
 #import "ALTransitionTestViewController.h"
 #import "ADTransitioningDelegate.h"
-#import "ADTransitionController.h"
-#import "ADTransitioningDelegate.h"
 
 @interface ALTransitionTestViewController (Private)
 - (void)_retrieveSettings;
