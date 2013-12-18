@@ -1,5 +1,3 @@
-# ADTransitionController - 3D transitions for your apps
-
 ADTransitionController brings all the power of the Core Animation framework to your apps with nice pre-defined transitions.
 
 * For apps supporting iOS 7 and beyond, we have a very generic API that uses the new `UIViewControllerTransitioningDelegate` protocol, making it usable for any transition (navigation, modal, tab bar).
