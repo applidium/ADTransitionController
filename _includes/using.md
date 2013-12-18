@@ -1,3 +1,10 @@
+# ADTransitionController - 3D transitions for your apps
+
+ADTransitionController brings all the power of the Core Animation framework to your apps with nice pre-defined transitions.
+
+* For apps supporting iOS 7 and beyond, we have a very generic API that uses the new `UIViewControllerTransitioningDelegate` protocol, making it usable for any transition (navigation, modal, tab bar).
+* If you also need to support iOS 6, we give you a drop-in replacement for UINavigationController that adds support for our transitions.
+
 ## Installation
 
 ### Basic
@@ -18,7 +25,68 @@ If you are working on an ARC project, use the `-fno-objc-arc` flag in *Build Pha
 
 ## Example
 
-Your project is now ready to take advantage of `ADTransitionController`. Here is an example of how to use it.
+Your project is now ready to take advantage of `ADTransitionController`. Here are two examples of how to use it. One if you plan to develop for iOS 7 and later, the other one if you want to support iOS 6 too.
+
+### iOS 7 and later
+
+We're making use of the new `UIViewControllerTransitioningDelegate` protocol. The API provided by Apple is quite complex, but we made it very simple to use.
+
+#### In short:
+1. Set the delegate of your navigation controller to the one that we give you.
+2. Make your view controller inherit from `ADTransitioningViewController` (if this is not an option for you, see below).
+3. Set the `transition` property of your view controller to your favorite transition.
+
+#### In details:
+
+First of all, create your `UINavigationController` and set its delegate to a `ADNavigationControllerDelegate` instance. 
+
+```objective-c
+#import "ADNavigationControllerDelegate.h"
+...
+UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+ADNavigationControllerDelegate * navigationDelegate = [[ADNavigationControllerDelegate alloc] init];
+navigationController.delegate = navigationDelegate;
+self.window.rootViewController = navigationController;
+[navigationController release];
+```
+
+Then create your new controller (that inherits from `ADTransitioningViewController`), set its transition and push it onto the stack. In this example, this will animate the transition with a cube effect.
+```objective-c
+UIViewController * newViewController = [[UIViewController alloc] init];
+ADTransition * transition = [[ADCubeTransition alloc] initWithDuration:0.25f orientation:ADTransitionRightToLeft sourceRect:self.view.frame];
+newViewController.transition = transition;
+[self.navigationController pushViewController:newViewController animated:YES];
+[transition release];
+[newViewController release];
+```
+
+If your view controller can't inherit from `ADTransitioningViewController`, you can use directly an `ADTransitioningDelegate` object to control the transition.
+
+```objective-c
+UIViewController * newViewController = [[UIViewController alloc] init];
+ADTransition * transition = [[ADCubeTransition alloc] initWithDuration:0.25f orientation:ADTransitionRightToLeft sourceRect:self.view.frame];
+ADTransitioningDelegate * transitioningDelegate = [[ADTransitioningDelegate alloc] initWithTransition:transition];
+newViewController.transitioningDelegate = transitioningDelegate;
+[self.navigationController pushViewController:newViewController animated:YES];
+[transition release];
+[newViewController release];
+```
+
+#### Under the hood
+
+To create a custom animation, Apple provides different protocols we have implemented for you : `UIViewControllerTransitioningDelegate`, `UIViewControllerAnimatedTransitioning`, `UIViewControllerContextTransitioning`. That way, you shouldn't bother to dig into these APIs. 
+
+As we have just seen it, in practice, what you only have to do on iOS7 is to create a `UINavigationController`, and a `ADTransition`.
+
+To sum up, we provide three different classes you may want to use : 
+
+* `ADNavigationControllerDelegate` : used when you setup your navigation controller to perform custom animations
+* `ADTransitioningViewController` : used for your view controllers to control their transitions
+* `ADTransitioningDelegate` : used only if you can't inherit from `ADTransitioningViewController` and need to specify the transitioning delegate for the view controller
+
+### iOS 6 and later
+ 
+If you need to support earlier versions of iOS, this is possible. Just use `ADTransitionController` instead of `UINavigationController`.
 
 Instantiate an `ADTransitionController` like a `UINavigationController`:
 
@@ -42,7 +110,7 @@ To push a viewController on the stack, instantiate an `ADTransition` and use the
 }
 ```
 
-To pop a viewController from the stack, just use the `popViewController method.
+To pop a viewController from the stack, just use the `popViewController` method.
 
 ```objective-c
 - (IBAction)pop:(id)sender {
@@ -50,7 +118,7 @@ To pop a viewController from the stack, just use the `popViewController method.
 }
 ```
 
-### Note
+#### Note
 When a `UIViewController` is pushed onto the stack of view controllers, the property `transitionController` becomes available to the controller (see example above: `self.transitionController`). This way, an `ADTransitionController` can be used like a `UINavigationController`.
 
 ## ADTransition subclasses
@@ -99,7 +167,7 @@ Like a `UINavigationController`, an `ADTransitionController` informs its delegat
 
 ## Going Further
 
-If you want to totally take control of the `ADTranstionController` API, feel free to create your own transitions and animations!
+If you want to totally take control of the `ADTransitionController` API, feel free to create your own transitions and animations!
 All you need to do is to subclass `ADDualTransition` or `ADTransformTransition` and implement a `init` method.
 
 The simplest example of a custom transition is the `ADFadeTransition` class. The effect is simple: the inViewController fades in. For this the inViewController changes its opacity from 0 to 1 and the outViewController from 1 to 0.
@@ -159,5 +227,4 @@ There are a couple of improvements that could be done. Feel free to send us pull
 
 - Add new custom transitions
 - Add support for non plane transitions (Fold transition for instance)
-- iOS 7 APIs support (planned!)
 - More?
