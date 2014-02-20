@@ -25,6 +25,9 @@
 - (id)initWithAnimation:(CAAnimation *)animation inLayerTransform:(CATransform3D)inTransform outLayerTransform:(CATransform3D)outTransform {
     if (self = [super init]) {
         _animation = [animation copy]; // the instances should be different because we don't want them to have the same delegate
+        _animation.removedOnCompletion        = NO;
+        _animation.fillMode                   = kCAFillModeForwards;
+        
         _animation.delegate = self;
         _inLayerTransform = inTransform;
         _outLayerTransform = outTransform;
