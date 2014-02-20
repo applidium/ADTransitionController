@@ -15,7 +15,11 @@
 - (id)initWithInAnimation:(CAAnimation *)inAnimation andOutAnimation:(CAAnimation *)outAnimation {
     if (self = [self init]) {
         _inAnimation = [inAnimation retain];
+        _inAnimation.removedOnCompletion         = NO;
+        _inAnimation.fillMode                    = kCAFillModeForwards;
         _outAnimation = [outAnimation retain];
+        _outAnimation.removedOnCompletion        = NO;
+        _outAnimation.fillMode                   = kCAFillModeForwards;
         [self finishInit];
     }
     return self;
@@ -65,7 +69,11 @@
 #pragma mark -
 #pragma mark CAAnimationDelegate
 - (void)animationDidStop:(CAAnimation *)animation finished:(BOOL)flag {
+    if ([[animation valueForKey:ADTransitionAnimationKey] isEqualToString:ADTransitionAnimationOutValue]) {
+        _outAnimation.delegate = nil;
+    }
     if ([[animation valueForKey:ADTransitionAnimationKey] isEqualToString:ADTransitionAnimationInValue]) {
+        _inAnimation.delegate = nil;
         [super animationDidStop:animation finished:flag];
     }
 }
