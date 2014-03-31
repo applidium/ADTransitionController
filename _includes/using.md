@@ -46,6 +46,8 @@ ADNavigationControllerDelegate * navigationDelegate = [[ADNavigationControllerDe
 navigationController.delegate = navigationDelegate;
 self.window.rootViewController = navigationController;
 [navigationController release];
+...
+[navigationDelegate release];
 ```
 
 Then create your new controller (that inherits from `ADTransitioningViewController`), set its transition and push it onto the stack. In this example, this will animate the transition with a cube effect.
@@ -69,6 +71,8 @@ newViewController.transitioningDelegate = transitioningDelegate;
 [self.navigationController pushViewController:newViewController animated:YES];
 [transition release];
 [newViewController release];
+...
+[transitioningDelegate release];
 ```
 
 #### Under the hood
