@@ -51,6 +51,7 @@ self.window.rootViewController = navigationController;
 ```
 
 Then create your new controller (that inherits from `ADTransitioningViewController`), set its transition and push it onto the stack. In this example, this will animate the transition with a cube effect.
+
 ```objective-c
 UIViewController * newViewController = [[UIViewController alloc] init];
 ADTransition * transition = [[ADCubeTransition alloc] initWithDuration:0.25f orientation:ADTransitionRightToLeft sourceRect:self.view.frame];
