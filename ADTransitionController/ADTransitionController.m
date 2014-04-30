@@ -215,7 +215,6 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
         [_transitions addObject:[ADTransition nullTransition]];
     }
     
-    viewController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     if (!_containerView) {
         return;
     }
@@ -383,7 +382,10 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
     BOOL animated = transition ? YES : NO;
     if ([_viewControllers count] >= 2) {
         UIViewController * outViewController = _viewControllers[([_viewControllers count] - 2)];
-        [outViewController.view removeFromSuperview];
+        if (!transition.isModal)
+        {
+            [outViewController.view removeFromSuperview];
+        }
         [outViewController endAppearanceTransition];
     }
     UIViewController * inViewController = [_viewControllers lastObject];

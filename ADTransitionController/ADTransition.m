@@ -24,6 +24,10 @@ NSString * ADTransitionAnimationOutValue = @"ADTransitionAnimationOutValue";
     return nil;
 }
 
+- (BOOL)isModal {
+    return NO;
+}
+
 - (void)dealloc {
     [super dealloc];
 }
