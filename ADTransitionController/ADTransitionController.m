@@ -99,7 +99,7 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
     [self.view addSubview:_toolbar];
     
     // Create and add the container view that will hold the controller views
-    _containerView = [[ADTransitionView alloc] initWithFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y + navigationBarHeight, self.view.frame.size.width, self.view.frame.size.height - navigationBarHeight - toolbarHeight)];
+    _containerView = [[ADTransitionView alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y + navigationBarHeight, self.view.bounds.size.width, self.view.bounds.size.height - navigationBarHeight - toolbarHeight)];
     _containerView.autoresizesSubviews = YES;
     _containerView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:_containerView];
