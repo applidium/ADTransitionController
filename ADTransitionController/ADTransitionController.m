@@ -300,7 +300,7 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
 
 - (NSArray *)popToViewController:(UIViewController *)viewController withTransition:(ADTransition *)transition {
     NSUInteger indexInViewController = [_viewControllers indexOfObject:viewController];
-    if (indexInViewController == NSNotFound || _isContainerViewTransitioning || _isNavigationBarTransitioning) {
+    if (indexInViewController == NSNotFound || _isContainerViewTransitioning || _isNavigationBarTransitioning || indexInViewController == [_viewControllers count] - 1) {
         return nil;
     }
     
