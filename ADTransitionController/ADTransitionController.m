@@ -526,6 +526,19 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
         ADDualTransition * dualTransition = (ADDualTransition *)transition;
         [viewIn.layer addAnimation:dualTransition.inAnimation forKey:nil];
         [viewOut.layer addAnimation:dualTransition.outAnimation forKey:nil];
+        
+        // If in and out animation are just CABasicAnimation
+        // we can easily set the final state to the model layer.
+        // If not, something should be made.. TODO: handle this situation!
+        if ([dualTransition.inAnimation isKindOfClass:[CABasicAnimation class]]) {
+            CABasicAnimation *inAnimation = transition.type == ADTransitionTypePush ? dualTransition.inAnimation : dualTransition.outAnimation;
+            [viewIn.layer setValue:[inAnimation toValue] forKeyPath:[inAnimation keyPath]];
+        }
+        if ([dualTransition.outAnimation isKindOfClass:[CABasicAnimation class]]) {
+            CABasicAnimation *outAnimation = transition.type == ADTransitionTypePush ? dualTransition.outAnimation : dualTransition.inAnimation;
+            [viewOut.layer setValue:[outAnimation toValue] forKeyPath:[outAnimation keyPath]];
+        }
+
     } else if (transition != nil) {
         NSAssert(FALSE, @"Unhandled ADTransition subclass!");
     }
