@@ -1,4 +1,4 @@
-## 1.1.1 (current)
+## 1.1.1 (16 October 2014)
 
 Migration to ARC (fixes #23)
 
