@@ -1,3 +1,7 @@
+## 1.1.1 (current)
+
+Migration to ARC (fixes #23)
+
 ## 1.1.0 (17 December 2013)
 
 iOS7 integration
