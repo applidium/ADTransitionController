@@ -20,8 +20,7 @@ ADTransitionController brings all the power of the Core Animation framework to y
 
 ### ARC
 
-If you are working on an ARC project, use the `-fno-objc-arc` flag in *Build Phases > Compile Sources*.
-![Compilation Flag For ARC](http://applidium.github.io/ADTransitionController/images/fno-objc_arc.png)
+If you are not using ARC in your project, use the `-fobjc-arc` flag in *Build Phases > Compile Sources*.
 
 ## Example
 
