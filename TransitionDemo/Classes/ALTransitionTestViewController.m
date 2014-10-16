@@ -464,6 +464,7 @@
     NSString * text = @"I use ADTransitionController by @applidium http://applidium.github.io/";
     UIActivityViewController * activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[text] applicationActivities:nil];
     [self presentViewController:activityViewController animated:YES completion:nil];
+    [activityViewController release];
 }
 
 - (void)_pushViewControllerWithTransition:(ADTransition *)transition {
