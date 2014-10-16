@@ -18,14 +18,14 @@
 
 @interface ALSettingsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (retain, nonatomic) IBOutlet UIScrollView * scrollView;
-@property (retain, nonatomic) IBOutlet UITableView * tableView;
-@property (retain, nonatomic) IBOutlet UILabel * speedLabel;
-@property (retain, nonatomic) IBOutlet UISlider * slider;
-@property (retain, nonatomic) IBOutlet UISwitch * navigationBarSwitch;
-@property (retain, nonatomic) IBOutlet UISwitch * toolbarSwitch;
-@property (retain, nonatomic) IBOutlet UIImageView * creditView;
-@property (nonatomic, assign) id<ALSettingsDelegate> delegate;
+@property (strong, nonatomic) IBOutlet UIScrollView * scrollView;
+@property (strong, nonatomic) IBOutlet UITableView * tableView;
+@property (strong, nonatomic) IBOutlet UILabel * speedLabel;
+@property (strong, nonatomic) IBOutlet UISlider * slider;
+@property (strong, nonatomic) IBOutlet UISwitch * navigationBarSwitch;
+@property (strong, nonatomic) IBOutlet UISwitch * toolbarSwitch;
+@property (strong, nonatomic) IBOutlet UIImageView * creditView;
+@property (nonatomic, weak) id<ALSettingsDelegate> delegate;
 
 - (IBAction)toggleNavigationBar:(id)sender;
 - (IBAction)toggleToolbar:(id)sender;

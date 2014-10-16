@@ -10,5 +10,5 @@
 #import "ADTransition.h"
 
 @interface ADTransitioningViewController : UIViewController
-@property (nonatomic, retain) ADTransition * transition;
+@property (nonatomic, strong) ADTransition * transition;
 @end

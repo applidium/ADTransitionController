@@ -54,8 +54,7 @@
         default:
             break;
     }
-    [_cellColor release];
-    _cellColor = [color retain];
+    _cellColor = color;
     
     [self _setupBarButtonItems];
 }
@@ -72,13 +71,6 @@
     [super viewDidUnload];
 }
 
-- (void)dealloc {
-    [_cellColor release];
-    [_tableView release];
-    [_settingsButton release];
-    [_backButton release];
-    [super dealloc];   
-}
 
 #pragma mark -
 #pragma mark UITableViewDataSource methods
@@ -111,7 +103,6 @@
     imageView.frame = headerView.frame;
     imageView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [headerView addSubview:imageView];
-    [imageView release];
     
     UILabel * label = [[UILabel alloc] initWithFrame:headerView.frame];
     label.backgroundColor = [UIColor clearColor];
@@ -120,7 +111,6 @@
     label.font = [UIFont boldSystemFontOfSize:12.0f];
     label.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [headerView addSubview:label];
-    [label release];
     switch (section) {
         case 0:
             label.text = @"ADDualTransition";
@@ -130,19 +120,18 @@
             break;
     }
     
-    return [headerView autorelease];
+    return headerView;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString * sCellIdentifier = @"CellIdentifier";
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:sCellIdentifier];
     if (!cell) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:sCellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:sCellIdentifier];
     }
     
     UIView * backgroundView = [[UIView alloc] initWithFrame:cell.frame];
     cell.backgroundView = backgroundView;
-    [backgroundView release];
     
     NSString * text = nil;
     switch (indexPath.section) {
@@ -294,89 +283,72 @@
 - (IBAction)slide:(id)sender {
     ADTransition * animation = [[ADSlideTransition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
     [self _pushViewControllerWithTransition:animation];
-    [animation release];
 }
 - (IBAction)fade:(id)sender {
     ADTransition * animation = [[ADFadeTransition alloc] initWithDuration:_duration];
     [self _pushViewControllerWithTransition:animation];
-    [animation release];
 }
 - (IBAction)backFade:(id)sender {
     ADTransition * animation = [[ADBackFadeTransition alloc] initWithDuration:_duration];
     [self _pushViewControllerWithTransition:animation];
-    [animation release];
 }
 - (IBAction)ghost:(id)sender {
     ADTransition * animation = [[ADGhostTransition alloc] initWithDuration:_duration];
     [self _pushViewControllerWithTransition:animation];
-    [animation release];
 }
 - (IBAction)cube:(id)sender {
     ADTransition * animation = [[ADCubeTransition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
     [self _pushViewControllerWithTransition:animation];
-    [animation release];
 }
 - (IBAction)carrousel:(id)sender {
     ADTransition * animation = [[ADCarrouselTransition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
     [self _pushViewControllerWithTransition:animation];
-    [animation release];
 }
 - (IBAction)cross:(id)sender {
     ADTransition * animation = [[ADCrossTransition alloc] initWithDuration:_duration];
     [self _pushViewControllerWithTransition:animation];
-    [animation release];
 }
 - (IBAction)swipe:(id)sender {
     ADTransition * animation = [[ADSwipeTransition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
     [self _pushViewControllerWithTransition:animation];
-    [animation release];
 }
 - (IBAction)swipeFade:(id)sender {
     ADTransition * animation = [[ADSwipeFadeTransition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
     [self _pushViewControllerWithTransition:animation];
-    [animation release];
 }
 - (IBAction)scale:(id)sender {
     ADTransition * animation = [[ADScaleTransition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
     [self _pushViewControllerWithTransition:animation];
-    [animation release];
 }
 - (IBAction)glue:(id)sender {
     ADTransition * animation = [[ADGlueTransition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
     [self _pushViewControllerWithTransition:animation];
-    [animation release];
 }
 - (IBAction)pushRotate:(id)sender {
     ADTransition * animation = [[ADPushRotateTransition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
     [self _pushViewControllerWithTransition:animation];
-    [animation release];
 }
 - (IBAction)fold:(id)sender {
     ADTransition * animation = [[ADFoldTransition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
     [self _pushViewControllerWithTransition:animation];
-    [animation release];
 }
 - (IBAction)swap:(id)sender {
     ADTransition * animation = [[ADSwapTransition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
     [self _pushViewControllerWithTransition:animation];
-    [animation release];
 }
 - (IBAction)flip:(id)sender {
     ADDualTransition * animation = [[ADFlipTransition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
     [self _pushViewControllerWithTransition:animation];
-    [animation release];
 }
 - (IBAction)focus:(id)sender {
     CGRect sourceRect = [sender frame];
     sourceRect.origin.y = sourceRect.origin.y - self.tableView.contentOffset.y;
     ADTransition * animation = [[ADZoomTransition alloc] initWithSourceRect:sourceRect andTargetRect:self.view.frame forDuration:_duration];
     [self _pushViewControllerWithTransition:animation];
-    [animation release];
 }
 - (IBAction)push:(id)sender {
     ADTransition * animation = [[ADModernPushTransition alloc] initWithDuration:_duration orientation:_orientation sourceRect:self.view.frame];
     [self _pushViewControllerWithTransition:animation];
-    [animation release];
 }
 
 - (IBAction)showSettings:(id)sender {
@@ -384,8 +356,6 @@
     settingsViewController.delegate = self;
     UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:settingsViewController];
     [self presentViewController:navigationController animated:YES completion:nil];
-    [settingsViewController release];
-    [navigationController release];
 }
 
 - (IBAction)back:(id)sender {
@@ -443,7 +413,6 @@
         UIBarButtonItem * backButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
         self.navigationItem.backBarButtonItem = nil;
         self.navigationItem.leftBarButtonItem = backButtonItem;
-        [backButtonItem release];
     }
     
     UIButton * settingsButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -453,18 +422,15 @@
     [settingsButton addTarget:self action:@selector(showSettings:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem * settingsButtonItem = [[UIBarButtonItem alloc] initWithCustomView:settingsButton];
     self.navigationItem.rightBarButtonItem = settingsButtonItem;
-    [settingsButtonItem release];
 
     UIBarButtonItem * shareButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(_share:)];
     self.toolbarItems = @[shareButtonItem];
-    [shareButtonItem release];
 }
 
 - (void)_share:(id)sender {
     NSString * text = @"I use ADTransitionController by @applidium http://applidium.github.io/";
     UIActivityViewController * activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[text] applicationActivities:nil];
     [self presentViewController:activityViewController animated:YES completion:nil];
-    [activityViewController release];
 }
 
 - (void)_pushViewControllerWithTransition:(ADTransition *)transition {
@@ -475,6 +441,5 @@
     } else {
         [self.transitionController pushViewController:viewController withTransition:transition];
     }
-    [viewController release];
 }
 @end

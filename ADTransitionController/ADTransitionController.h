@@ -49,11 +49,11 @@
 }
 
 @property (nonatomic, copy) NSMutableArray * viewControllers;
-@property (nonatomic, readonly, retain) UIViewController * topViewController;
-@property (nonatomic, readonly, retain) UIViewController * visibleViewController;
+@property (nonatomic, readonly, strong) UIViewController * topViewController;
+@property (nonatomic, readonly, strong) UIViewController * visibleViewController;
 @property(nonatomic, readonly) UINavigationBar * navigationBar;
 @property (nonatomic, readonly) UIToolbar * toolbar;
-@property (nonatomic, assign) id<ADTransitionControllerDelegate> delegate;
+@property (nonatomic, weak) id<ADTransitionControllerDelegate> delegate;
 @property(nonatomic, getter = isNavigationBarHidden, setter = setNavigationBarHidden:) BOOL navigationBarHidden;
 @property(nonatomic, getter = isToolbarHidden, setter = setToolbarHidden:) BOOL toolbarHidden;
 

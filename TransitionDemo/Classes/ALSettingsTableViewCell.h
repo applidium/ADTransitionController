@@ -10,8 +10,8 @@
 
 @interface ALSettingsTableViewCell : UITableViewCell
 
-@property (retain, nonatomic) IBOutlet UILabel * orientationLabel;
-@property (retain, nonatomic) IBOutlet UIImageView * checkImageView;
+@property (strong, nonatomic) IBOutlet UILabel * orientationLabel;
+@property (strong, nonatomic) IBOutlet UIImageView * checkImageView;
 
 + (id)newCell;
 

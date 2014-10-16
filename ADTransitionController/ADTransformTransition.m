@@ -17,11 +17,6 @@
 @synthesize outLayerTransform = _outLayerTransform;
 @synthesize animation = _animation;
 
-- (void)dealloc {
-    [_animation release], _animation = nil;
-    [super dealloc];
-}
-
 - (id)initWithAnimation:(CAAnimation *)animation inLayerTransform:(CATransform3D)inTransform outLayerTransform:(CATransform3D)outTransform {
     if (self = [super init]) {
         _animation = [animation copy]; // the instances should be different because we don't want them to have the same delegate
@@ -54,7 +49,7 @@
     } else if (self.type == ADTransitionTypePop) {
         reversedTransition.type = ADTransitionTypePush;
     }
-    return [reversedTransition autorelease];
+    return reversedTransition;
 }
 
 - (NSTimeInterval)duration {

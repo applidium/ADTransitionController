@@ -12,13 +12,8 @@
 
 + (id)newCell {
     NSArray * nibViews = [[NSBundle mainBundle] loadNibNamed:@"ALSettingsTableViewCell" owner:self options:nil];
-    return [[nibViews lastObject] retain];
+    return [nibViews lastObject];
 }
 
-- (void)dealloc {
-    [_orientationLabel release];
-    [_checkImageView release];
-    [super dealloc];
-}
 
 @end

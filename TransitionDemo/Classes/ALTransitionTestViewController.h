@@ -18,9 +18,9 @@
     ADTransitionOrientation _orientation;
 }
 
-@property (retain, nonatomic) IBOutlet UIButton * settingsButton;
-@property (retain, nonatomic) IBOutlet UIButton * backButton;
-@property (retain, nonatomic) IBOutlet UITableView * tableView;
+@property (strong, nonatomic) IBOutlet UIButton * settingsButton;
+@property (strong, nonatomic) IBOutlet UIButton * backButton;
+@property (strong, nonatomic) IBOutlet UITableView * tableView;
 @property (nonatomic) NSInteger index;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil index:(NSInteger)index;

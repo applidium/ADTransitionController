@@ -32,16 +32,6 @@
     return self;
 }
 
-- (void)dealloc {
-    [_tableView release];
-    [_speedLabel release];
-    [_slider release];
-    [_navigationBarSwitch release];
-    [_scrollView release];
-    [_creditView release];
-    [_toolbarSwitch release];
-    [super dealloc];
-}
 
 - (void)viewDidUnload {
     [self setTableView:nil];
@@ -64,7 +54,6 @@
     
     UIBarButtonItem * doneButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done:)];
     self.navigationItem.rightBarButtonItem = doneButtonItem;
-    [doneButtonItem release];
 }
 
 - (IBAction)toggleNavigationBar:(UISwitch *)sender {
@@ -99,7 +88,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ALSettingsTableViewCell * cell = [[ALSettingsTableViewCell newCell] autorelease];
+    ALSettingsTableViewCell * cell = [ALSettingsTableViewCell newCell];
     
     NSString * text = nil;
     switch (indexPath.row) {

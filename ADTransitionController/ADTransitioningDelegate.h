@@ -10,6 +10,6 @@
 #import "ADTransition.h"
 
 @interface ADTransitioningDelegate : NSObject <UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning, ADTransitionDelegate>
-@property (nonatomic, retain) ADTransition * transition;
+@property (nonatomic, strong) ADTransition * transition;
 - (id)initWithTransition:(ADTransition *)transition;
 @end

@@ -19,28 +19,21 @@
 
 @implementation ALAppDelegate
 
-- (void)dealloc {
-    [_navigationDelegate release];
-    [_window release];
-    [super dealloc];
-}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
     // Setup transitionController
     ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:nil bundle:nil index:0];
     UIViewController * transitionController = nil;
     if (AD_SYSTEM_VERSION_GREATER_THAN_7) {
         transitionController = [[UINavigationController alloc] initWithRootViewController:viewController];
-        [_navigationDelegate release], _navigationDelegate = [[ADNavigationControllerDelegate alloc] init];
+        _navigationDelegate = [[ADNavigationControllerDelegate alloc] init];
         ((UINavigationController *)transitionController).delegate = _navigationDelegate;
     } else {
         transitionController = [[ADTransitionController alloc] initWithRootViewController:viewController];
     }
-    [viewController release];
     self.window.rootViewController = transitionController;
-    [transitionController release];
 
     // Setup appearance
     [[UINavigationBar appearance] setBackgroundImage:[[UIImage imageNamed:@"ALNavigationBarBackground"] stretchableImageWithLeftCapWidth:1.0f topCapHeight:1.0f] forBarMetrics:UIBarMetricsDefault];

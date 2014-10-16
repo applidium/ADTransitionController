@@ -54,7 +54,7 @@
         animation = [CAAnimationGroup animation];
         [(CAAnimationGroup *)animation setAnimations:@[cubeRotation, zTranslationAnimation]];
         
-        _animation = [animation retain];
+        _animation = animation;
         _animation.duration = duration;
         _animation.delegate = self;
     }

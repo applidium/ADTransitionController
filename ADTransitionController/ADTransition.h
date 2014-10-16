@@ -37,11 +37,11 @@ typedef enum {
 
 
 @interface ADTransition : NSObject {
-    id <ADTransitionDelegate> _delegate;
+    id <ADTransitionDelegate> __weak _delegate;
     ADTransitionType _type;
 }
 
-@property (nonatomic, assign) id <ADTransitionDelegate> delegate;
+@property (nonatomic, weak) id <ADTransitionDelegate> delegate;
 @property (nonatomic, assign) ADTransitionType type;
 @property (nonatomic, readonly) NSTimeInterval duration; // abstract
 

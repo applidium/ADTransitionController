@@ -18,7 +18,7 @@
         ((CABasicAnimation *)animation).toValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
         _outLayerTransform = CATransform3DRotate(_outLayerTransform, -M_PI * 0.5f, 0.0f, 1.0f, 0.0f);
         
-        _animation = [animation retain];
+        _animation = animation;
         _animation.duration = duration;
         _animation.delegate = self;
     }

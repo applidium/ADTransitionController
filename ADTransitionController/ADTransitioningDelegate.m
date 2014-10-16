@@ -27,15 +27,10 @@
 @implementation ADTransitioningDelegate
 @synthesize transition = _transition;
 
-- (void)dealloc {
-    [_transition release], _transition = nil;
-    [super dealloc];
-}
-
 - (id)initWithTransition:(ADTransition *)transition {
     self = [self init];
     if (self) {
-        _transition = [transition retain];
+        _transition = transition;
         _transition.delegate = self;
     }
     return self;
@@ -63,7 +58,7 @@
 #pragma mark - UIViewControllerAnimatedTransitioning
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
-    [_currentTransitioningContext release], _currentTransitioningContext = [transitionContext retain];
+    _currentTransitioningContext = transitionContext;
     UIViewController * fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     UIViewController * toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
 
@@ -88,7 +83,6 @@
     [wrapperView addSubview:fromView];
     [wrapperView addSubview:toView];
     [containerView addSubview:wrapperView];
-    [wrapperView release];
 
     ADTransition * transition = nil;
     switch (self.transition.type) {
@@ -169,7 +163,7 @@
     containerView.layer.sublayerTransform = sublayerTransform;
 
     [_currentTransitioningContext completeTransition:YES];
-    [_currentTransitioningContext release], _currentTransitioningContext = nil;
+    _currentTransitioningContext = nil;
 }
 
 @end

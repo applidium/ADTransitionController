@@ -14,8 +14,8 @@
 
 - (id)initWithInAnimation:(CAAnimation *)inAnimation andOutAnimation:(CAAnimation *)outAnimation {
     if (self = [self init]) {
-        _inAnimation = [inAnimation retain];
-        _outAnimation = [outAnimation retain];
+        _inAnimation = inAnimation;
+        _outAnimation = outAnimation;
         [self finishInit];
     }
     return self;
@@ -25,11 +25,6 @@
     return nil;
 }
 
-- (void)dealloc {
-    [_inAnimation release];
-    [_outAnimation release];
-    [super dealloc];
-}
 
 - (void)finishInit {
     _delegate = nil;
@@ -47,15 +42,13 @@
     reversedTransition.delegate = self.delegate; // Pointer assignment
     reversedTransition.inAnimation.speed = -1.0 * reversedTransition.inAnimation.speed;
     reversedTransition.outAnimation.speed = -1.0 * reversedTransition.outAnimation.speed;
-    [outAnimationCopy release];
-    [inAnimationCopy release];
     reversedTransition.type = ADTransitionTypeNull;
     if (self.type == ADTransitionTypePush) {
         reversedTransition.type = ADTransitionTypePop;
     } else if (self.type == ADTransitionTypePop) {
         reversedTransition.type = ADTransitionTypePush;
     }
-    return [reversedTransition autorelease];
+    return reversedTransition;
 }
 
 - (NSTimeInterval)duration {
