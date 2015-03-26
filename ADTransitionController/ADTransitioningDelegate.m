@@ -162,6 +162,13 @@
     CATransform3D sublayerTransform = CATransform3DIdentity;
     containerView.layer.sublayerTransform = sublayerTransform;
 
+    UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
+    UIView * toView = [[_currentTransitioningContext viewControllerForKey:UITransitionContextToViewControllerKey] view];
+    if ([keyWindow.subviews containsObject:toView] == NO) {
+        [keyWindow addSubview:toView];
+        [keyWindow sendSubviewToBack:toView];
+    }
+    
     [_currentTransitioningContext completeTransition:YES];
     _currentTransitioningContext = nil;
 }
