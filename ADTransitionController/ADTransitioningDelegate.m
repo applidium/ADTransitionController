@@ -74,9 +74,7 @@
     sublayerTransform.m34 = 1.0 / -AD_Z_DISTANCE;
     containerView.layer.sublayerTransform = sublayerTransform;
 
-    UIView * wrapperView = [[ADTransitionView alloc] initWithFrame:fromView.frame];
-    fromView.frame = fromView.bounds;
-    toView.frame = toView.bounds;
+    UIView * wrapperView = [[ADTransitionView alloc] initWithFrame:CGRectMake(0, 0, fromView.frame.size.width, fromView.frame.size.height)];
 
     wrapperView.autoresizesSubviews = YES;
     wrapperView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
