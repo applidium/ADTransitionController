@@ -20,8 +20,6 @@
 }
 @end
 
-NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssociationKey";
-
 #define AD_NAVIGATION_BAR_HEIGHT 44.0f
 #define AD_TOOLBAR_HEIGHT 44.0f
 #define AD_Z_DISTANCE 1000.0f
@@ -181,9 +179,7 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
     if (_isContainerViewTransitioning || _isNavigationBarTransitioning) {
         return;
     }
-    
-    objc_setAssociatedObject(viewController, (__bridge const void *)(ADTransitionControllerAssociationKey), self, OBJC_ASSOCIATION_ASSIGN);
-    
+
     UIViewController * viewControllerToRemoveFromView = [_viewControllers lastObject];
     
     [_viewControllers addObject:viewController];

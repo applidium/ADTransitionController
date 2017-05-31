@@ -273,11 +273,7 @@
 #pragma mark Actions
 
 - (IBAction)pop:(id)sender {
-    if (AD_SYSTEM_VERSION_GREATER_THAN_7) {
-        [self.navigationController popViewControllerAnimated:YES];
-    } else {
-        [self.transitionController popViewController];
-    }
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)slide:(id)sender {
@@ -359,11 +355,7 @@
 }
 
 - (IBAction)back:(id)sender {
-    if (AD_SYSTEM_VERSION_GREATER_THAN_7) {
-        [self.navigationController popViewControllerAnimated:YES];
-    } else {
-        [self.transitionController popViewController];
-    }
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark -
@@ -383,13 +375,8 @@
     _orientation = [[defaults objectForKey:AL_ORIENTATION_KEY] intValue];
     BOOL navigationBarHidden = [[defaults objectForKey:AL_NAVIGATION_BAR_HIDDEN_KEY] boolValue];
     BOOL toolbarHidden = [[defaults objectForKey:AL_TOOLBAR_HIDDEN_KEY] boolValue];
-    if (AD_SYSTEM_VERSION_GREATER_THAN_7) {
-        [self.navigationController setNavigationBarHidden:navigationBarHidden];
-        [self.navigationController setToolbarHidden:toolbarHidden];
-    } else {
-        [self.transitionController setNavigationBarHidden:navigationBarHidden];
-        [self.transitionController setToolbarHidden:toolbarHidden];
-    }
+    [self.navigationController setNavigationBarHidden:navigationBarHidden];
+    [self.navigationController setToolbarHidden:toolbarHidden];
     self.backButton.hidden = !navigationBarHidden || self.index == 0;
     self.settingsButton.hidden = !navigationBarHidden;
 }
@@ -435,11 +422,7 @@
 
 - (void)_pushViewControllerWithTransition:(ADTransition *)transition {
     ALTransitionTestViewController * viewController = [[ALTransitionTestViewController alloc] initWithNibName:@"ALTransitionTestViewController" bundle:nil index:self.index+1];
-    if (AD_SYSTEM_VERSION_GREATER_THAN_7) {
-        viewController.transition = transition;
-        [self.navigationController pushViewController:viewController animated:YES];
-    } else {
-        [self.transitionController pushViewController:viewController withTransition:transition];
-    }
+    viewController.transition = transition;
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 @end

@@ -27,7 +27,6 @@
 		490A861F175DED910085D3D8 /* ADTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 490A8607175DED910085D3D8 /* ADTransition.m */; };
 		490A8620175DED910085D3D8 /* ADTransitionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 490A8609175DED910085D3D8 /* ADTransitionController.m */; };
 		490A8621175DED910085D3D8 /* ADZoomTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 490A860B175DED910085D3D8 /* ADZoomTransition.m */; };
-		490A8622175DED910085D3D8 /* UIViewController+ADTransitionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 490A860D175DED910085D3D8 /* UIViewController+ADTransitionController.m */; };
 		498C544E1753B21900438969 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 498C544D1753B21900438969 /* UIKit.framework */; };
 		498C54501753B21900438969 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 498C544F1753B21900438969 /* Foundation.framework */; };
 		498C54521753B21900438969 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 498C54511753B21900438969 /* CoreGraphics.framework */; };
@@ -116,8 +115,6 @@
 		490A8609175DED910085D3D8 /* ADTransitionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTransitionController.m; sourceTree = "<group>"; };
 		490A860A175DED910085D3D8 /* ADZoomTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADZoomTransition.h; sourceTree = "<group>"; };
 		490A860B175DED910085D3D8 /* ADZoomTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADZoomTransition.m; sourceTree = "<group>"; };
-		490A860C175DED910085D3D8 /* UIViewController+ADTransitionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ADTransitionController.h"; sourceTree = "<group>"; };
-		490A860D175DED910085D3D8 /* UIViewController+ADTransitionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ADTransitionController.m"; sourceTree = "<group>"; };
 		498C544A1753B21900438969 /* ADTransitionController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADTransitionController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		498C544D1753B21900438969 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		498C544F1753B21900438969 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -202,8 +199,6 @@
 				490A85ED175DED910085D3D8 /* ADDualTransition.m */,
 				490A8604175DED910085D3D8 /* ADTransformTransition.h */,
 				490A8605175DED910085D3D8 /* ADTransformTransition.m */,
-				490A860C175DED910085D3D8 /* UIViewController+ADTransitionController.h */,
-				490A860D175DED910085D3D8 /* UIViewController+ADTransitionController.m */,
 				490A8623175DEDD80085D3D8 /* Templates */,
 				6FB67DBC18058562009F27B1 /* ADTransitioningDelegate.h */,
 				6FB67DBD18058562009F27B1 /* ADTransitioningDelegate.m */,
@@ -507,7 +502,6 @@
 				490A861F175DED910085D3D8 /* ADTransition.m in Sources */,
 				490A8620175DED910085D3D8 /* ADTransitionController.m in Sources */,
 				490A8621175DED910085D3D8 /* ADZoomTransition.m in Sources */,
-				490A8622175DED910085D3D8 /* UIViewController+ADTransitionController.m in Sources */,
 				6FB67DC41806B3FF009F27B1 /* ADTransitioningViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
