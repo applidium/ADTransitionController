@@ -297,7 +297,7 @@ NSString * ADTransitionControllerAssociationKey = @"ADTransitionControllerAssoci
     
     // Create array that will be returned
     NSMutableArray * outViewControllers = [NSMutableArray arrayWithCapacity:(_viewControllers.count - indexInViewController - 1)];
-    for (int i = indexInViewController + 1; i < _viewControllers.count; i++) {
+    for (int i = (int)indexInViewController + 1; i < _viewControllers.count; i++) {
         [outViewControllers addObject:_viewControllers[i]];
     }
     
