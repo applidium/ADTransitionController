@@ -61,4 +61,7 @@ NSString * ADTransitionAnimationOutValue = @"ADTransitionAnimationOutValue";
     }
 }
 
+- (void)animationDidStart:(CAAnimation *)anim {
+}
+
 @end
