@@ -1,11 +1,11 @@
 Pod::Spec.new do |spec|
   spec.name         = 'ADTransitionController'
-  spec.version      = '1.1.1'
+  spec.version      = '1.2.0'
   spec.authors      = 'Applidium'
   spec.license      = { :type => 'BSD' }
   spec.homepage     = 'http://applidium.github.io/ADTransitionController/'
   spec.summary      = 'Drop-in replacement for UINavigationController with custom transition animations.'
-  spec.platform     = 'ios', '6.0'
+  spec.platform     = 'ios', '8.0'
   spec.authors      = { 'Applidium' => 'https://github.com/applidium/' }
   spec.source       = { :git => 'https://github.com/applidium/ADTransitionController.git', :tag => "v#{spec.version}" }
   spec.source_files = 'ADTransitionController/**/*.{h,m}'

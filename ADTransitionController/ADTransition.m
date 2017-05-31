@@ -44,6 +44,9 @@ NSString * ADTransitionAnimationOutValue = @"ADTransitionAnimationOutValue";
 
 #pragma mark -
 #pragma mark CAAnimationDelegate
+- (void)animationDidStart:(CAAnimation *)animation {
+}
+
 - (void)animationDidStop:(CAAnimation *)animation finished:(BOOL)flag {    
     switch (self.type) {
         case ADTransitionTypePop:

@@ -36,7 +36,7 @@ typedef enum {
 } ADTransitionOrientation;
 
 
-@interface ADTransition : NSObject {
+@interface ADTransition : NSObject <CAAnimationDelegate> {
     id <ADTransitionDelegate> __weak _delegate;
     ADTransitionType _type;
 }

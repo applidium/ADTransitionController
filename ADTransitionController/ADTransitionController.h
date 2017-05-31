@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UIViewController+ADTransitionController.h"
 #import "ADTransition.h"
 #import "ADDualTransition.h"
 #import "ADTransformTransition.h"
