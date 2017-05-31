@@ -37,16 +37,18 @@
 
     // Setup appearance
     [[UINavigationBar appearance] setBackgroundImage:[[UIImage imageNamed:@"ALNavigationBarBackground"] stretchableImageWithLeftCapWidth:1.0f topCapHeight:1.0f] forBarMetrics:UIBarMetricsDefault];
-    NSDictionary * navigationBarTextAttributes = @{UITextAttributeTextColor : [UIColor whiteColor],
-                                                   UITextAttributeTextShadowColor : [UIColor blackColor],
-                                                   UITextAttributeTextShadowOffset : [NSValue valueWithUIOffset:UIOffsetMake(-1.0f, 0)]};
+    NSShadow * shadow = [[NSShadow alloc] init];
+    shadow.shadowColor = [UIColor blackColor];
+    shadow.shadowOffset = CGSizeMake(-1.0f, 0);
+    NSDictionary * navigationBarTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                   NSShadowAttributeName: shadow};
     [[UINavigationBar appearance] setTitleTextAttributes:navigationBarTextAttributes];
 
     if (!AD_SYSTEM_VERSION_GREATER_THAN_7) {
         [[UIBarButtonItem appearance] setBackgroundImage:[[UIImage imageNamed:@"ALDoneButtonOff"] stretchableImageWithLeftCapWidth:5.0f topCapHeight:5.0f] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
         [[UIBarButtonItem appearance] setBackgroundImage:[[UIImage imageNamed:@"ALDoneButtonOn"] stretchableImageWithLeftCapWidth:5.0f topCapHeight:5.0f] forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
-        NSDictionary * barButtonItemTextAttributes = @{UITextAttributeTextColor : [UIColor whiteColor],
-                                                       UITextAttributeFont : [UIFont systemFontOfSize:14.0]};
+        NSDictionary * barButtonItemTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor],
+                                                       NSFontAttributeName : [UIFont systemFontOfSize:14.0]};
         [[UIBarButtonItem appearance] setTitleTextAttributes:barButtonItemTextAttributes forState:UIControlStateNormal];
     }
 
