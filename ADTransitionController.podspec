@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = 'ADTransitionController'
-  spec.version      = '1.1.1'
+  spec.version      = '1.2.0'
   spec.authors      = 'Applidium'
   spec.license      = { :type => 'BSD' }
   spec.homepage     = 'http://applidium.github.io/ADTransitionController/'
