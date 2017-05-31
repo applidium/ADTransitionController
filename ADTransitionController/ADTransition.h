@@ -48,4 +48,5 @@ typedef enum {
 + (ADTransition *)nullTransition;
 - (ADTransition *)reverseTransition;
 - (NSArray *)getCircleApproximationTimingFunctions;
+- (void)animationDidStop:(CAAnimation *)animation finished:(BOOL)flag;
 @end
