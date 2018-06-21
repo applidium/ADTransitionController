@@ -110,6 +110,8 @@
     viewOut.layer.doubleSided = NO;
 
     [self _setupLayers:@[viewIn.layer, viewOut.layer]];
+  
+    [CATransaction begin];
     [CATransaction setCompletionBlock:^{
         [self _teardownLayers:@[viewIn.layer, viewOut.layer]];
         viewIn.layer.transform = CATransform3DIdentity;
@@ -142,6 +144,8 @@
     } else if (transition != nil) {
         NSAssert(FALSE, @"Unhandled ADTransition subclass!");
     }
+
+    [CATransaction commit];
 }
 
 - (void)_setupLayers:(NSArray *)layers {
